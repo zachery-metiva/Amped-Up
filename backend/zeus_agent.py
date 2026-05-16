@@ -24,6 +24,12 @@ from backend.pole_calculations import (
     calculate_embedment_depth,
     calculate_wind_load
 )
+from backend.pole_inspection_rules import (
+    PoleInspectionRules,
+    DefectSeverity,
+    DefectCategory,
+    WeatherCondition
+)
 
 
 class QueryType(Enum):
@@ -58,6 +64,7 @@ class ZeusAgent:
     
     def __init__(self):
         self.analyzer = PoleAnalyzerAgent()
+        self.inspection_rules = PoleInspectionRules()
         self.knowledge_base = self._build_knowledge_base()
     
     def _build_knowledge_base(self) -> Dict[str, str]:
@@ -103,8 +110,16 @@ class ZeusAgent:
             "embedment": """Typical embedment depth is 10% of pole length plus 2 feet, adjusted for 
             soil conditions. Proper embedment is essential for stability.""",
             
-            "inspection": """Poles should be inspected every 5-10 years, with more frequent inspections 
-            for older poles or those in harsh environments."""
+            "inspection": """Poles should be inspected every 5-10 years, with more frequent inspections
+            for older poles or those in harsh environments.""",
+            
+            "defect_detection": """The system can detect and classify pole defects based on NESC 2023,
+            OSHA 1910.269, and Michigan PSC standards. Defects are categorized by severity: imminent danger,
+            serious, other-than-serious, de minimis, and multi-defect conditions.""",
+            
+            "weather_conditions": """Weather conditions significantly affect pole inspection. Ice loading,
+            snow accumulation, post-storm damage, and summer thermal sag can all create or exacerbate
+            compliance issues. The system accounts for weather-sensitive defects."""
         }
     
     def ask(self, question: str, context: Optional[Dict] = None) -> ZeusResponse:
@@ -590,7 +605,163 @@ Decay depth: {decay} inches
                 "Check pole compliance",
                 "Identify issues",
                 "Provide recommendations"
+            ],
+            "defect_detection": [
+                "Identify pole defects and violations",
+                "Classify defect severity (OSHA 1903.14)",
+                "Provide corrective actions",
+                "Generate inspection checklists"
+            ],
+            "weather_analysis": [
+                "Assess weather impact on poles",
+                "Detect weather-induced violations",
+                "Evaluate seasonal conditions"
             ]
         }
+    
+    def get_defect_info(self, defect_id: str) -> Optional[Dict]:
+        """
+        Get information about a specific defect
+        
+        Args:
+            defect_id: Defect identifier
+            
+        Returns:
+            Dictionary with defect information or None
+        """
+        rule = self.inspection_rules.get_defect_rule(defect_id)
+        
+        if not rule:
+            return None
+        
+        return {
+            "defect_id": rule.defect_id,
+            "name": rule.name,
+            "category": rule.category.value,
+            "severity": rule.severity.value,
+            "description": rule.description,
+            "nesc_reference": rule.nesc_reference,
+            "osha_reference": rule.osha_reference,
+            "michigan_reference": rule.michigan_reference,
+            "corrective_action": rule.corrective_action,
+            "weather_sensitive": rule.weather_sensitive
+        }
+    
+    def get_inspection_checklist(self, pole_type_id: str) -> Dict:
+        """
+        Generate inspection checklist for a pole type
+        
+        Args:
+            pole_type_id: Pole type identifier (e.g., "ju40c4")
+            
+        Returns:
+            Inspection checklist dictionary
+        """
+        return self.inspection_rules.get_inspection_checklist(pole_type_id)
+    
+    def evaluate_clearance(
+        self,
+        clearance_type: str,
+        voltage_kv: float,
+        measured_clearance_ft: float
+    ) -> Dict:
+        """
+        Evaluate if clearance meets NESC requirements
+        
+        Args:
+            clearance_type: Type of clearance (ground, roadway, building, etc.)
+            voltage_kv: Voltage in kilovolts
+            measured_clearance_ft: Measured clearance in feet
+            
+        Returns:
+            Dictionary with compliance status and details
+        """
+        is_compliant, message = self.inspection_rules.evaluate_clearance(
+            clearance_type,
+            voltage_kv,
+            measured_clearance_ft
+        )
+        
+        return {
+            "compliant": is_compliant,
+            "clearance_type": clearance_type,
+            "voltage_kv": voltage_kv,
+            "measured_clearance_ft": measured_clearance_ft,
+            "message": message
+        }
+    
+    def get_defects_by_severity(self, severity: str) -> List[Dict]:
+        """
+        Get all defects of a specific severity level
+        
+        Args:
+            severity: Severity level (imminent_danger, serious, other_than_serious, deminimis, multi_defect)
+            
+        Returns:
+            List of defect information dictionaries
+        """
+        try:
+            severity_enum = DefectSeverity(severity)
+            rules = self.inspection_rules.get_rules_by_severity(severity_enum)
+            
+            return [
+                {
+                    "defect_id": rule.defect_id,
+                    "name": rule.name,
+                    "category": rule.category.value,
+                    "description": rule.description,
+                    "corrective_action": rule.corrective_action
+                }
+                for rule in rules
+            ]
+        except ValueError:
+            return []
+    
+    def get_defects_by_category(self, category: str) -> List[Dict]:
+        """
+        Get all defects in a specific category
+        
+        Args:
+            category: Category name (vegetation, structural, hardware, etc.)
+            
+        Returns:
+            List of defect information dictionaries
+        """
+        try:
+            category_enum = DefectCategory(category)
+            rules = self.inspection_rules.get_rules_by_category(category_enum)
+            
+            return [
+                {
+                    "defect_id": rule.defect_id,
+                    "name": rule.name,
+                    "severity": rule.severity.value,
+                    "description": rule.description,
+                    "corrective_action": rule.corrective_action
+                }
+                for rule in rules
+            ]
+        except ValueError:
+            return []
+    
+    def get_weather_sensitive_defects(self) -> List[Dict]:
+        """
+        Get all weather-sensitive defects
+        
+        Returns:
+            List of weather-sensitive defect information
+        """
+        rules = self.inspection_rules.get_weather_sensitive_rules()
+        
+        return [
+            {
+                "defect_id": rule.defect_id,
+                "name": rule.name,
+                "category": rule.category.value,
+                "severity": rule.severity.value,
+                "description": rule.description
+            }
+            for rule in rules
+        ]
 
 # Made with Bob
