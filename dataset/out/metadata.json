@@ -1,0 +1,1131 @@
+{
+  "library_version": "0.7.0",
+  "framework": "NESC 2023 + Michigan PSC R 460.3 + OSHA 1903.14 + OSHA 1910.269",
+  "pole_types": {
+    "ju40c4": {
+      "name": "Joint-use distribution tangent pole",
+      "height_ft": 40,
+      "ansi_class": 4,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "species": "southern_yellow_pine",
+      "description": "Most common residential distribution pole in Michigan"
+    },
+    "sp35c5": {
+      "name": "Single-phase tangent distribution pole",
+      "height_ft": 35,
+      "ansi_class": 5,
+      "embedment_ft": 5.5,
+      "voltage_kv": 7.2,
+      "neutral": "grounded",
+      "description": "Single-phase lateral tap, residential"
+    },
+    "ang40c4": {
+      "name": "Three-phase angle distribution pole",
+      "height_ft": 40,
+      "ansi_class": 4,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "Line direction change, double crossarm with bisector guy"
+    },
+    "de45c3": {
+      "name": "Three-phase dead-end pole",
+      "height_ft": 45,
+      "ansi_class": 3,
+      "embedment_ft": 6.5,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "Line termination, twin down guys, strain insulators at terminations"
+    },
+    "serv30c6": {
+      "name": "Single residential service pole",
+      "height_ft": 30,
+      "ansi_class": 6,
+      "embedment_ft": 5.0,
+      "voltage_v": 240,
+      "neutral": "service_neutral",
+      "description": "Single customer service with pole-mount meter"
+    },
+    "riser40c4": {
+      "name": "Riser pole, underground to overhead transition",
+      "height_ft": 40,
+      "ansi_class": 4,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "UG cable transition to overhead via vertical riser pipe"
+    },
+    "tap40c4": {
+      "name": "Three-phase tap pole",
+      "height_ft": 40,
+      "ansi_class": 4,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "Lateral tap off main feeder with cutout fuses and jumpers"
+    },
+    "sw40c3": {
+      "name": "Switch/recloser pole",
+      "height_ft": 40,
+      "ansi_class": 3,
+      "embedment_ft": 6.5,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "Pole-mounted recloser with bypass disconnects and control cabinet"
+    },
+    "bank45c3": {
+      "name": "Three-phase transformer bank pole",
+      "height_ft": 45,
+      "ansi_class": 3,
+      "embedment_ft": 6.5,
+      "voltage_kv": 12.47,
+      "neutral": "grounded_wye",
+      "description": "Three single-phase transformers on platform serving 3-phase secondary"
+    },
+    "st60t2": {
+      "name": "Steel transmission pole",
+      "height_ft": 60,
+      "ansi_class": "T2",
+      "embedment_ft": 8.0,
+      "voltage_kv": 69,
+      "material": "galvanized_steel_tubular",
+      "description": "Tubular steel sub-transmission pole, horizontal post insulators"
+    },
+    "sd40c3": {
+      "name": "Steel distribution pole",
+      "height_ft": 40,
+      "ansi_class": 3,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "material": "galvanized_steel_tubular",
+      "description": "Tubular steel distribution pole with base flange foundation"
+    },
+    "con45c3": {
+      "name": "Spun concrete distribution pole",
+      "height_ft": 45,
+      "ansi_class": 3,
+      "embedment_ft": 6.5,
+      "voltage_kv": 12.47,
+      "material": "prestressed_concrete",
+      "description": "Spun prestressed concrete pole with steel reinforcement"
+    },
+    "fg40c4": {
+      "name": "Fiberglass composite pole",
+      "height_ft": 40,
+      "ansi_class": 4,
+      "embedment_ft": 6.0,
+      "voltage_kv": 12.47,
+      "material": "fiberglass_composite",
+      "description": "Filament-wound fiberglass pole, used in lightning-prone areas"
+    },
+    "stub20c5": {
+      "name": "Wood stub pole",
+      "height_ft": 20,
+      "ansi_class": 5,
+      "embedment_ft": 4.5,
+      "voltage_kv": 0,
+      "material": "treated_wood",
+      "description": "Short pole used to support guying for an adjacent pole"
+    },
+    "hfw69": {
+      "name": "Wood H-frame sub-transmission",
+      "height_ft": 60,
+      "ansi_class": "T2",
+      "embedment_ft": 8.0,
+      "voltage_kv": 69,
+      "material": "treated_wood",
+      "description": "Two-pole H-frame structure with X-bracing for 69 kV sub-transmission"
+    },
+    "hfs138": {
+      "name": "Steel H-frame transmission",
+      "height_ft": 75,
+      "ansi_class": "T1",
+      "embedment_ft": 9.5,
+      "voltage_kv": 138,
+      "material": "galvanized_steel_tubular",
+      "description": "Tubular steel H-frame with polymer insulators for 138 kV transmission"
+    },
+    "daw46": {
+      "name": "Wood double-arm sub-transmission",
+      "height_ft": 55,
+      "ansi_class": "T2",
+      "embedment_ft": 7.5,
+      "voltage_kv": 46,
+      "material": "treated_wood",
+      "description": "Single-pole double-crossarm structure for 46 kV sub-transmission"
+    },
+    "tds115": {
+      "name": "Steel transmission dead-end",
+      "height_ft": 70,
+      "ansi_class": "T1",
+      "embedment_ft": 9.0,
+      "voltage_kv": 115,
+      "material": "galvanized_steel_tubular",
+      "description": "Heavy single-pole dead-end with horizontal strain strings, jumper loops, and back-guy for 115 kV transmission"
+    }
+  },
+  "severity_scale": {
+    "model": "OSHA 29 CFR 1903.14 violation classes",
+    "classes": {
+      "imminent_danger": "Death or serious physical harm reasonably certain to occur before abatement is possible (29 CFR 1903.14(a))",
+      "serious": "Substantial probability of death or serious harm, employer knew or should have known (29 CFR 1903.14(b))",
+      "other_than_serious": "Direct relationship to safety, unlikely to cause death or serious harm (29 CFR 1903.14(c))",
+      "deminimis": "Technical violation with no direct safety impact, not cited but documented",
+      "multi_defect": "Scene contains multiple co-occurring violations of varying severity. See per-scene annotation_metadata for the defects list and worst_severity_present field."
+    }
+  },
+  "scene_count": 230,
+  "scene_naming": "Standard: {pole_id}_{order}_{violation_id}.svg. Multi-defect: {pole_id}_md{N}_{theme}.svg. Weather: {pole_id}_w_{condition}_{theme}.svg. Weather + multi-defect: {pole_id}_wmd_{condition}_{theme}.svg",
+  "scenes": [
+    {
+      "file": "ju40c4_00_baseline.svg",
+      "scene_id": "ju40c4_00_baseline"
+    },
+    {
+      "file": "ju40c4_01_vegcontact.svg",
+      "scene_id": "ju40c4_01_vegcontact"
+    },
+    {
+      "file": "ju40c4_02_vegencroach.svg",
+      "scene_id": "ju40c4_02_vegencroach"
+    },
+    {
+      "file": "ju40c4_03_servicelow.svg",
+      "scene_id": "ju40c4_03_servicelow"
+    },
+    {
+      "file": "ju40c4_04_safetyzone.svg",
+      "scene_id": "ju40c4_04_safetyzone"
+    },
+    {
+      "file": "ju40c4_05_guyguard.svg",
+      "scene_id": "ju40c4_05_guyguard"
+    },
+    {
+      "file": "sp35c5_00_baseline.svg",
+      "scene_id": "sp35c5_00_baseline"
+    },
+    {
+      "file": "sp35c5_01_vegcontact.svg",
+      "scene_id": "sp35c5_01_vegcontact"
+    },
+    {
+      "file": "sp35c5_02_poledecay.svg",
+      "scene_id": "sp35c5_02_poledecay"
+    },
+    {
+      "file": "sp35c5_03_crackedinsulator.svg",
+      "scene_id": "sp35c5_03_crackedinsulator"
+    },
+    {
+      "file": "sp35c5_04_conductorlow.svg",
+      "scene_id": "sp35c5_04_conductorlow"
+    },
+    {
+      "file": "sp35c5_05_loosehardware.svg",
+      "scene_id": "sp35c5_05_loosehardware"
+    },
+    {
+      "file": "ang40c4_00_baseline.svg",
+      "scene_id": "ang40c4_00_baseline"
+    },
+    {
+      "file": "ang40c4_01_vegcontact.svg",
+      "scene_id": "ang40c4_01_vegcontact"
+    },
+    {
+      "file": "ang40c4_02_anchorexposure.svg",
+      "scene_id": "ang40c4_02_anchorexposure"
+    },
+    {
+      "file": "ang40c4_03_crossarmsplit.svg",
+      "scene_id": "ang40c4_03_crossarmsplit"
+    },
+    {
+      "file": "ang40c4_04_polelean.svg",
+      "scene_id": "ang40c4_04_polelean"
+    },
+    {
+      "file": "ang40c4_05_vegencroach.svg",
+      "scene_id": "ang40c4_05_vegencroach"
+    },
+    {
+      "file": "de45c3_00_baseline.svg",
+      "scene_id": "de45c3_00_baseline"
+    },
+    {
+      "file": "de45c3_01_vegcontact.svg",
+      "scene_id": "de45c3_01_vegcontact"
+    },
+    {
+      "file": "de45c3_02_straininsulator.svg",
+      "scene_id": "de45c3_02_straininsulator"
+    },
+    {
+      "file": "de45c3_03_guycorroded.svg",
+      "scene_id": "de45c3_03_guycorroded"
+    },
+    {
+      "file": "de45c3_04_clampslipped.svg",
+      "scene_id": "de45c3_04_clampslipped"
+    },
+    {
+      "file": "de45c3_05_anchorexpose.svg",
+      "scene_id": "de45c3_05_anchorexpose"
+    },
+    {
+      "file": "serv30c6_00_baseline.svg",
+      "scene_id": "serv30c6_00_baseline"
+    },
+    {
+      "file": "serv30c6_01_servicelow.svg",
+      "scene_id": "serv30c6_01_servicelow"
+    },
+    {
+      "file": "serv30c6_02_buildinglow.svg",
+      "scene_id": "serv30c6_02_buildinglow"
+    },
+    {
+      "file": "serv30c6_03_openneutral.svg",
+      "scene_id": "serv30c6_03_openneutral"
+    },
+    {
+      "file": "serv30c6_04_weatherhead.svg",
+      "scene_id": "serv30c6_04_weatherhead"
+    },
+    {
+      "file": "serv30c6_05_unauthorized.svg",
+      "scene_id": "serv30c6_05_unauthorized"
+    },
+    {
+      "file": "riser40c4_00_baseline.svg",
+      "scene_id": "riser40c4_00_baseline"
+    },
+    {
+      "file": "riser40c4_01_pipedamaged.svg",
+      "scene_id": "riser40c4_01_pipedamaged"
+    },
+    {
+      "file": "riser40c4_02_weatherhead.svg",
+      "scene_id": "riser40c4_02_weatherhead"
+    },
+    {
+      "file": "riser40c4_03_exposed.svg",
+      "scene_id": "riser40c4_03_exposed"
+    },
+    {
+      "file": "riser40c4_04_poledecay.svg",
+      "scene_id": "riser40c4_04_poledecay"
+    },
+    {
+      "file": "riser40c4_05_tagmissing.svg",
+      "scene_id": "riser40c4_05_tagmissing"
+    },
+    {
+      "file": "tap40c4_00_baseline.svg",
+      "scene_id": "tap40c4_00_baseline"
+    },
+    {
+      "file": "tap40c4_01_vegcontact.svg",
+      "scene_id": "tap40c4_01_vegcontact"
+    },
+    {
+      "file": "tap40c4_02_cutouthanging.svg",
+      "scene_id": "tap40c4_02_cutouthanging"
+    },
+    {
+      "file": "tap40c4_03_jumperdamaged.svg",
+      "scene_id": "tap40c4_03_jumperdamaged"
+    },
+    {
+      "file": "tap40c4_04_birdnest.svg",
+      "scene_id": "tap40c4_04_birdnest"
+    },
+    {
+      "file": "tap40c4_05_looseclamp.svg",
+      "scene_id": "tap40c4_05_looseclamp"
+    },
+    {
+      "file": "sw40c3_00_baseline.svg",
+      "scene_id": "sw40c3_00_baseline"
+    },
+    {
+      "file": "sw40c3_01_vegcontact.svg",
+      "scene_id": "sw40c3_01_vegcontact"
+    },
+    {
+      "file": "sw40c3_02_oilleak.svg",
+      "scene_id": "sw40c3_02_oilleak"
+    },
+    {
+      "file": "sw40c3_03_missingground.svg",
+      "scene_id": "sw40c3_03_missingground"
+    },
+    {
+      "file": "sw40c3_04_controlcable.svg",
+      "scene_id": "sw40c3_04_controlcable"
+    },
+    {
+      "file": "sw40c3_05_birdnest.svg",
+      "scene_id": "sw40c3_05_birdnest"
+    },
+    {
+      "file": "bank45c3_00_baseline.svg",
+      "scene_id": "bank45c3_00_baseline"
+    },
+    {
+      "file": "bank45c3_01_vegcontact.svg",
+      "scene_id": "bank45c3_01_vegcontact"
+    },
+    {
+      "file": "bank45c3_02_oilleak.svg",
+      "scene_id": "bank45c3_02_oilleak"
+    },
+    {
+      "file": "bank45c3_03_crackedbushing.svg",
+      "scene_id": "bank45c3_03_crackedbushing"
+    },
+    {
+      "file": "bank45c3_04_missingground.svg",
+      "scene_id": "bank45c3_04_missingground"
+    },
+    {
+      "file": "bank45c3_05_loosehardware.svg",
+      "scene_id": "bank45c3_05_loosehardware"
+    },
+    {
+      "file": "ju40c4_06_paintfaded.svg",
+      "scene_id": "ju40c4_06_paintfaded"
+    },
+    {
+      "file": "sp35c5_06_weatherstain.svg",
+      "scene_id": "sp35c5_06_weatherstain"
+    },
+    {
+      "file": "ang40c4_06_polenumberillegible.svg",
+      "scene_id": "ang40c4_06_polenumberillegible"
+    },
+    {
+      "file": "de45c3_06_downedconductor.svg",
+      "scene_id": "de45c3_06_downedconductor"
+    },
+    {
+      "file": "serv30c6_06_reversemeter.svg",
+      "scene_id": "serv30c6_06_reversemeter"
+    },
+    {
+      "file": "riser40c4_06_burnedinsulation.svg",
+      "scene_id": "riser40c4_06_burnedinsulation"
+    },
+    {
+      "file": "st60t2_00_baseline.svg",
+      "scene_id": "st60t2_00_baseline"
+    },
+    {
+      "file": "st60t2_01_vegcontact.svg",
+      "scene_id": "st60t2_01_vegcontact"
+    },
+    {
+      "file": "st60t2_02_insulatorarc.svg",
+      "scene_id": "st60t2_02_insulatorarc"
+    },
+    {
+      "file": "st60t2_03_corrosion.svg",
+      "scene_id": "st60t2_03_corrosion"
+    },
+    {
+      "file": "st60t2_04_climbingbarrier.svg",
+      "scene_id": "st60t2_04_climbingbarrier"
+    },
+    {
+      "file": "st60t2_05_paintfade.svg",
+      "scene_id": "st60t2_05_paintfade"
+    },
+    {
+      "file": "sd40c3_00_baseline.svg",
+      "scene_id": "sd40c3_00_baseline"
+    },
+    {
+      "file": "sd40c3_01_vegcontact.svg",
+      "scene_id": "sd40c3_01_vegcontact"
+    },
+    {
+      "file": "sd40c3_02_groundmissing.svg",
+      "scene_id": "sd40c3_02_groundmissing"
+    },
+    {
+      "file": "sd40c3_03_rustbase.svg",
+      "scene_id": "sd40c3_03_rustbase"
+    },
+    {
+      "file": "sd40c3_04_unauthantenna.svg",
+      "scene_id": "sd40c3_04_unauthantenna"
+    },
+    {
+      "file": "sd40c3_05_stencilfade.svg",
+      "scene_id": "sd40c3_05_stencilfade"
+    },
+    {
+      "file": "con45c3_00_baseline.svg",
+      "scene_id": "con45c3_00_baseline"
+    },
+    {
+      "file": "con45c3_01_vegcontact.svg",
+      "scene_id": "con45c3_01_vegcontact"
+    },
+    {
+      "file": "con45c3_02_rebarexposed.svg",
+      "scene_id": "con45c3_02_rebarexposed"
+    },
+    {
+      "file": "con45c3_03_crack.svg",
+      "scene_id": "con45c3_03_crack"
+    },
+    {
+      "file": "con45c3_04_surfacestain.svg",
+      "scene_id": "con45c3_04_surfacestain"
+    },
+    {
+      "file": "con45c3_05_graffiti.svg",
+      "scene_id": "con45c3_05_graffiti"
+    },
+    {
+      "file": "fg40c4_00_baseline.svg",
+      "scene_id": "fg40c4_00_baseline"
+    },
+    {
+      "file": "fg40c4_01_vegcontact.svg",
+      "scene_id": "fg40c4_01_vegcontact"
+    },
+    {
+      "file": "fg40c4_02_uvchalk.svg",
+      "scene_id": "fg40c4_02_uvchalk"
+    },
+    {
+      "file": "fg40c4_03_surfacecrack.svg",
+      "scene_id": "fg40c4_03_surfacecrack"
+    },
+    {
+      "file": "fg40c4_04_labelfade.svg",
+      "scene_id": "fg40c4_04_labelfade"
+    },
+    {
+      "file": "fg40c4_05_woodpecker.svg",
+      "scene_id": "fg40c4_05_woodpecker"
+    },
+    {
+      "file": "stub20c5_00_baseline.svg",
+      "scene_id": "stub20c5_00_baseline"
+    },
+    {
+      "file": "stub20c5_01_lean.svg",
+      "scene_id": "stub20c5_01_lean"
+    },
+    {
+      "file": "stub20c5_02_anchorloose.svg",
+      "scene_id": "stub20c5_02_anchorloose"
+    },
+    {
+      "file": "stub20c5_03_tagmissing.svg",
+      "scene_id": "stub20c5_03_tagmissing"
+    },
+    {
+      "file": "stub20c5_04_buried.svg",
+      "scene_id": "stub20c5_04_buried"
+    },
+    {
+      "file": "stub20c5_05_decay.svg",
+      "scene_id": "stub20c5_05_decay"
+    },
+    {
+      "file": "hfw69_00_baseline.svg",
+      "scene_id": "hfw69_00_baseline"
+    },
+    {
+      "file": "hfw69_01_vegcontact.svg",
+      "scene_id": "hfw69_01_vegcontact"
+    },
+    {
+      "file": "hfw69_02_insulatorshattered.svg",
+      "scene_id": "hfw69_02_insulatorshattered"
+    },
+    {
+      "file": "hfw69_03_xbracedamage.svg",
+      "scene_id": "hfw69_03_xbracedamage"
+    },
+    {
+      "file": "hfw69_04_crossarmdecay.svg",
+      "scene_id": "hfw69_04_crossarmdecay"
+    },
+    {
+      "file": "hfw69_05_strandbreak.svg",
+      "scene_id": "hfw69_05_strandbreak"
+    },
+    {
+      "file": "hfw69_06_rowencroach.svg",
+      "scene_id": "hfw69_06_rowencroach"
+    },
+    {
+      "file": "hfw69_07_numberfaded.svg",
+      "scene_id": "hfw69_07_numberfaded"
+    },
+    {
+      "file": "hfs138_00_baseline.svg",
+      "scene_id": "hfs138_00_baseline"
+    },
+    {
+      "file": "hfs138_01_veginrow.svg",
+      "scene_id": "hfs138_01_veginrow"
+    },
+    {
+      "file": "hfs138_02_polymertracking.svg",
+      "scene_id": "hfs138_02_polymertracking"
+    },
+    {
+      "file": "hfs138_03_anchorcorrosion.svg",
+      "scene_id": "hfs138_03_anchorcorrosion"
+    },
+    {
+      "file": "hfs138_04_galvloss.svg",
+      "scene_id": "hfs138_04_galvloss"
+    },
+    {
+      "file": "hfs138_05_splicefailure.svg",
+      "scene_id": "hfs138_05_splicefailure"
+    },
+    {
+      "file": "hfs138_06_markermissing.svg",
+      "scene_id": "hfs138_06_markermissing"
+    },
+    {
+      "file": "hfs138_07_idfaded.svg",
+      "scene_id": "hfs138_07_idfaded"
+    },
+    {
+      "file": "daw46_00_baseline.svg",
+      "scene_id": "daw46_00_baseline"
+    },
+    {
+      "file": "daw46_01_vegcontact.svg",
+      "scene_id": "daw46_01_vegcontact"
+    },
+    {
+      "file": "daw46_02_insulatorarc.svg",
+      "scene_id": "daw46_02_insulatorarc"
+    },
+    {
+      "file": "daw46_03_armdecay.svg",
+      "scene_id": "daw46_03_armdecay"
+    },
+    {
+      "file": "daw46_04_lean.svg",
+      "scene_id": "daw46_04_lean"
+    },
+    {
+      "file": "daw46_05_separation.svg",
+      "scene_id": "daw46_05_separation"
+    },
+    {
+      "file": "daw46_06_guycorr.svg",
+      "scene_id": "daw46_06_guycorr"
+    },
+    {
+      "file": "daw46_07_idfaded.svg",
+      "scene_id": "daw46_07_idfaded"
+    },
+    {
+      "file": "tds115_00_baseline.svg",
+      "scene_id": "tds115_00_baseline"
+    },
+    {
+      "file": "tds115_01_veginrow.svg",
+      "scene_id": "tds115_01_veginrow"
+    },
+    {
+      "file": "tds115_02_clampbroken.svg",
+      "scene_id": "tds115_02_clampbroken"
+    },
+    {
+      "file": "tds115_03_strainchip.svg",
+      "scene_id": "tds115_03_strainchip"
+    },
+    {
+      "file": "tds115_04_jumperlow.svg",
+      "scene_id": "tds115_04_jumperlow"
+    },
+    {
+      "file": "tds115_05_groundgrid.svg",
+      "scene_id": "tds115_05_groundgrid"
+    },
+    {
+      "file": "tds115_06_markerweather.svg",
+      "scene_id": "tds115_06_markerweather"
+    },
+    {
+      "file": "tds115_07_idfaded.svg",
+      "scene_id": "tds115_07_idfaded"
+    },
+    {
+      "file": "ju40c4_md1_aging.svg",
+      "scene_id": "ju40c4_md1_aging"
+    },
+    {
+      "file": "ju40c4_md2_vegcompound.svg",
+      "scene_id": "ju40c4_md2_vegcompound"
+    },
+    {
+      "file": "ju40c4_md3_physical.svg",
+      "scene_id": "ju40c4_md3_physical"
+    },
+    {
+      "file": "ju40c4_md4_urgent_neglect.svg",
+      "scene_id": "ju40c4_md4_urgent_neglect"
+    },
+    {
+      "file": "ju40c4_md5_legacy.svg",
+      "scene_id": "ju40c4_md5_legacy"
+    },
+    {
+      "file": "ju40c4_md6_compound.svg",
+      "scene_id": "ju40c4_md6_compound"
+    },
+    {
+      "file": "sp35c5_md1_insulator_cosmetic.svg",
+      "scene_id": "sp35c5_md1_insulator_cosmetic"
+    },
+    {
+      "file": "sp35c5_md2_polestressed.svg",
+      "scene_id": "sp35c5_md2_polestressed"
+    },
+    {
+      "file": "sp35c5_md3_vegandlow.svg",
+      "scene_id": "sp35c5_md3_vegandlow"
+    },
+    {
+      "file": "sp35c5_md4_failingpole.svg",
+      "scene_id": "sp35c5_md4_failingpole"
+    },
+    {
+      "file": "sp35c5_md5_compoundurgent.svg",
+      "scene_id": "sp35c5_md5_compoundurgent"
+    },
+    {
+      "file": "sp35c5_md6_severe.svg",
+      "scene_id": "sp35c5_md6_severe"
+    },
+    {
+      "file": "ang40c4_md1_corneraging.svg",
+      "scene_id": "ang40c4_md1_corneraging"
+    },
+    {
+      "file": "ang40c4_md2_armandanchor.svg",
+      "scene_id": "ang40c4_md2_armandanchor"
+    },
+    {
+      "file": "ang40c4_md3_vegcompound.svg",
+      "scene_id": "ang40c4_md3_vegcompound"
+    },
+    {
+      "file": "ang40c4_md4_compound.svg",
+      "scene_id": "ang40c4_md4_compound"
+    },
+    {
+      "file": "ang40c4_md5_structural.svg",
+      "scene_id": "ang40c4_md5_structural"
+    },
+    {
+      "file": "ang40c4_md6_legacy.svg",
+      "scene_id": "ang40c4_md6_legacy"
+    },
+    {
+      "file": "de45c3_md1_vegandterminate.svg",
+      "scene_id": "de45c3_md1_vegandterminate"
+    },
+    {
+      "file": "de45c3_md2_aging.svg",
+      "scene_id": "de45c3_md2_aging"
+    },
+    {
+      "file": "de45c3_md3_protandterm.svg",
+      "scene_id": "de45c3_md3_protandterm"
+    },
+    {
+      "file": "de45c3_md4_emergency.svg",
+      "scene_id": "de45c3_md4_emergency"
+    },
+    {
+      "file": "de45c3_md5_compound.svg",
+      "scene_id": "de45c3_md5_compound"
+    },
+    {
+      "file": "de45c3_md6_severe.svg",
+      "scene_id": "de45c3_md6_severe"
+    },
+    {
+      "file": "serv30c6_md1_dropandattach.svg",
+      "scene_id": "serv30c6_md1_dropandattach"
+    },
+    {
+      "file": "serv30c6_md2_neutraldrop.svg",
+      "scene_id": "serv30c6_md2_neutraldrop"
+    },
+    {
+      "file": "serv30c6_md3_unauthandcosmetic.svg",
+      "scene_id": "serv30c6_md3_unauthandcosmetic"
+    },
+    {
+      "file": "serv30c6_md4_failing.svg",
+      "scene_id": "serv30c6_md4_failing"
+    },
+    {
+      "file": "serv30c6_md5_compound.svg",
+      "scene_id": "serv30c6_md5_compound"
+    },
+    {
+      "file": "serv30c6_md6_urgent.svg",
+      "scene_id": "serv30c6_md6_urgent"
+    },
+    {
+      "file": "riser40c4_md1_riserdamage.svg",
+      "scene_id": "riser40c4_md1_riserdamage"
+    },
+    {
+      "file": "riser40c4_md2_urgent.svg",
+      "scene_id": "riser40c4_md2_urgent"
+    },
+    {
+      "file": "riser40c4_md3_protgrounding.svg",
+      "scene_id": "riser40c4_md3_protgrounding"
+    },
+    {
+      "file": "riser40c4_md4_emergency.svg",
+      "scene_id": "riser40c4_md4_emergency"
+    },
+    {
+      "file": "riser40c4_md5_compound.svg",
+      "scene_id": "riser40c4_md5_compound"
+    },
+    {
+      "file": "riser40c4_md6_aging.svg",
+      "scene_id": "riser40c4_md6_aging"
+    },
+    {
+      "file": "tap40c4_md1_protdamage.svg",
+      "scene_id": "tap40c4_md1_protdamage"
+    },
+    {
+      "file": "tap40c4_md2_aging.svg",
+      "scene_id": "tap40c4_md2_aging"
+    },
+    {
+      "file": "tap40c4_md3_postsurge.svg",
+      "scene_id": "tap40c4_md3_postsurge"
+    },
+    {
+      "file": "tap40c4_md4_compound.svg",
+      "scene_id": "tap40c4_md4_compound"
+    },
+    {
+      "file": "tap40c4_md5_postcutout.svg",
+      "scene_id": "tap40c4_md5_postcutout"
+    },
+    {
+      "file": "tap40c4_md6_emergency.svg",
+      "scene_id": "tap40c4_md6_emergency"
+    },
+    {
+      "file": "daw46_md1_agingid.svg",
+      "scene_id": "daw46_md1_agingid"
+    },
+    {
+      "file": "daw46_md2_structural.svg",
+      "scene_id": "daw46_md2_structural"
+    },
+    {
+      "file": "daw46_md3_vegandage.svg",
+      "scene_id": "daw46_md3_vegandage"
+    },
+    {
+      "file": "daw46_md4_emergency.svg",
+      "scene_id": "daw46_md4_emergency"
+    },
+    {
+      "file": "daw46_md5_compound.svg",
+      "scene_id": "daw46_md5_compound"
+    },
+    {
+      "file": "daw46_md6_severe.svg",
+      "scene_id": "daw46_md6_severe"
+    },
+    {
+      "file": "sp35c5_w_ice_compliant.svg",
+      "scene_id": "sp35c5_w_ice_compliant"
+    },
+    {
+      "file": "ju40c4_w_ice_compliant.svg",
+      "scene_id": "ju40c4_w_ice_compliant"
+    },
+    {
+      "file": "de45c3_w_ice_compliant.svg",
+      "scene_id": "de45c3_w_ice_compliant"
+    },
+    {
+      "file": "daw46_w_ice_compliant.svg",
+      "scene_id": "daw46_w_ice_compliant"
+    },
+    {
+      "file": "sp35c5_w_ice_sag_violation.svg",
+      "scene_id": "sp35c5_w_ice_sag_violation"
+    },
+    {
+      "file": "ju40c4_w_ice_drop_sag.svg",
+      "scene_id": "ju40c4_w_ice_drop_sag"
+    },
+    {
+      "file": "tap40c4_w_ice_jumper_broken.svg",
+      "scene_id": "tap40c4_w_ice_jumper_broken"
+    },
+    {
+      "file": "daw46_w_ice_phase_sep.svg",
+      "scene_id": "daw46_w_ice_phase_sep"
+    },
+    {
+      "file": "sp35c5_w_ice_broken_arm.svg",
+      "scene_id": "sp35c5_w_ice_broken_arm"
+    },
+    {
+      "file": "de45c3_w_ice_downed_conductor.svg",
+      "scene_id": "de45c3_w_ice_downed_conductor"
+    },
+    {
+      "file": "ang40c4_w_ice_pole_lean.svg",
+      "scene_id": "ang40c4_w_ice_pole_lean"
+    },
+    {
+      "file": "hfw69_w_ice_galloping.svg",
+      "scene_id": "hfw69_w_ice_galloping"
+    },
+    {
+      "file": "sp35c5_w_snow_compliant.svg",
+      "scene_id": "sp35c5_w_snow_compliant"
+    },
+    {
+      "file": "ju40c4_w_snow_compliant.svg",
+      "scene_id": "ju40c4_w_snow_compliant"
+    },
+    {
+      "file": "de45c3_w_snow_compliant.svg",
+      "scene_id": "de45c3_w_snow_compliant"
+    },
+    {
+      "file": "daw46_w_snow_compliant.svg",
+      "scene_id": "daw46_w_snow_compliant"
+    },
+    {
+      "file": "serv30c6_w_snow_compliant.svg",
+      "scene_id": "serv30c6_w_snow_compliant"
+    },
+    {
+      "file": "hfs138_w_snow_compliant.svg",
+      "scene_id": "hfs138_w_snow_compliant"
+    },
+    {
+      "file": "ju40c4_w_snow_obscured_tag.svg",
+      "scene_id": "ju40c4_w_snow_obscured_tag"
+    },
+    {
+      "file": "serv30c6_w_snow_low_drop.svg",
+      "scene_id": "serv30c6_w_snow_low_drop"
+    },
+    {
+      "file": "sp35c5_w_snow_branch_down.svg",
+      "scene_id": "sp35c5_w_snow_branch_down"
+    },
+    {
+      "file": "de45c3_w_snow_branch_down.svg",
+      "scene_id": "de45c3_w_snow_branch_down"
+    },
+    {
+      "file": "ang40c4_w_snow_pole_lean.svg",
+      "scene_id": "ang40c4_w_snow_pole_lean"
+    },
+    {
+      "file": "de45c3_w_snow_buried_anchor.svg",
+      "scene_id": "de45c3_w_snow_buried_anchor"
+    },
+    {
+      "file": "ju40c4_w_storm_broken_arm.svg",
+      "scene_id": "ju40c4_w_storm_broken_arm"
+    },
+    {
+      "file": "de45c3_w_storm_downed.svg",
+      "scene_id": "de45c3_w_storm_downed"
+    },
+    {
+      "file": "sp35c5_w_storm_downed.svg",
+      "scene_id": "sp35c5_w_storm_downed"
+    },
+    {
+      "file": "ang40c4_w_storm_pole_lean.svg",
+      "scene_id": "ang40c4_w_storm_pole_lean"
+    },
+    {
+      "file": "ju40c4_w_storm_debris.svg",
+      "scene_id": "ju40c4_w_storm_debris"
+    },
+    {
+      "file": "daw46_w_storm_debris.svg",
+      "scene_id": "daw46_w_storm_debris"
+    },
+    {
+      "file": "de45c3_w_storm_insulator_broken.svg",
+      "scene_id": "de45c3_w_storm_insulator_broken"
+    },
+    {
+      "file": "sp35c5_w_storm_guy_broken.svg",
+      "scene_id": "sp35c5_w_storm_guy_broken"
+    },
+    {
+      "file": "bank45c3_w_storm_xfmr_displaced.svg",
+      "scene_id": "bank45c3_w_storm_xfmr_displaced"
+    },
+    {
+      "file": "tap40c4_w_storm_cutout_dislodged.svg",
+      "scene_id": "tap40c4_w_storm_cutout_dislodged"
+    },
+    {
+      "file": "ju40c4_w_storm_aftermath.svg",
+      "scene_id": "ju40c4_w_storm_aftermath"
+    },
+    {
+      "file": "hfw69_w_storm_lightning.svg",
+      "scene_id": "hfw69_w_storm_lightning"
+    },
+    {
+      "file": "sp35c5_w_summer_compliant.svg",
+      "scene_id": "sp35c5_w_summer_compliant"
+    },
+    {
+      "file": "ju40c4_w_summer_compliant.svg",
+      "scene_id": "ju40c4_w_summer_compliant"
+    },
+    {
+      "file": "hfw69_w_summer_compliant.svg",
+      "scene_id": "hfw69_w_summer_compliant"
+    },
+    {
+      "file": "de45c3_w_summer_compliant.svg",
+      "scene_id": "de45c3_w_summer_compliant"
+    },
+    {
+      "file": "sp35c5_w_summer_road_violation.svg",
+      "scene_id": "sp35c5_w_summer_road_violation"
+    },
+    {
+      "file": "serv30c6_w_summer_roof_clearance.svg",
+      "scene_id": "serv30c6_w_summer_roof_clearance"
+    },
+    {
+      "file": "ju40c4_w_summer_ground_clearance.svg",
+      "scene_id": "ju40c4_w_summer_ground_clearance"
+    },
+    {
+      "file": "de45c3_w_summer_vehicle_clearance.svg",
+      "scene_id": "de45c3_w_summer_vehicle_clearance"
+    },
+    {
+      "file": "daw46_w_summer_phase_sep.svg",
+      "scene_id": "daw46_w_summer_phase_sep"
+    },
+    {
+      "file": "tds115_w_summer_rail_clearance.svg",
+      "scene_id": "tds115_w_summer_rail_clearance"
+    },
+    {
+      "file": "hfw69_w_summer_water_clearance.svg",
+      "scene_id": "hfw69_w_summer_water_clearance"
+    },
+    {
+      "file": "serv30c6_w_summer_pedestrian.svg",
+      "scene_id": "serv30c6_w_summer_pedestrian"
+    },
+    {
+      "file": "sp35c5_wmd_ice_pole_decay.svg",
+      "scene_id": "sp35c5_wmd_ice_pole_decay"
+    },
+    {
+      "file": "daw46_wmd_ice_arm_decay.svg",
+      "scene_id": "daw46_wmd_ice_arm_decay"
+    },
+    {
+      "file": "de45c3_wmd_ice_corroded_guy.svg",
+      "scene_id": "de45c3_wmd_ice_corroded_guy"
+    },
+    {
+      "file": "ju40c4_wmd_storm_aging.svg",
+      "scene_id": "ju40c4_wmd_storm_aging"
+    },
+    {
+      "file": "ang40c4_wmd_storm_vegcompound.svg",
+      "scene_id": "ang40c4_wmd_storm_vegcompound"
+    },
+    {
+      "file": "sp35c5_wmd_storm_failing.svg",
+      "scene_id": "sp35c5_wmd_storm_failing"
+    },
+    {
+      "file": "serv30c6_wmd_summer_aging.svg",
+      "scene_id": "serv30c6_wmd_summer_aging"
+    },
+    {
+      "file": "ju40c4_wmd_summer_veg.svg",
+      "scene_id": "ju40c4_wmd_summer_veg"
+    },
+    {
+      "file": "de45c3_wmd_snow_pole_decay.svg",
+      "scene_id": "de45c3_wmd_snow_pole_decay"
+    },
+    {
+      "file": "serv30c6_wmd_snow_low_drop.svg",
+      "scene_id": "serv30c6_wmd_snow_low_drop"
+    },
+    {
+      "file": "ang40c4_wmd_ice_split_arm.svg",
+      "scene_id": "ang40c4_wmd_ice_split_arm"
+    },
+    {
+      "file": "riser40c4_wmd_storm_burned.svg",
+      "scene_id": "riser40c4_wmd_storm_burned"
+    }
+  ],
+  "weather_conditions": {
+    "description": "v0.7 added 60 weather and seasonal variant scenes. Weather scenes carry a weather_condition field in their annotation_metadata. Severity uses existing OSHA categories plus multi_defect for compositions. Framing field distinguishes compliant_with_weather (banner stays green), weather_induced_violation (existing severity applies), damage_from_weather (storm/ice damage as defect), and weather_plus_multi_defect (compound).",
+    "supported": {
+      "ice_loading": "Glaze ice on conductors, icicles, ice-induced sag, dead-end stress, galloping. 12 standalone scenes plus compositions.",
+      "snow_accumulation": "Snow on crossarms and ground, snow-loaded service drops, snow-laden tree limbs, snow-saturated soil. 12 standalone scenes plus compositions.",
+      "post_storm": "Broken hardware, downed conductors, wind-blown debris, displaced equipment, lightning damage. 12 standalone scenes plus compositions.",
+      "summer_thermal": "Conductor thermal sag at max operating temperature causing clearance violations over roads, buildings, vehicles, water, rail. 12 standalone scenes plus compositions."
+    },
+    "framings": {
+      "compliant_with_weather": "Banner green; weather present but design loading respected.",
+      "weather_induced_violation": "Banner uses existing severity (serious, other, de_minimis); weather caused the non-compliant condition.",
+      "damage_from_weather": "Banner imminent or serious; weather caused damage to hardware/structure (broken arm, downed line, pole lean).",
+      "weather_plus_multi_defect": "Banner purple multi_defect; weather compounds with existing field defects."
+    }
+  },
+  "vegetation_clearance_michigan": {
+    "primary_distribution": {
+      "side_ft": 10,
+      "above_ft": 15,
+      "below_ft": 10,
+      "consumers_energy_cycle_low_v": "7 years",
+      "consumers_energy_cycle_high_v": "4 years",
+      "dte_electric_cycle_distribution": "5 years",
+      "dte_electric_cycle_subtransmission": "3 years"
+    },
+    "service_drops": "Not routinely trimmed unless overbuilt primary",
+    "transmission_200kv_plus": "NERC FAC-003 MVCD per voltage table"
+  }
+}
