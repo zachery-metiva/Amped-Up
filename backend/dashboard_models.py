@@ -148,3 +148,16 @@ class AddNoteRequest(BaseModel):
 
 class UpdateReportStatusRequest(BaseModel):
     status: ReportStatus
+
+
+class GpsLocation(BaseModel):
+    lat: float
+    lon: float
+    accuracy: float
+
+
+class SubmitReportRequest(BaseModel):
+    pole_id: str
+    location: GpsLocation | None
+    description: str
+    photo_count: int
