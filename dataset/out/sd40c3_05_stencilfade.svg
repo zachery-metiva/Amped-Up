@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800">
+<title>ID stencil faded on steel distribution pole</title>
+<desc>Pole compliance training scene. Severity: DE MINIMIS. Hazard: asset identification.</desc>
+<rect x="0" y="0" width="680" height="60" fill="#5F5E5A"/>
+<text x="24" y="38" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">DE MINIMIS</text>
+<text x="660" y="22" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#F1EFE8" text-anchor="end">OSHA de minimis</text>
+<text x="660" y="37" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#F1EFE8" text-anchor="end">Hazard: asset identification</text>
+<text x="660" y="52" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#F1EFE8" text-anchor="end">Scene: sd40c3_05_stencilfade</text>
+<rect x="0" y="60" width="680" height="550" fill="#EAF1F7"/>
+<rect x="0" y="610" width="680" height="50" fill="#D9C8A8"/>
+<line x1="0" y1="610" x2="680" y2="610" stroke="#7A5C2A" stroke-width="1"/>
+<path d="M 20 612 L 23 606 L 26 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 48 612 L 51 606 L 54 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 76 612 L 79 606 L 82 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 104 612 L 107 606 L 110 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 132 612 L 135 606 L 138 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 160 612 L 163 606 L 166 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 188 612 L 191 606 L 194 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 216 612 L 219 606 L 222 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 244 612 L 247 606 L 250 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 272 612 L 275 606 L 278 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 300 612 L 303 606 L 306 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 328 612 L 331 606 L 334 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 356 612 L 359 606 L 362 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 384 612 L 387 606 L 390 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 412 612 L 415 606 L 418 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 440 612 L 443 606 L 446 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 468 612 L 471 606 L 474 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 496 612 L 499 606 L 502 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 524 612 L 527 606 L 530 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 552 612 L 555 606 L 558 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 580 612 L 583 606 L 586 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 608 612 L 611 606 L 614 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 636 612 L 639 606 L 642 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 664 612 L 667 606 L 670 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<rect x="0" y="475" width="58" height="55" fill="#C0AC85" stroke="#5C4426" stroke-width="0.6"/>
+<polygon points="0,475 29,448 58,475" fill="#7A5C2A" stroke="#5C4426" stroke-width="0.6"/>
+<rect x="20" y="495" width="12" height="20" fill="#5C4426"/>
+<rect x="40" y="495" width="11" height="11" fill="#A8C8E0"/>
+
+<polygon points="176,90 184,90 187,610 173,610" fill="#9CA0AC" stroke="#4C5260" stroke-width="0.5"/>
+<line x1="180" y1="90" x2="180" y2="610" stroke="#4C5260" stroke-width="0.3" opacity="0.6"/>
+<rect x="169" y="607" width="22" height="6" fill="#6C7280" stroke="#3A3F4A" stroke-width="0.5"/>
+<rect x="171" y="613" width="18" height="45" fill="#7A7A7A" fill-opacity="0.3" stroke="#3A3F4A" stroke-width="0.4" stroke-dasharray="3 2"/>
+<circle cx="176" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="179" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="182" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="185" cy="610" r="0.8" fill="#2A2F3A"/>
+<rect x="120" y="120" width="120" height="8" fill="#6B4E2A" stroke="#3C2810" stroke-width="0.6"/>
+<line x1="180" y1="155" x2="138.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<line x1="180" y1="155" x2="222.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<ellipse cx="135" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="180" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="225" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<line x1="0" y1="108" x2="680" y2="108" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<circle cx="135" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="180" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="225" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<line x1="0" y1="178" x2="680" y2="178" stroke="#5F5E5A" stroke-width="0.9"/>
+<circle cx="180" cy="178" r="2" fill="#444441"/>
+<rect x="195" y="230" width="34" height="76" rx="2" fill="#999" stroke="#333" stroke-width="0.6"/>
+<rect x="195" y="306" width="34" height="4" fill="#777" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="212" cy="227" rx="3.5" ry="2.5" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="212" y1="225" x2="185" y2="200" stroke="#333" stroke-width="0.5"/>
+<ellipse cx="232" cy="254" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="232" cy="266" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="232" cy="278" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="0" y1="350" x2="680" y2="350" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="0" y1="355" x2="680" y2="355" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="188" y1="180" x2="188" y2="595" stroke="#5C5C20" stroke-width="0.7"/>
+<line x1="188" y1="605" x2="188" y2="640" stroke="#5C5C20" stroke-width="0.5"/>
+<path d="M 480 600 Q 472 555 468 510 Q 466 490 472 478" stroke="#5C4426" stroke-width="12" fill="none" stroke-linecap="round"/>
+<ellipse cx="480" cy="480" rx="50" ry="35" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="455" cy="510" rx="45" ry="32" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="505" cy="525" rx="42" ry="30" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="440" cy="540" rx="40" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="490" cy="555" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="570" rx="36" ry="26" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<text x="194" y="445" font-family="Helvetica, Arial" font-size="6" fill="#5F5E5A" fill-opacity="0.3">SD40-7821</text>
+<circle cx="202" cy="442" r="18" fill="#5F5E5A" fill-opacity="0.15"/>
+<circle cx="202" cy="442" r="14" fill="none" stroke="#5F5E5A" stroke-width="2.2" opacity="0.85"/>
+<circle cx="202" cy="442" r="10" fill="none" stroke="#5F5E5A" stroke-width="1" opacity="0.55"/>
+<rect x="420" y="75" width="240" height="67" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.4"/>
+<text x="430" y="93" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">ID stencil faded on shaft</text>
+<text x="430" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2C2C2A">Cosmetic only</text>
+<text x="430" y="123" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#2C2C2A">Re-mark at next visit</text>
+<rect x="242" y="94" width="96.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="105" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">primary 12.47 kV</text>
+<rect x="242" y="164" width="85.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="175" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">system neutral</text>
+<rect x="242" y="336" width="107.00000000000001" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="347" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">secondary 240/120V</text>
+<rect x="112" y="249" width="68.5" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="115" y="260" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">25 kVA xfmr</text>
+<rect x="0" y="660" width="680" height="140" fill="#F1EFE8"/>
+<line x1="0" y1="660" x2="680" y2="660" stroke="#73726c" stroke-width="0.6"/>
+<text x="24" y="682" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Regulation citations</text>
+<text x="24" y="700" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">NESC Rule 217.B: pole identification</text>
+<text x="24" y="716" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">ANSI O5.6 identification</text>
+<text x="24" y="732" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MPSC R 460.3504: asset records</text>
+<text x="24" y="748" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">Utility O and M: re-stencil cycle</text>
+<text x="24" y="764" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">GIS data integrity practice</text>
+<rect x="470" y="668" width="200" height="100" rx="4" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.6"/>
+<text x="478" y="684" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#2C2C2A">Annotation metadata</text>
+<text x="478" y="700" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#2C2C2A">pole_type: sd40c3</text>
+<text x="478" y="713" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#2C2C2A">violation: id_stencil_faded</text>
+<text x="478" y="726" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#2C2C2A">severity: de_minimis</text>
+<text x="478" y="739" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#2C2C2A">hazard: asset_identification</text>
+<text x="478" y="752" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#2C2C2A">component: pole_id_stencil</text>
+</svg>

@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800">
+<title>Polymer insulator tracking on 138 kV H-frame</title>
+<desc>Pole compliance training scene. Severity: IMMINENT DANGER. Hazard: flashover imminent.</desc>
+<rect x="0" y="0" width="680" height="60" fill="#A32D2D"/>
+<text x="24" y="38" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">IMMINENT DANGER</text>
+<text x="660" y="22" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">OSHA 29 CFR 1903.14(a)</text>
+<text x="660" y="37" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">Hazard: flashover imminent</text>
+<text x="660" y="52" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">Scene: hfs138_02_polymertracking</text>
+<rect x="0" y="60" width="680" height="550" fill="#EAF1F7"/>
+<rect x="0" y="610" width="680" height="50" fill="#D9C8A8"/>
+<line x1="0" y1="610" x2="680" y2="610" stroke="#7A5C2A" stroke-width="1"/>
+<path d="M 20 612 L 23 606 L 26 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 48 612 L 51 606 L 54 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 76 612 L 79 606 L 82 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 104 612 L 107 606 L 110 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 132 612 L 135 606 L 138 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 160 612 L 163 606 L 166 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 188 612 L 191 606 L 194 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 216 612 L 219 606 L 222 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 244 612 L 247 606 L 250 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 272 612 L 275 606 L 278 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 300 612 L 303 606 L 306 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 328 612 L 331 606 L 334 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 356 612 L 359 606 L 362 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 384 612 L 387 606 L 390 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 412 612 L 415 606 L 418 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 440 612 L 443 606 L 446 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 468 612 L 471 606 L 474 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 496 612 L 499 606 L 502 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 524 612 L 527 606 L 530 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 552 612 L 555 606 L 558 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 580 612 L 583 606 L 586 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 608 612 L 611 606 L 614 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 636 612 L 639 606 L 642 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 664 612 L 667 606 L 670 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<rect x="0" y="475" width="58" height="55" fill="#C0AC85" stroke="#5C4426" stroke-width="0.6"/>
+<polygon points="0,475 29,448 58,475" fill="#7A5C2A" stroke="#5C4426" stroke-width="0.6"/>
+<rect x="20" y="495" width="12" height="20" fill="#5C4426"/>
+<rect x="40" y="495" width="11" height="11" fill="#A8C8E0"/>
+
+<polygon points="155,68 165,68 169,610 151,610" fill="#9CA0AC" stroke="#4C5260" stroke-width="0.5"/>
+<line x1="160" y1="68" x2="160" y2="610" stroke="#4C5260" stroke-width="0.3" opacity="0.6"/>
+<rect x="147" y="607" width="26" height="6" fill="#6C7280" stroke="#3A3F4A" stroke-width="0.5"/>
+<rect x="149" y="613" width="22" height="45" fill="#7A7A7A" fill-opacity="0.3" stroke="#3A3F4A" stroke-width="0.4" stroke-dasharray="3 2"/>
+<circle cx="156" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="159" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="162" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="165" cy="610" r="0.8" fill="#2A2F3A"/>
+<polygon points="355,68 365,68 369,610 351,610" fill="#9CA0AC" stroke="#4C5260" stroke-width="0.5"/>
+<line x1="360" y1="68" x2="360" y2="610" stroke="#4C5260" stroke-width="0.3" opacity="0.6"/>
+<rect x="347" y="607" width="26" height="6" fill="#6C7280" stroke="#3A3F4A" stroke-width="0.5"/>
+<rect x="349" y="613" width="22" height="45" fill="#7A7A7A" fill-opacity="0.3" stroke="#3A3F4A" stroke-width="0.4" stroke-dasharray="3 2"/>
+<circle cx="356" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="359" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="362" cy="610" r="0.8" fill="#2A2F3A"/>
+<circle cx="365" cy="610" r="0.8" fill="#2A2F3A"/>
+<rect x="145" y="75" width="230" height="10" fill="#9CA0AC" stroke="#4C5260" stroke-width="0.7"/>
+<polygon points="155,85 165,85 165,105 155,105" fill="#6C7280" stroke="#3A3F4A" stroke-width="0.4"/>
+<polygon points="355,85 365,85 365,105 355,105" fill="#6C7280" stroke="#3A3F4A" stroke-width="0.4"/>
+<line x1="160" y1="200" x2="360" y2="360" stroke="#6C7280" stroke-width="2.5"/>
+<line x1="360" y1="200" x2="160" y2="360" stroke="#6C7280" stroke-width="2.5"/>
+<circle cx="260" cy="280" r="2.5" fill="#3A3F4A"/>
+<line x1="160" y1="85" x2="160" y2="147" stroke="#4A4A4A" stroke-width="1.4"/>
+<ellipse cx="160" cy="90.63636363636364" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="96.27272727272728" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="101.9090909090909" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="107.54545454545455" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="113.18181818181819" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="118.81818181818181" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="124.45454545454545" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="130.0909090909091" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="135.72727272727275" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="160" cy="141.36363636363637" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<rect x="157" y="82" width="6" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<rect x="156" y="147" width="8" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<line x1="260" y1="85" x2="260" y2="147" stroke="#4A4A4A" stroke-width="1.4"/>
+<ellipse cx="260" cy="90.63636363636364" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="96.27272727272728" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="101.9090909090909" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="107.54545454545455" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="113.18181818181819" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="118.81818181818181" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="124.45454545454545" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="130.0909090909091" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="135.72727272727275" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="260" cy="141.36363636363637" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<rect x="257" y="82" width="6" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<rect x="256" y="147" width="8" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<line x1="360" y1="85" x2="360" y2="147" stroke="#4A4A4A" stroke-width="1.4"/>
+<ellipse cx="360" cy="90.63636363636364" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="96.27272727272728" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="101.9090909090909" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="107.54545454545455" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="113.18181818181819" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="118.81818181818181" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="124.45454545454545" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="130.0909090909091" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="135.72727272727275" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<ellipse cx="360" cy="141.36363636363637" rx="3.5" ry="1.1" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.3"/>
+<rect x="357" y="82" width="6" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<rect x="356" y="147" width="8" height="3" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<line x1="0" y1="145" x2="680" y2="145" stroke="#A32D2D" stroke-width="0.9" opacity="0.5"/>
+<circle cx="160" cy="145" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<line x1="0" y1="145" x2="680" y2="145" stroke="#A32D2D" stroke-width="0.9" opacity="0.5"/>
+<circle cx="260" cy="145" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="360" cy="145" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<line x1="0" y1="50" x2="680" y2="50" stroke="#5F5E5A" stroke-width="0.6"/>
+<circle cx="260" cy="50" r="1.8" fill="#3C3C3C"/>
+<line x1="169" y1="480" x2="169" y2="610" stroke="#1D9E75" stroke-width="0.8"/>
+<rect x="166" y="510" width="6" height="100" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<line x1="369" y1="480" x2="369" y2="610" stroke="#1D9E75" stroke-width="0.8"/>
+<rect x="366" y="510" width="6" height="100" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<path d="M 480 600 Q 472 555 468 510 Q 466 490 472 478" stroke="#5C4426" stroke-width="12" fill="none" stroke-linecap="round"/>
+<ellipse cx="480" cy="480" rx="50" ry="35" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="455" cy="510" rx="45" ry="32" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="505" cy="525" rx="42" ry="30" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="440" cy="540" rx="40" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="490" cy="555" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="570" rx="36" ry="26" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<path d="M 259 93 L 262 105 L 259 120 L 263 133" stroke="#2C2C2A" stroke-width="0.7" fill="none"/>
+<ellipse cx="260" cy="110" rx="3.5" ry="1.1" fill="#3C3C3C" stroke="#1C1C1C" stroke-width="0.3"/>
+<ellipse cx="260" cy="120" rx="3.5" ry="1.1" fill="#3C3C3C" stroke="#1C1C1C" stroke-width="0.3"/>
+<circle cx="260" cy="115" r="22" fill="#A32D2D" fill-opacity="0.15"/>
+<circle cx="260" cy="115" r="18" fill="none" stroke="#A32D2D" stroke-width="2.2" opacity="0.85"/>
+<circle cx="260" cy="115" r="14" fill="none" stroke="#A32D2D" stroke-width="1" opacity="0.55"/>
+<rect x="420" y="75" width="240" height="67" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1.4"/>
+<text x="430" y="93" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#501313">Carbon tracking on polymer</text>
+<text x="430" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#501313">Insulation path failing</text>
+<text x="430" y="123" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#501313">Flashover imminent in wet weather</text>
+<rect x="242" y="119" width="85.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="130" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">3-phase 138 kV</text>
+<rect x="17" y="36" width="30.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="20" y="47" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">OHGW</text>
+<rect x="242" y="186" width="79.5" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="197" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">steel X-brace</text>
+<rect x="0" y="660" width="680" height="140" fill="#F1EFE8"/>
+<line x1="0" y1="660" x2="680" y2="660" stroke="#73726c" stroke-width="0.6"/>
+<text x="24" y="682" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Regulation citations</text>
+<text x="24" y="700" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">NESC Rule 277: insulator integrity</text>
+<text x="24" y="716" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">IEEE Std 1313: insulation coordination</text>
+<text x="24" y="732" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">IEC 61109: polymer insulator standards</text>
+<text x="24" y="748" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">OSHA 29 CFR 1910.269(p): de-energize</text>
+<text x="24" y="764" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MPSC R 460.3504: immediate action</text>
+<rect x="470" y="668" width="200" height="100" rx="4" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.6"/>
+<text x="478" y="684" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#501313">Annotation metadata</text>
+<text x="478" y="700" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">pole_type: hfs138</text>
+<text x="478" y="713" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">violation: polymer_insulator_tracking</text>
+<text x="478" y="726" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">severity: imminent_danger</text>
+<text x="478" y="739" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">hazard: flashover_wet_conditions</text>
+<text x="478" y="752" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">component: phase_b_polymer_insulator</text>
+</svg>

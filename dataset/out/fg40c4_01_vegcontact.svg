@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800">
+<title>Vegetation contact with primary on fiberglass pole</title>
+<desc>Pole compliance training scene. Severity: IMMINENT DANGER. Hazard: electrical contact.</desc>
+<rect x="0" y="0" width="680" height="60" fill="#A32D2D"/>
+<text x="24" y="38" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">IMMINENT DANGER</text>
+<text x="660" y="22" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">OSHA 29 CFR 1903.14(a)</text>
+<text x="660" y="37" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">Hazard: electrical contact</text>
+<text x="660" y="52" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FCEBEB" text-anchor="end">Scene: fg40c4_01_vegcontact</text>
+<rect x="0" y="60" width="680" height="550" fill="#EAF1F7"/>
+<rect x="0" y="610" width="680" height="50" fill="#D9C8A8"/>
+<line x1="0" y1="610" x2="680" y2="610" stroke="#7A5C2A" stroke-width="1"/>
+<path d="M 20 612 L 23 606 L 26 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 48 612 L 51 606 L 54 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 76 612 L 79 606 L 82 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 104 612 L 107 606 L 110 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 132 612 L 135 606 L 138 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 160 612 L 163 606 L 166 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 188 612 L 191 606 L 194 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 216 612 L 219 606 L 222 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 244 612 L 247 606 L 250 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 272 612 L 275 606 L 278 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 300 612 L 303 606 L 306 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 328 612 L 331 606 L 334 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 356 612 L 359 606 L 362 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 384 612 L 387 606 L 390 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 412 612 L 415 606 L 418 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 440 612 L 443 606 L 446 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 468 612 L 471 606 L 474 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 496 612 L 499 606 L 502 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 524 612 L 527 606 L 530 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 552 612 L 555 606 L 558 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 580 612 L 583 606 L 586 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 608 612 L 611 606 L 614 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 636 612 L 639 606 L 642 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 664 612 L 667 606 L 670 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<rect x="0" y="475" width="58" height="55" fill="#C0AC85" stroke="#5C4426" stroke-width="0.6"/>
+<polygon points="0,475 29,448 58,475" fill="#7A5C2A" stroke="#5C4426" stroke-width="0.6"/>
+<rect x="20" y="495" width="12" height="20" fill="#5C4426"/>
+<rect x="40" y="495" width="11" height="11" fill="#A8C8E0"/>
+
+<polygon points="176,90 184,90 188,610 172,610" fill="#B89E78" stroke="#5A4830" stroke-width="0.5"/>
+<polygon points="172,610 188,610 190,710 170,710" fill="#B89E78" fill-opacity="0.45" stroke="#5A4830" stroke-width="0.4" stroke-dasharray="3 2"/>
+<polygon points="177,95 178,95 174,605 173,605" fill="#E0CFB0" opacity="0.5"/>
+<rect x="120" y="120" width="120" height="8" fill="#6B4E2A" stroke="#3C2810" stroke-width="0.6"/>
+<line x1="180" y1="155" x2="138.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<line x1="180" y1="155" x2="222.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<ellipse cx="135" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="180" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="225" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<line x1="0" y1="108" x2="680" y2="108" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<circle cx="135" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="180" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="225" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<line x1="0" y1="178" x2="680" y2="178" stroke="#5F5E5A" stroke-width="0.9"/>
+<circle cx="180" cy="178" r="2" fill="#444441"/>
+<rect x="195" y="230" width="34" height="76" rx="2" fill="#999" stroke="#333" stroke-width="0.6"/>
+<rect x="195" y="306" width="34" height="4" fill="#777" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="212" cy="227" rx="3.5" ry="2.5" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="212" y1="225" x2="185" y2="200" stroke="#333" stroke-width="0.5"/>
+<ellipse cx="232" cy="254" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="232" cy="266" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="232" cy="278" rx="3" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="0" y1="350" x2="680" y2="350" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="0" y1="355" x2="680" y2="355" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="189" y1="180" x2="189" y2="600" stroke="#1D9E75" stroke-width="0.7"/>
+<path d="M 490 600 Q 482 555 478 510 Q 472 460 478 420" stroke="#5C4426" stroke-width="13" fill="none" stroke-linecap="round"/>
+<path d="M 475 470 Q 455 460 440 450" stroke="#5C4426" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M 478 420 Q 460 410 445 408" stroke="#5C4426" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M 448 415 Q 380 360 300 280 Q 240 220 149 116 Q 140 111 135 108" stroke="#5C4426" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+<ellipse cx="490" cy="550" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="455" cy="555" rx="34" ry="26" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="525" cy="540" rx="32" ry="25" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="465" cy="510" rx="42" ry="30" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="510" cy="495" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="485" rx="36" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="505" cy="460" rx="36" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="475" cy="440" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="510" cy="425" rx="32" ry="25" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="440" cy="435" rx="30" ry="24" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="475" cy="405" rx="30" ry="24" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="410" rx="26" ry="22" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="147" cy="112" rx="10" ry="9" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="139" cy="108" rx="7" ry="6" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<circle cx="135" cy="108" r="20" fill="#A32D2D" fill-opacity="0.15"/>
+<circle cx="135" cy="108" r="16" fill="none" stroke="#A32D2D" stroke-width="2.2" opacity="0.85"/>
+<circle cx="135" cy="108" r="12" fill="none" stroke="#A32D2D" stroke-width="1" opacity="0.55"/>
+<rect x="420" y="75" width="240" height="67" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1.4"/>
+<text x="430" y="93" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#501313">Vegetation contact with primary</text>
+<text x="430" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#501313">Composite pole isolates pole base</text>
+<text x="430" y="123" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#501313">Ignition risk to vegetation</text>
+<rect x="242" y="94" width="96.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="105" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">primary 12.47 kV</text>
+<rect x="242" y="164" width="85.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="175" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">system neutral</text>
+<rect x="242" y="336" width="107.00000000000001" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="347" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">secondary 240/120V</text>
+<rect x="112" y="249" width="68.5" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="115" y="260" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">25 kVA xfmr</text>
+<rect x="0" y="660" width="680" height="140" fill="#F1EFE8"/>
+<line x1="0" y1="660" x2="680" y2="660" stroke="#73726c" stroke-width="0.6"/>
+<text x="24" y="682" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Regulation citations</text>
+<text x="24" y="700" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">NESC Rule 218.A.1: vegetation must not contact</text>
+<text x="24" y="716" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">OSHA 29 CFR 1910.269(p)(4)(ii): MAD</text>
+<text x="24" y="732" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MIOSHA Part 86: line clearance</text>
+<text x="24" y="748" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MPSC R 460.3504: corrective action</text>
+<text x="24" y="764" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">Consumers Energy VM standard</text>
+<rect x="470" y="668" width="200" height="100" rx="4" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.6"/>
+<text x="478" y="684" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#501313">Annotation metadata</text>
+<text x="478" y="700" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">pole_type: fg40c4</text>
+<text x="478" y="713" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">violation: vegetation_contact_primary</text>
+<text x="478" y="726" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">severity: imminent_danger</text>
+<text x="478" y="739" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">hazard: electrical_contact</text>
+<text x="478" y="752" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">clearance_observed_ft: 0.0</text>
+<text x="478" y="765" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#501313">clearance_required_ft: 4.0</text>
+</svg>

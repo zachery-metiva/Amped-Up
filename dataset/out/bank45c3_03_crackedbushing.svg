@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800">
+<title>Cracked primary bushing on transformer</title>
+<desc>Pole compliance training scene. Severity: SERIOUS. Hazard: insulation integrity.</desc>
+<rect x="0" y="0" width="680" height="60" fill="#854F0B"/>
+<text x="24" y="38" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">SERIOUS</text>
+<text x="660" y="22" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">OSHA 29 CFR 1903.14(b)</text>
+<text x="660" y="37" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">Hazard: insulation integrity</text>
+<text x="660" y="52" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">Scene: bank45c3_03_crackedbushing</text>
+<rect x="0" y="60" width="680" height="550" fill="#EAF1F7"/>
+<rect x="0" y="610" width="680" height="50" fill="#D9C8A8"/>
+<line x1="0" y1="610" x2="680" y2="610" stroke="#7A5C2A" stroke-width="1"/>
+<path d="M 20 612 L 23 606 L 26 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 48 612 L 51 606 L 54 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 76 612 L 79 606 L 82 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 104 612 L 107 606 L 110 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 132 612 L 135 606 L 138 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 160 612 L 163 606 L 166 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 188 612 L 191 606 L 194 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 216 612 L 219 606 L 222 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 244 612 L 247 606 L 250 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 272 612 L 275 606 L 278 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 300 612 L 303 606 L 306 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 328 612 L 331 606 L 334 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 356 612 L 359 606 L 362 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 384 612 L 387 606 L 390 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 412 612 L 415 606 L 418 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 440 612 L 443 606 L 446 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 468 612 L 471 606 L 474 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 496 612 L 499 606 L 502 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 524 612 L 527 606 L 530 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 552 612 L 555 606 L 558 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 580 612 L 583 606 L 586 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 608 612 L 611 606 L 614 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 636 612 L 639 606 L 642 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 664 612 L 667 606 L 670 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<rect x="0" y="475" width="58" height="55" fill="#C0AC85" stroke="#5C4426" stroke-width="0.6"/>
+<polygon points="0,475 29,448 58,475" fill="#7A5C2A" stroke="#5C4426" stroke-width="0.6"/>
+<rect x="20" y="495" width="12" height="20" fill="#5C4426"/>
+<rect x="40" y="495" width="11" height="11" fill="#A8C8E0"/>
+
+<polygon points="175,75 185,75 190,610 170,610" fill="#A07C50" stroke="#5C4426" stroke-width="1"/>
+<polygon points="170,610 190,610 192,710 168,710" fill="#A07C50" fill-opacity="0.45" stroke="#5C4426" stroke-width="0.7" stroke-dasharray="3 2"/>
+<rect x="120" y="105" width="120" height="8" fill="#6B4E2A" stroke="#3C2810" stroke-width="0.6"/>
+<line x1="180" y1="140" x2="138.0" y2="113" stroke="#3C2810" stroke-width="0.8"/>
+<line x1="180" y1="140" x2="222.0" y2="113" stroke="#3C2810" stroke-width="0.8"/>
+<ellipse cx="130" cy="98" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="180" cy="98" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="230" cy="98" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<line x1="0" y1="93" x2="680" y2="93" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<circle cx="130" cy="93" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="180" cy="93" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="230" cy="93" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<line x1="130" y1="118" x2="130" y2="123" stroke="#333" stroke-width="0.7"/>
+<rect x="126" y="123" width="8" height="14" fill="#bbb" stroke="#333" stroke-width="0.4"/>
+<line x1="130" y1="137" x2="130" y2="155" stroke="#333" stroke-width="0.7"/>
+<line x1="180" y1="118" x2="180" y2="123" stroke="#333" stroke-width="0.7"/>
+<rect x="176" y="123" width="8" height="14" fill="#bbb" stroke="#333" stroke-width="0.4"/>
+<line x1="180" y1="137" x2="180" y2="155" stroke="#333" stroke-width="0.7"/>
+<line x1="230" y1="118" x2="230" y2="123" stroke="#333" stroke-width="0.7"/>
+<rect x="226" y="123" width="8" height="14" fill="#bbb" stroke="#333" stroke-width="0.4"/>
+<line x1="230" y1="137" x2="230" y2="155" stroke="#333" stroke-width="0.7"/>
+<rect x="113" y="125" width="10" height="30" fill="#888" stroke="#333" stroke-width="0.4"/>
+<rect x="227" y="125" width="10" height="30" fill="#888" stroke="#333" stroke-width="0.4"/>
+<rect x="190" y="225" width="55" height="5" fill="#6B4E2A" stroke="#3C2810" stroke-width="0.5"/>
+<line x1="190" y1="230" x2="185" y2="205" stroke="#3C2810" stroke-width="0.6"/>
+<line x1="245" y1="230" x2="185" y2="205" stroke="#3C2810" stroke-width="0.6"/>
+<rect x="192" y="230" width="18" height="100" rx="1.5" fill="#999" stroke="#333" stroke-width="0.6"/>
+<rect x="210" y="235" width="18" height="100" rx="1.5" fill="#999" stroke="#333" stroke-width="0.6"/>
+<rect x="228" y="230" width="18" height="100" rx="1.5" fill="#999" stroke="#333" stroke-width="0.6"/>
+<ellipse cx="201" cy="228" rx="3" ry="2.2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="219" cy="233" rx="3" ry="2.2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="237" cy="228" rx="3" ry="2.2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<path d="M 130 160 Q 150 195 201 226" stroke="#333" stroke-width="0.5" fill="none"/>
+<path d="M 180 160 Q 195 195 219 231" stroke="#333" stroke-width="0.5" fill="none"/>
+<path d="M 230 160 Q 235 195 237 226" stroke="#333" stroke-width="0.5" fill="none"/>
+<ellipse cx="201" cy="315" rx="2.5" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="219" cy="320" rx="2.5" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="237" cy="315" rx="2.5" ry="2" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="201" y1="320" x2="201" y2="400" stroke="#185FA5" stroke-width="0.6"/>
+<line x1="219" y1="325" x2="219" y2="404" stroke="#185FA5" stroke-width="0.6"/>
+<line x1="237" y1="320" x2="237" y2="408" stroke="#185FA5" stroke-width="0.6"/>
+<line x1="0" y1="400" x2="680" y2="400" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="0" y1="404" x2="680" y2="404" stroke="#185FA5" stroke-width="0.7"/>
+<line x1="0" y1="408" x2="680" y2="408" stroke="#185FA5" stroke-width="0.7"/>
+<circle cx="201" cy="400" r="2" fill="#0C447C"/>
+<circle cx="219" cy="404" r="2" fill="#0C447C"/>
+<circle cx="237" cy="408" r="2" fill="#0C447C"/>
+<line x1="0" y1="440" x2="680" y2="440" stroke="#5F5E5A" stroke-width="0.9"/>
+<circle cx="180" cy="440" r="2" fill="#444441"/>
+<line x1="171" y1="160" x2="10" y2="610" stroke="#3D3D3A" stroke-width="1.4"/>
+<ellipse cx="122" cy="290" rx="6" ry="3.5" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<line x1="52" y1="478" x2="10" y2="608" stroke="#EF9F27" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+<circle cx="10" cy="610" r="3" fill="#3D3D3A"/>
+<line x1="189" y1="380" x2="189" y2="610" stroke="#1D9E75" stroke-width="0.8"/>
+<rect x="186" y="510" width="6" height="100" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<path d="M 235 226 L 238 230 M 237 227 L 240 231" stroke="#2C2C2A" stroke-width="0.7"/>
+<ellipse cx="237" cy="228" rx="3" ry="2.2" fill="#ddd" fill-opacity="0.6" stroke="#A32D2D" stroke-width="0.6" stroke-dasharray="2 1"/>
+<path d="M 480 600 Q 472 555 468 510 Q 466 490 472 478" stroke="#5C4426" stroke-width="12" fill="none" stroke-linecap="round"/>
+<ellipse cx="480" cy="480" rx="50" ry="35" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="455" cy="510" rx="45" ry="32" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="505" cy="525" rx="42" ry="30" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="440" cy="540" rx="40" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="490" cy="555" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="570" rx="36" ry="26" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<circle cx="237" cy="228" r="20" fill="#854F0B" fill-opacity="0.15"/>
+<circle cx="237" cy="228" r="16" fill="none" stroke="#854F0B" stroke-width="2.2" opacity="0.85"/>
+<circle cx="237" cy="228" r="12" fill="none" stroke="#854F0B" stroke-width="1" opacity="0.55"/>
+<rect x="420" y="75" width="240" height="67" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.4"/>
+<text x="430" y="93" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#412402">Cracked transformer bushing</text>
+<text x="430" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#412402">Insulation breakdown risk</text>
+<text x="430" y="123" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#412402">Flashover and damage potential</text>
+<rect x="242" y="79" width="118.00000000000001" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="90" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">primary 12.47/7.2 kV</text>
+<rect x="242" y="386" width="151.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="397" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">3-phase secondary 480/277V</text>
+<rect x="242" y="426" width="85.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="437" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">system neutral</text>
+<rect x="242" y="269" width="101.50000000000001" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="280" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">3-phase xfmr bank</text>
+<rect x="0" y="660" width="680" height="140" fill="#F1EFE8"/>
+<line x1="0" y1="660" x2="680" y2="660" stroke="#73726c" stroke-width="0.6"/>
+<text x="24" y="682" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Regulation citations</text>
+<text x="24" y="700" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">NESC Rule 277: bushing and insulator integrity</text>
+<text x="24" y="716" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">IEEE C57.19: power apparatus bushings</text>
+<text x="24" y="732" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">OSHA 29 CFR 1910.269(j): equipment good condition</text>
+<text x="24" y="748" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MPSC R 460.3504: corrective action</text>
+<text x="24" y="764" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">Utility O and M: bushing inspection cycle</text>
+<rect x="470" y="668" width="200" height="100" rx="4" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.6"/>
+<text x="478" y="684" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#412402">Annotation metadata</text>
+<text x="478" y="700" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">pole_type: bank45c3</text>
+<text x="478" y="713" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">violation: cracked_bushing</text>
+<text x="478" y="726" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">severity: serious</text>
+<text x="478" y="739" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">hazard: insulation_integrity</text>
+<text x="478" y="752" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">component: transformer_phase_c_primary_bushing</text>
+</svg>
