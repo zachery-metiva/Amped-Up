@@ -1,0 +1,31 @@
+{
+  "mvi_url": "",
+  "mvi_api_key": "",
+  "maximo_url": "",
+  "maximo_api_key": "",
+  "settings": {
+    "confidence_threshold": 0.7,
+    "auto_send_to_maximo": false,
+    "save_results": true,
+    "output_directory": "out/mvi_zeus_results"
+  },
+  "defect_mapping": {
+    "transformer_corrosion": "XFMR-01",
+    "transformer_oil_leak": "XFMR-02",
+    "crossarm_decay": "ARM-01",
+    "crossarm_split": "ARM-02",
+    "pole_decay": "POLE-01",
+    "pole_lean": "POLE-02",
+    "hardware_corrosion": "HW-01",
+    "insulator_damage": "INS-01",
+    "vegetation_contact": "VEG-01",
+    "guy_corrosion": "GUY-01"
+  },
+  "notes": {
+    "mvi_url": "Your IBM Maximo Visual Inspection instance URL (e.g., https://your-mvi.ibm.com)",
+    "mvi_api_key": "Your MVI API authentication key",
+    "maximo_url": "Your IBM Maximo instance URL (e.g., https://your-maximo.ibm.com)",
+    "maximo_api_key": "Your Maximo API key",
+    "setup": "Leave credentials empty to use simulated mode for testing"
+  }
+}
