@@ -1,0 +1,50 @@
+{
+  "image": "sp35c5_vegcontact_three_quarter_overcast.png",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "scene": "vegcontact",
+  "scene_severity": "imminent_danger",
+  "angle": "three_quarter",
+  "lighting": "overcast",
+  "camera": {
+    "location": [
+      11.0,
+      -13.0,
+      4.5
+    ],
+    "rotation_euler_rad": [
+      1.5661,
+      0.0,
+      0.7023
+    ],
+    "lens_mm": 50.0,
+    "sensor_width_mm": 36.0
+  },
+  "annotations": [
+    {
+      "class": "veg_contact_branch",
+      "pass_index": 1,
+      "bounding_box_2d": {
+        "normalized": {
+          "x_min": 0.4993,
+          "x_max": 0.7451,
+          "y_min": 0.1635,
+          "y_max": 0.1841
+        },
+        "pixels": {
+          "x_min": 511,
+          "x_max": 762,
+          "y_min": 167,
+          "y_max": 188
+        }
+      },
+      "object_name": "TreeBranchContact"
+    }
+  ],
+  "defect_count_visible": 1,
+  "defect_count_in_scene": 1,
+  "is_negative_sample": false,
+  "defects_off_frame": false
+}

@@ -1,0 +1,1371 @@
+{
+  "info": {
+    "version": "0.9.0",
+    "description": "sp35c5 proof of concept with 2D bbox annotations"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "veg_contact_branch"
+    },
+    {
+      "id": 2,
+      "name": "broken_crossarm"
+    },
+    {
+      "id": 3,
+      "name": "downed_conductor"
+    },
+    {
+      "id": 4,
+      "name": "ice_buildup"
+    }
+  ],
+  "images": [
+    {
+      "image": "sp35c5_compliant_front_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "front",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_front_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "front",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_front_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "front",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_three_quarter_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "three_quarter",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_three_quarter_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "three_quarter",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_three_quarter_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "three_quarter",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_closeup_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "closeup",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          7.913
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_closeup_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "closeup",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          7.913
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_compliant_closeup_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "compliant",
+      "scene_severity": "compliant",
+      "angle": "closeup",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          7.913
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [],
+      "defect_count_visible": 0,
+      "defect_count_in_scene": 0,
+      "is_negative_sample": true,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_front_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4979,
+              "x_max": 0.6799,
+              "y_min": 0.2283,
+              "y_max": 0.2858
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 696,
+              "y_min": 233,
+              "y_max": 292
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_front_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4979,
+              "x_max": 0.6799,
+              "y_min": 0.2283,
+              "y_max": 0.2858
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 696,
+              "y_min": 233,
+              "y_max": 292
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_front_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4979,
+              "x_max": 0.6799,
+              "y_min": 0.2283,
+              "y_max": 0.2858
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 696,
+              "y_min": 233,
+              "y_max": 292
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_three_quarter_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4993,
+              "x_max": 0.7451,
+              "y_min": 0.1635,
+              "y_max": 0.1841
+            },
+            "pixels": {
+              "x_min": 511,
+              "x_max": 762,
+              "y_min": 167,
+              "y_max": 188
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_three_quarter_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4993,
+              "x_max": 0.7451,
+              "y_min": 0.1635,
+              "y_max": 0.1841
+            },
+            "pixels": {
+              "x_min": 511,
+              "x_max": 762,
+              "y_min": 167,
+              "y_max": 188
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_three_quarter_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4993,
+              "x_max": 0.7451,
+              "y_min": 0.1635,
+              "y_max": 0.1841
+            },
+            "pixels": {
+              "x_min": 511,
+              "x_max": 762,
+              "y_min": 167,
+              "y_max": 188
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_closeup_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          8.939
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4977,
+              "x_max": 1.0,
+              "y_min": 0.4988,
+              "y_max": 0.6057
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 1024,
+              "y_min": 510,
+              "y_max": 620
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_closeup_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          8.939
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4977,
+              "x_max": 1.0,
+              "y_min": 0.4988,
+              "y_max": 0.6057
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 1024,
+              "y_min": 510,
+              "y_max": 620
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_vegcontact_closeup_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "vegcontact",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          4.0,
+          -4.5,
+          8.939
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "veg_contact_branch",
+          "pass_index": 1,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.4977,
+              "x_max": 1.0,
+              "y_min": 0.4988,
+              "y_max": 0.6057
+            },
+            "pixels": {
+              "x_min": 509,
+              "x_max": 1024,
+              "y_min": 510,
+              "y_max": 620
+            }
+          },
+          "object_name": "TreeBranchContact"
+        }
+      ],
+      "defect_count_visible": 1,
+      "defect_count_in_scene": 1,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_front_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5049,
+              "x_max": 0.5449,
+              "y_min": 0.3265,
+              "y_max": 0.3673
+            },
+            "pixels": {
+              "x_min": 516,
+              "x_max": 557,
+              "y_min": 334,
+              "y_max": 376
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5525,
+              "x_max": 1.0,
+              "y_min": 0.3799,
+              "y_max": 0.5129
+            },
+            "pixels": {
+              "x_min": 565,
+              "x_max": 1024,
+              "y_min": 389,
+              "y_max": 525
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_front_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5049,
+              "x_max": 0.5449,
+              "y_min": 0.3265,
+              "y_max": 0.3673
+            },
+            "pixels": {
+              "x_min": 516,
+              "x_max": 557,
+              "y_min": 334,
+              "y_max": 376
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5525,
+              "x_max": 1.0,
+              "y_min": 0.3799,
+              "y_max": 0.5129
+            },
+            "pixels": {
+              "x_min": 565,
+              "x_max": 1024,
+              "y_min": 389,
+              "y_max": 525
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_front_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "front",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          0.0,
+          -18.0,
+          2.5
+        ],
+        "rotation_euler_rad": [
+          1.7012,
+          -0.0,
+          0.0
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5049,
+              "x_max": 0.5449,
+              "y_min": 0.3265,
+              "y_max": 0.3673
+            },
+            "pixels": {
+              "x_min": 516,
+              "x_max": 557,
+              "y_min": 334,
+              "y_max": 376
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5525,
+              "x_max": 1.0,
+              "y_min": 0.3799,
+              "y_max": 0.5129
+            },
+            "pixels": {
+              "x_min": 565,
+              "x_max": 1024,
+              "y_min": 389,
+              "y_max": 525
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_three_quarter_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5014,
+              "x_max": 0.5405,
+              "y_min": 0.2702,
+              "y_max": 0.3179
+            },
+            "pixels": {
+              "x_min": 513,
+              "x_max": 553,
+              "y_min": 276,
+              "y_max": 325
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5434,
+              "x_max": 1.0,
+              "y_min": 0.1994,
+              "y_max": 0.4772
+            },
+            "pixels": {
+              "x_min": 556,
+              "x_max": 1024,
+              "y_min": 204,
+              "y_max": 488
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_three_quarter_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5014,
+              "x_max": 0.5405,
+              "y_min": 0.2702,
+              "y_max": 0.3179
+            },
+            "pixels": {
+              "x_min": 513,
+              "x_max": 553,
+              "y_min": 276,
+              "y_max": 325
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5434,
+              "x_max": 1.0,
+              "y_min": 0.1994,
+              "y_max": 0.4772
+            },
+            "pixels": {
+              "x_min": 556,
+              "x_max": 1024,
+              "y_min": 204,
+              "y_max": 488
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_three_quarter_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "three_quarter",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          11.0,
+          -13.0,
+          4.5
+        ],
+        "rotation_euler_rad": [
+          1.5661,
+          0.0,
+          0.7023
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5014,
+              "x_max": 0.5405,
+              "y_min": 0.2702,
+              "y_max": 0.3179
+            },
+            "pixels": {
+              "x_min": 513,
+              "x_max": 553,
+              "y_min": 276,
+              "y_max": 325
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5434,
+              "x_max": 1.0,
+              "y_min": 0.1994,
+              "y_max": 0.4772
+            },
+            "pixels": {
+              "x_min": 556,
+              "x_max": 1024,
+              "y_min": 204,
+              "y_max": 488
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_closeup_noon.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "noon",
+      "camera": {
+        "location": [
+          4.5,
+          -4.5,
+          7.439
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.421,
+              "x_max": 0.5241,
+              "y_min": 0.4687,
+              "y_max": 0.5844
+            },
+            "pixels": {
+              "x_min": 431,
+              "x_max": 536,
+              "y_min": 479,
+              "y_max": 598
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5303,
+              "x_max": 0.5369,
+              "y_min": 0.6369,
+              "y_max": 1.0
+            },
+            "pixels": {
+              "x_min": 543,
+              "x_max": 549,
+              "y_min": 652,
+              "y_max": 1024
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_closeup_golden_hour.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "golden_hour",
+      "camera": {
+        "location": [
+          4.5,
+          -4.5,
+          7.439
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.421,
+              "x_max": 0.5241,
+              "y_min": 0.4687,
+              "y_max": 0.5844
+            },
+            "pixels": {
+              "x_min": 431,
+              "x_max": 536,
+              "y_min": 479,
+              "y_max": 598
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5303,
+              "x_max": 0.5369,
+              "y_min": 0.6369,
+              "y_max": 1.0
+            },
+            "pixels": {
+              "x_min": 543,
+              "x_max": 549,
+              "y_min": 652,
+              "y_max": 1024
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    },
+    {
+      "image": "sp35c5_ice_broken_arm_closeup_overcast.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "scene": "ice_broken_arm",
+      "scene_severity": "imminent_danger",
+      "angle": "closeup",
+      "lighting": "overcast",
+      "camera": {
+        "location": [
+          4.5,
+          -4.5,
+          7.439
+        ],
+        "rotation_euler_rad": [
+          1.5045,
+          0.0,
+          0.7266
+        ],
+        "lens_mm": 50.0,
+        "sensor_width_mm": 36.0
+      },
+      "annotations": [
+        {
+          "class": "broken_crossarm",
+          "pass_index": 2,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.421,
+              "x_max": 0.5241,
+              "y_min": 0.4687,
+              "y_max": 0.5844
+            },
+            "pixels": {
+              "x_min": 431,
+              "x_max": 536,
+              "y_min": 479,
+              "y_max": 598
+            }
+          },
+          "object_name": "Crossarm_R_broken"
+        },
+        {
+          "class": "downed_conductor",
+          "pass_index": 3,
+          "bounding_box_2d": {
+            "normalized": {
+              "x_min": 0.5303,
+              "x_max": 0.5369,
+              "y_min": 0.6369,
+              "y_max": 1.0
+            },
+            "pixels": {
+              "x_min": 543,
+              "x_max": 549,
+              "y_min": 652,
+              "y_max": 1024
+            }
+          },
+          "object_name": "DownedConductor"
+        }
+      ],
+      "defect_count_visible": 2,
+      "defect_count_in_scene": 2,
+      "is_negative_sample": false,
+      "defects_off_frame": false
+    }
+  ],
+  "total_images": 27,
+  "total_visible_defects": 27,
+  "total_negative_samples": 9,
+  "total_off_frame_views": 0
+}

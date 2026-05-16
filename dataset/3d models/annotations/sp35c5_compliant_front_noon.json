@@ -1,0 +1,30 @@
+{
+  "image": "sp35c5_compliant_front_noon.png",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "scene": "compliant",
+  "scene_severity": "compliant",
+  "angle": "front",
+  "lighting": "noon",
+  "camera": {
+    "location": [
+      0.0,
+      -18.0,
+      2.5
+    ],
+    "rotation_euler_rad": [
+      1.7012,
+      -0.0,
+      0.0
+    ],
+    "lens_mm": 50.0,
+    "sensor_width_mm": 36.0
+  },
+  "annotations": [],
+  "defect_count_visible": 0,
+  "defect_count_in_scene": 0,
+  "is_negative_sample": true,
+  "defects_off_frame": false
+}

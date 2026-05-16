@@ -1,0 +1,50 @@
+{
+  "image": "sp35c5_vegcontact_front_golden_hour.png",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "scene": "vegcontact",
+  "scene_severity": "imminent_danger",
+  "angle": "front",
+  "lighting": "golden_hour",
+  "camera": {
+    "location": [
+      0.0,
+      -18.0,
+      2.5
+    ],
+    "rotation_euler_rad": [
+      1.7012,
+      -0.0,
+      0.0
+    ],
+    "lens_mm": 50.0,
+    "sensor_width_mm": 36.0
+  },
+  "annotations": [
+    {
+      "class": "veg_contact_branch",
+      "pass_index": 1,
+      "bounding_box_2d": {
+        "normalized": {
+          "x_min": 0.4979,
+          "x_max": 0.6799,
+          "y_min": 0.2283,
+          "y_max": 0.2858
+        },
+        "pixels": {
+          "x_min": 509,
+          "x_max": 696,
+          "y_min": 233,
+          "y_max": 292
+        }
+      },
+      "object_name": "TreeBranchContact"
+    }
+  ],
+  "defect_count_visible": 1,
+  "defect_count_in_scene": 1,
+  "is_negative_sample": false,
+  "defects_off_frame": false
+}
