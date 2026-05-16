@@ -1,0 +1,69 @@
+{
+  "image": "sp35c5_ice_broken_arm_three_quarter_overcast.png",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "scene": "ice_broken_arm",
+  "scene_severity": "imminent_danger",
+  "angle": "three_quarter",
+  "lighting": "overcast",
+  "camera": {
+    "location": [
+      11.0,
+      -13.0,
+      4.5
+    ],
+    "rotation_euler_rad": [
+      1.5661,
+      0.0,
+      0.7023
+    ],
+    "lens_mm": 50.0,
+    "sensor_width_mm": 36.0
+  },
+  "annotations": [
+    {
+      "class": "broken_crossarm",
+      "pass_index": 2,
+      "bounding_box_2d": {
+        "normalized": {
+          "x_min": 0.5014,
+          "x_max": 0.5405,
+          "y_min": 0.2702,
+          "y_max": 0.3179
+        },
+        "pixels": {
+          "x_min": 513,
+          "x_max": 553,
+          "y_min": 276,
+          "y_max": 325
+        }
+      },
+      "object_name": "Crossarm_R_broken"
+    },
+    {
+      "class": "downed_conductor",
+      "pass_index": 3,
+      "bounding_box_2d": {
+        "normalized": {
+          "x_min": 0.5434,
+          "x_max": 1.0,
+          "y_min": 0.1994,
+          "y_max": 0.4772
+        },
+        "pixels": {
+          "x_min": 556,
+          "x_max": 1024,
+          "y_min": 204,
+          "y_max": 488
+        }
+      },
+      "object_name": "DownedConductor"
+    }
+  ],
+  "defect_count_visible": 2,
+  "defect_count_in_scene": 2,
+  "is_negative_sample": false,
+  "defects_off_frame": false
+}

@@ -1,0 +1,68 @@
+{
+  "classes": [
+    {
+      "id": 0,
+      "name": "ground",
+      "is_defect": false
+    },
+    {
+      "id": 1,
+      "name": "pole",
+      "is_defect": false
+    },
+    {
+      "id": 2,
+      "name": "crossarm",
+      "is_defect": false
+    },
+    {
+      "id": 3,
+      "name": "insulator",
+      "is_defect": false
+    },
+    {
+      "id": 4,
+      "name": "primary_conductor",
+      "is_defect": false
+    },
+    {
+      "id": 5,
+      "name": "neutral_conductor",
+      "is_defect": false
+    },
+    {
+      "id": 6,
+      "name": "tree_compliant",
+      "is_defect": false
+    },
+    {
+      "id": 100,
+      "name": "vegetation_contact",
+      "is_defect": true
+    },
+    {
+      "id": 101,
+      "name": "broken_crossarm",
+      "is_defect": true
+    },
+    {
+      "id": 102,
+      "name": "downed_conductor",
+      "is_defect": true
+    },
+    {
+      "id": 103,
+      "name": "ice_on_conductor",
+      "is_defect": true
+    },
+    {
+      "id": 104,
+      "name": "icicle",
+      "is_defect": true
+    }
+  ],
+  "annotation_format": {
+    "image_json": "Per-image JSON in annotations/ with scene metadata and bbox list",
+    "yolo_txt": "Per-image YOLO-format in labels/: class_id cx cy w h (normalized)"
+  }
+}

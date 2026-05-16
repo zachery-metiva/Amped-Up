@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 800" width="680" height="800">
+<title>Recloser oil leak</title>
+<desc>Pole compliance training scene. Severity: SERIOUS. Hazard: insulation and environmental.</desc>
+<rect x="0" y="0" width="680" height="60" fill="#854F0B"/>
+<text x="24" y="38" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">SERIOUS</text>
+<text x="660" y="22" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">OSHA 29 CFR 1903.14(b)</text>
+<text x="660" y="37" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">Hazard: insulation and environmental</text>
+<text x="660" y="52" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#FAEEDA" text-anchor="end">Scene: sw40c3_02_oilleak</text>
+<rect x="0" y="60" width="680" height="550" fill="#EAF1F7"/>
+<rect x="0" y="610" width="680" height="50" fill="#D9C8A8"/>
+<line x1="0" y1="610" x2="680" y2="610" stroke="#7A5C2A" stroke-width="1"/>
+<path d="M 20 612 L 23 606 L 26 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 48 612 L 51 606 L 54 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 76 612 L 79 606 L 82 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 104 612 L 107 606 L 110 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 132 612 L 135 606 L 138 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 160 612 L 163 606 L 166 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 188 612 L 191 606 L 194 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 216 612 L 219 606 L 222 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 244 612 L 247 606 L 250 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 272 612 L 275 606 L 278 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 300 612 L 303 606 L 306 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 328 612 L 331 606 L 334 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 356 612 L 359 606 L 362 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 384 612 L 387 606 L 390 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 412 612 L 415 606 L 418 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 440 612 L 443 606 L 446 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 468 612 L 471 606 L 474 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 496 612 L 499 606 L 502 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 524 612 L 527 606 L 530 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 552 612 L 555 606 L 558 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 580 612 L 583 606 L 586 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 608 612 L 611 606 L 614 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 636 612 L 639 606 L 642 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<path d="M 664 612 L 667 606 L 670 612" stroke="#3B6D11" stroke-width="0.7" fill="none"/>
+<rect x="0" y="475" width="58" height="55" fill="#C0AC85" stroke="#5C4426" stroke-width="0.6"/>
+<polygon points="0,475 29,448 58,475" fill="#7A5C2A" stroke="#5C4426" stroke-width="0.6"/>
+<rect x="20" y="495" width="12" height="20" fill="#5C4426"/>
+<rect x="40" y="495" width="11" height="11" fill="#A8C8E0"/>
+
+<polygon points="175,90 185,90 190,610 170,610" fill="#A07C50" stroke="#5C4426" stroke-width="1"/>
+<polygon points="170,610 190,610 192,710 168,710" fill="#A07C50" fill-opacity="0.45" stroke="#5C4426" stroke-width="0.7" stroke-dasharray="3 2"/>
+<rect x="120" y="120" width="120" height="8" fill="#6B4E2A" stroke="#3C2810" stroke-width="0.6"/>
+<line x1="180" y1="155" x2="138.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<line x1="180" y1="155" x2="222.0" y2="128" stroke="#3C2810" stroke-width="0.8"/>
+<ellipse cx="135" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="180" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<ellipse cx="225" cy="113" rx="5" ry="3" fill="#D2D2D2" stroke="#3C3C3C" stroke-width="0.5"/>
+<line x1="0" y1="108" x2="680" y2="108" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<circle cx="135" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="180" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<circle cx="225" cy="108" r="2.5" fill="#A32D2D" stroke="#501313" stroke-width="0.3"/>
+<rect x="131" y="130" width="8" height="40" fill="#aaa" stroke="#333" stroke-width="0.5"/>
+<rect x="176" y="130" width="8" height="40" fill="#aaa" stroke="#333" stroke-width="0.5"/>
+<rect x="221" y="130" width="8" height="40" fill="#aaa" stroke="#333" stroke-width="0.5"/>
+<line x1="135" y1="111" x2="135" y2="130" stroke="#333" stroke-width="0.6"/>
+<line x1="180" y1="111" x2="180" y2="130" stroke="#333" stroke-width="0.6"/>
+<line x1="225" y1="111" x2="225" y2="130" stroke="#333" stroke-width="0.6"/>
+<line x1="135" y1="170" x2="135" y2="245" stroke="#A32D2D" stroke-width="0.6"/>
+<line x1="180" y1="170" x2="180" y2="245" stroke="#A32D2D" stroke-width="0.6"/>
+<line x1="225" y1="170" x2="225" y2="245" stroke="#A32D2D" stroke-width="0.6"/>
+<rect x="122" y="250" width="116" height="110" rx="4" fill="#7A7A78" stroke="#2C2C2A" stroke-width="0.8"/>
+<rect x="125" y="255" width="110" height="20" rx="2" fill="#5C5C58"/>
+<ellipse cx="135" cy="248" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="180" cy="248" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="225" cy="248" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="135" cy="363" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="180" cy="363" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<ellipse cx="225" cy="363" rx="4" ry="3" fill="#ddd" stroke="#333" stroke-width="0.4"/>
+<line x1="135" y1="366" x2="135" y2="450" stroke="#A32D2D" stroke-width="0.6"/>
+<line x1="180" y1="366" x2="180" y2="450" stroke="#A32D2D" stroke-width="0.6"/>
+<line x1="225" y1="366" x2="225" y2="450" stroke="#A32D2D" stroke-width="0.6"/>
+<line x1="135" y1="450" x2="680" y2="450" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="450" x2="680" y2="445" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<line x1="225" y1="450" x2="680" y2="440" stroke="#A32D2D" stroke-width="0.5" opacity="0.5"/>
+<path d="M 230 345 Q 235 430 210 505" stroke="#3D3D3A" stroke-width="1.5" fill="none"/>
+<rect x="155" y="510" width="55" height="95" rx="3" fill="#D4C474" stroke="#5C4426" stroke-width="0.7"/>
+<rect x="158" y="515" width="49" height="18" fill="#C0AC85" stroke="#5C4426" stroke-width="0.3"/>
+<circle cx="165" cy="555" r="3" fill="#2C2C2A"/>
+<circle cx="175" cy="555" r="3" fill="#A32D2D"/>
+<circle cx="185" cy="555" r="3" fill="#3B6D11"/>
+<line x1="0" y1="470" x2="680" y2="470" stroke="#5F5E5A" stroke-width="0.9"/>
+<circle cx="180" cy="470" r="2" fill="#444441"/>
+<line x1="189" y1="380" x2="189" y2="610" stroke="#1D9E75" stroke-width="0.8"/>
+<rect x="186" y="510" width="6" height="100" fill="#5F5E5A" stroke="#2C2C2A" stroke-width="0.3"/>
+<path d="M 480 600 Q 472 555 468 510 Q 466 490 472 478" stroke="#5C4426" stroke-width="12" fill="none" stroke-linecap="round"/>
+<ellipse cx="480" cy="480" rx="50" ry="35" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="455" cy="510" rx="45" ry="32" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="505" cy="525" rx="42" ry="30" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="440" cy="540" rx="40" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="490" cy="555" rx="38" ry="28" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<ellipse cx="445" cy="570" rx="36" ry="26" fill="#639922" fill-opacity="0.92" stroke="#3B6D11" stroke-width="0.4"/>
+<path d="M 160 360 Q 158 400 155 450" stroke="#3C2810" stroke-width="2" fill="none"/>
+<ellipse cx="155" cy="455" rx="3" ry="5" fill="#3C2810"/>
+<ellipse cx="157" cy="600" rx="15" ry="3" fill="#3C2810" fill-opacity="0.5"/>
+<circle cx="158" cy="390" r="24" fill="#854F0B" fill-opacity="0.15"/>
+<circle cx="158" cy="390" r="20" fill="none" stroke="#854F0B" stroke-width="2.2" opacity="0.85"/>
+<circle cx="158" cy="390" r="16" fill="none" stroke="#854F0B" stroke-width="1" opacity="0.55"/>
+<rect x="420" y="75" width="240" height="67" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.4"/>
+<text x="430" y="93" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#412402">Recloser oil leak</text>
+<text x="430" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#412402">Insulation fluid loss</text>
+<text x="430" y="123" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#412402">Internal arcing risk</text>
+<rect x="242" y="94" width="96.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="105" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">primary 12.47 kV</text>
+<rect x="242" y="456" width="85.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="467" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">system neutral</text>
+<rect x="242" y="289" width="96.0" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="300" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">3-phase recloser</text>
+<rect x="242" y="511" width="90.5" height="15" fill="#FFFFFF" fill-opacity="0.78" rx="2"/>
+<text x="245" y="522" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#3D3D3A">control cabinet</text>
+<rect x="0" y="660" width="680" height="140" fill="#F1EFE8"/>
+<line x1="0" y1="660" x2="680" y2="660" stroke="#73726c" stroke-width="0.6"/>
+<text x="24" y="682" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2C2C2A">Regulation citations</text>
+<text x="24" y="700" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">NESC Rule 277: equipment integrity</text>
+<text x="24" y="716" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">IEEE C37.60: recloser oil specifications</text>
+<text x="24" y="732" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">OSHA 29 CFR 1910.269(j): equipment in good condition</text>
+<text x="24" y="748" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">MPSC R 460.3504: prompt corrective action</text>
+<text x="24" y="764" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#444441">EPA SPCC: oil release reporting if >1 gallon</text>
+<rect x="470" y="668" width="200" height="100" rx="4" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.6"/>
+<text x="478" y="684" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#412402">Annotation metadata</text>
+<text x="478" y="700" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">pole_type: sw40c3</text>
+<text x="478" y="713" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">violation: recloser_oil_leak</text>
+<text x="478" y="726" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">severity: serious</text>
+<text x="478" y="739" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">hazard: insulation_loss_environmental</text>
+<text x="478" y="752" font-family="Helvetica, Arial, sans-serif" font-size="10" fill="#412402">component: pole_mount_recloser</text>
+</svg>
