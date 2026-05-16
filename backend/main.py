@@ -1,10 +1,11 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
+from .dashboard import router as dashboard_router
 from .data import POLES, SEGMENTS, get_summary
 from .models import CircuitSegment, PoleRiskProfile, RiskBand, Summary
 
-app = FastAPI(title="Utility Pole Risk Profiler", version="0.1.0")
+app = FastAPI(title="Amped Up", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -13,6 +14,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(dashboard_router)
 
 
 @app.get("/api/summary", response_model=Summary)
