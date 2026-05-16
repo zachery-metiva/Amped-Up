@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { CaptureStep } from '../components/submission/CaptureStep';
 import { ReviewStep } from '../components/submission/ReviewStep';
 import { CapturedPhoto, GpsCoords, SubmissionStep, SubmitReportPayload } from '../types/submission';
+import { randomPoleId } from '../utils/randomPole';
 import '../submission.css';
 
-const DEFAULT_POLE_ID = new URLSearchParams(window.location.search).get('pole') ?? 'P-0000';
+const DEFAULT_POLE_ID = new URLSearchParams(window.location.search).get('pole') ?? randomPoleId();
 
 export function ReportSubmission() {
   const [step, setStep] = useState<SubmissionStep>('capture');

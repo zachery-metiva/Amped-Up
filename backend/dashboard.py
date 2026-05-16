@@ -146,14 +146,15 @@ async def submit_report(body: SubmitReportRequest) -> Report:
         if body.location
         else "Location unavailable"
     )
+    title = body.description[:60] if body.description else f"Field report — {body.photo_count} photo(s)"
     report = Report(
         id=report_id,
         pole_id=body.pole_id,
-        title=body.description[:60] if body.description else f"Field report — {body.photo_count} photo(s)",
-        severity=Severity.MEDIUM,
+        title=title,
+        severity=body.severity if body.severity else Severity.MEDIUM,
         submitted_by=ReportAuthor(initials="FT", name="Field tech"),
         submitted_at=datetime.now().isoformat(),
-        location=location_str,
+        location=body.address or location_str,
         status=ReportStatus.OPEN,
     )
     REPORTS.append(report)

@@ -161,3 +161,10 @@ class SubmitReportRequest(BaseModel):
     location: GpsLocation | None
     description: str
     photo_count: int
+    # Extended fields from the field technician form (all optional for back-compat)
+    pole_type: str | None = None
+    classification: str | None = None
+    owner: str | None = None
+    circuit: str | None = None
+    address: str | None = None
+    severity: Severity | None = None
