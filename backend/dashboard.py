@@ -21,8 +21,12 @@ from .dashboard_models import (
     AddNoteRequest,
     DashboardResponse,
     Note,
+    Report,
+    ReportAuthor,
     ReportStatus,
     SelectedReport,
+    Severity,
+    SubmitReportRequest,
     UpdateReportStatusRequest,
     User,
 )
@@ -31,6 +35,7 @@ router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
 
 _notes: dict[str, list[Note]] = {}
 _note_counter = 0
+_report_counter = 0
 
 
 class _ConnectionManager:
@@ -129,6 +134,32 @@ async def add_note(report_id: str, body: AddNoteRequest) -> Note:
     _notes.setdefault(report_id, []).append(note)
     await _manager.broadcast("note_added", {"report_id": report_id, "note": note.model_dump()})
     return note
+
+
+@router.post("/reports", response_model=Report, status_code=201)
+async def submit_report(body: SubmitReportRequest) -> Report:
+    global _report_counter
+    _report_counter += 1
+    report_id = f"RPT-F{_report_counter:04d}"
+    location_str = (
+        f"{body.location.lat:.4f}° N, {abs(body.location.lon):.4f}° W"
+        if body.location
+        else "Location unavailable"
+    )
+    report = Report(
+        id=report_id,
+        pole_id=body.pole_id,
+        title=body.description[:60] if body.description else f"Field report — {body.photo_count} photo(s)",
+        severity=Severity.MEDIUM,
+        submitted_by=ReportAuthor(initials="FT", name="Field tech"),
+        submitted_at=datetime.now().isoformat(),
+        location=location_str,
+        status=ReportStatus.OPEN,
+    )
+    REPORTS.append(report)
+    await _manager.broadcast("report_added", report.model_dump())
+    await _manager.broadcast("kpi_update", get_summary().model_dump())
+    return report
 
 
 @router.patch("/reports/{report_id}/status")
