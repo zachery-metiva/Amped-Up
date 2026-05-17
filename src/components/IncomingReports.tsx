@@ -76,13 +76,13 @@ export function IncomingReports({ reports, predictedReports, selectedReportId, s
   return (
     <div className="card reports-card">
       <div className="reports-head">
-        <div>
+        <div style={{ minWidth: 0, overflow: 'hidden' }}>
           <h4>{mode === 'reported' ? `Reports - ${reports.length} total - ${openCount} open` : `Predicted issues - ${sortedPredictedReports.length} open`}</h4>
           <div className="muted reports-head-sub">
             {mode === 'reported' ? 'Field-submitted issues awaiting review.' : 'Risk-ranked poles without a submitted report.'}
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <button
             onClick={() => { window.location.href = '/reports'; }}
             style={{ fontSize: 11.5, color: '#60A5FA', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 4 }}

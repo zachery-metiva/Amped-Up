@@ -1065,17 +1065,17 @@ h4 {
 }
 
 /* Tablet card rows (< 900px) */
+.ar-rows-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 900px) {
   .ar-table-desktop { display: none; }
 }
 
 @media (min-width: 901px) {
   .ar-rows-mobile { display: none; }
-}
-
-.ar-rows-mobile {
-  display: flex;
-  flex-direction: column;
 }
 
 .ar-row {
