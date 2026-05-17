@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { API_BASE_URL } from '../../config/api';
 import { CapturedPhoto, GpsCoords } from '../../types/submission';
-
-const API_BASE = 'http://127.0.0.1:8000';
 
 type SeverityLevel = 'critical' | 'high' | 'medium' | 'low';
 
@@ -246,7 +245,7 @@ export function FieldReviewStep({ poleId: initialPoleId, poleMetadata, photos, l
 
     setSynthesisState('synthesizing');
     try {
-      const resp = await fetch(`${API_BASE}/api/dashboard/synthesize`, {
+      const resp = await fetch(`${API_BASE_URL}/api/dashboard/synthesize`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -329,7 +328,7 @@ export function FieldReviewStep({ poleId: initialPoleId, poleMetadata, photos, l
         const compressed = await compressPhoto(photo.dataUrl);
         if (cancelledRef.current) break;
 
-        const resp = await fetch(`${API_BASE}/api/dashboard/analyze`, {
+        const resp = await fetch(`${API_BASE_URL}/api/dashboard/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
