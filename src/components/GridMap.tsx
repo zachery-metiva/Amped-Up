@@ -18,12 +18,13 @@ interface GridMapProps {
   riskPoles?: RiskPole[];
 }
 
-function FlyToSelected({ poles, selectedPoleId }: { poles: MapPole[]; selectedPoleId: string | null }) {
+function FlyToSelected({ poles, riskPoles, selectedPoleId }: { poles: MapPole[]; riskPoles: RiskPole[]; selectedPoleId: string | null }) {
   const map = useMap();
   useEffect(() => {
-    const pole = poles.find((p) => p.id === selectedPoleId);
+    const pole = poles.find((p) => p.id === selectedPoleId)
+               ?? riskPoles.find((p) => p.id === selectedPoleId);
     if (pole) map.panTo([pole.lat, pole.lon], { animate: true, duration: 0.4 });
-  }, [selectedPoleId, poles, map]);
+  }, [selectedPoleId, poles, riskPoles, map]);
   return null;
 }
 
@@ -108,18 +109,19 @@ export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole, r
         {/* Risk-layer: hollow dashed circles rendered behind reported poles */}
         {showRiskLayer && riskPoles.map((rp) => {
           const color = SEVERITY_COLOR[rp.predictedSeverity];
+          const isSelected = rp.id === selectedPoleId;
           return (
             <CircleMarker
               key={`risk-${rp.id}`}
               center={[rp.lat, rp.lon]}
-              radius={8}
+              radius={isSelected ? 11 : 8}
               pathOptions={{
-                color,
-                fillColor: color,
-                fillOpacity: 0.08,
-                weight: 1.5,
-                dashArray: '4 3',
-                opacity: 0.75,
+                color: isSelected ? '#A78BFA' : color,
+                fillColor: isSelected ? '#A78BFA' : color,
+                fillOpacity: isSelected ? 0.2 : 0.08,
+                weight: isSelected ? 2.5 : 1.5,
+                dashArray: isSelected ? undefined : '4 3',
+                opacity: isSelected ? 1 : 0.75,
               }}
               eventHandlers={{ click: () => onSelectPole(rp.id) }}
             >
@@ -163,7 +165,7 @@ export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole, r
           );
         })}
 
-        <FlyToSelected poles={poles} selectedPoleId={selectedPoleId} />
+        <FlyToSelected poles={poles} riskPoles={riskPoles} selectedPoleId={selectedPoleId} />
         <FitToPoles poles={poles} selectedPoleId={selectedPoleId} />
       </MapContainer>
     </div>

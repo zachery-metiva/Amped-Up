@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FieldPhotos } from './components/FieldPhotos';
 import { DashboardFilters } from './components/DashboardFilters';
 import { GridMap } from './components/GridMap';
@@ -14,8 +15,12 @@ import { useDashboard } from './hooks/useDashboard';
 export function App() {
   const { data, loading, error, connected, filters, setFilters, search, setSearch, selectReport, addNote, updateReportStatus, updateReportSeverity, riskPoles, riskSummary: fetchedRiskSummary, predictedReports } = useDashboard();
 
+  const [activePredictedPoleId, setActivePredictedPoleId] = useState<string | null>(null);
+
   const selectedReportId = data?.selectedReport?.id ?? null;
   const selectedPoleId = data?.selectedPole?.id ?? null;
+  // For map + list highlighting: prefer a confirmed-report pole, fall back to a predicted pole
+  const mapSelectedPoleId = selectedPoleId ?? activePredictedPoleId;
   const predictedRiskSummary = predictedReports.length > 0
     ? {
         scored: predictedReports.length,
@@ -31,7 +36,13 @@ export function App() {
 
   function handleSelectPole(poleId: string) {
     const report = data?.reports.find((r) => r.poleId === poleId);
-    if (report) selectReport(report.id);
+    if (report) {
+      selectReport(report.id);
+      setActivePredictedPoleId(null);
+    } else {
+      // Predicted pole with no submitted report — just pan the map to it
+      setActivePredictedPoleId(poleId);
+    }
   }
 
   if (loading) {
@@ -114,7 +125,7 @@ export function App() {
         <GridMap
           poles={data.mapPoles}
           totalPoleCount={data.mapPoleCount}
-          selectedPoleId={selectedPoleId}
+          selectedPoleId={mapSelectedPoleId}
           onSelectPole={handleSelectPole}
           riskPoles={riskPoles}
         />
@@ -122,7 +133,7 @@ export function App() {
           reports={data.reports}
           predictedReports={predictedReports}
           selectedReportId={selectedReportId}
-          selectedPoleId={selectedPoleId}
+          selectedPoleId={mapSelectedPoleId}
           onSelectReport={selectReport}
           onSelectPole={handleSelectPole}
         />
