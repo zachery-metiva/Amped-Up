@@ -14,7 +14,6 @@ from .dashboard import router as dashboard_router
 from .data import POLES, SEGMENTS, get_summary
 from .database import Base, SessionLocal, USING_DEFAULT_SQLITE, engine
 from .models import CircuitSegment, PoleRiskProfile, RiskBand, Summary
-from .zeus_api import router as zeus_router
 
 app = FastAPI(title="Amped Up", version="0.2.0")
 
@@ -48,7 +47,6 @@ app.add_middleware(
 )
 
 app.include_router(dashboard_router)
-app.include_router(zeus_router)
 
 
 @app.get("/")
