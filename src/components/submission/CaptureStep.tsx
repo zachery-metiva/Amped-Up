@@ -42,7 +42,8 @@ export function CaptureStep({
   const allTaken = photos.length >= PHOTO_SLOTS.length;
   const canContinue = photos.length >= 1;
   const retakeMode = replacingSlotIndex !== null;
-  const cameraPaused = canContinue && !retakeMode;
+  // Only pause the camera once every slot is filled, not after the first shot
+  const cameraPaused = allTaken && !retakeMode;
   const shouldUseCamera = !cameraPaused;
 
   function stopCamera() {
@@ -141,7 +142,9 @@ export function CaptureStep({
       const slot = PHOTO_SLOTS[activeSlotIndex];
       onPhotoCapture({ id: crypto.randomUUID(), dataUrl, label: slot.shortLabel });
     }
-    stopCamera();
+    // Do NOT call stopCamera() here — the useEffect owns camera lifecycle.
+    // It will stop the stream automatically when shouldUseCamera flips to false
+    // (i.e. once all slots are filled and we're not in retake mode).
   }
 
   function handleSlotClick(i: number, taken: boolean) {
@@ -154,8 +157,8 @@ export function CaptureStep({
     setFacingMode((prev) => (prev === 'environment' ? 'user' : 'environment'));
   }
 
-  // Keep the camera off after one accepted photo; retake mode starts it again.
-  const showShutter = !canContinue || retakeMode;
+  // Show the shutter whenever there are still empty slots (or we're retaking)
+  const showShutter = !allTaken || retakeMode;
 
   return (
     <div className="sub-screen">
@@ -393,9 +396,15 @@ export function CaptureStep({
           </button>
         )}
 
-        {/* Right: compact Continue (1–2 photos, not retaking) or flip camera */}
+        {/* Right: spacer (all taken) | compact Continue (1–2 photos) | flip camera (0 photos) */}
         {cameraPaused ? (
           <span className="sub-control-spacer" aria-hidden="true" />
+        ) : canContinue && !retakeMode ? (
+          <button className="sub-ico-btn" onClick={onContinue} aria-label="Continue to review">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         ) : (
           <button className="sub-ico-btn" onClick={flipCamera} aria-label="Flip camera">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
