@@ -9,7 +9,20 @@ app = FastAPI(title="Amped Up", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    # Allow any Vite dev-server port (5173–5180) plus production origins.
+    # Vite auto-increments the port when the default is busy.
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "http://localhost:5176",
+        "http://localhost:5177",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+        "http://127.0.0.1:5175",
+        "http://127.0.0.1:5176",
+        "http://127.0.0.1:5177",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
