@@ -13,6 +13,8 @@ import {
   Report,
   ReportAuthor,
   ReportStatus,
+  RiskPole,
+  RiskSummary,
   SelectedReport,
   Severity,
   User,
@@ -229,6 +231,30 @@ function mapResponse(raw: JsonObj): DashboardData {
   };
 }
 
+function mapRiskPole(p: JsonObj): RiskPole {
+  return {
+    id: p.id as string,
+    lat: p.lat as number,
+    lon: p.lon as number,
+    riskScore: p.risk_score as number,
+    predictedSeverity: p.predicted_severity as Severity,
+    riskFactors: (p.risk_factors as Record<string, unknown>) ?? null,
+    riskComputedAt: (p.risk_computed_at as string) ?? null,
+  };
+}
+
+function mapRiskSummary(raw: JsonObj, unscored = 0): RiskSummary {
+  return {
+    critical: (raw.critical as number) ?? 0,
+    high: (raw.high as number) ?? 0,
+    medium: (raw.medium as number) ?? 0,
+    low: (raw.low as number) ?? 0,
+    scored: (raw.scored as number) ?? 0,
+    unscored,
+    avgScore: ((raw.avg_score as number) || null),
+  };
+}
+
 export function useDashboard() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -236,6 +262,8 @@ export function useDashboard() {
   const [selectedReportId, setSelectedReportId] = useState<string | null>(null);
   const [filters, setFilters] = useState<DashboardFilterState>(EMPTY_DASHBOARD_FILTERS);
   const [search, setSearch] = useState('');
+  const [riskPoles, setRiskPoles] = useState<RiskPole[]>([]);
+  const [riskSummary, setRiskSummary] = useState<RiskSummary | null>(null);
   const selectedReportIdRef = useRef(selectedReportId);
   const mapFetchRunRef = useRef(0);
   const mapScopeKeyRef = useRef(mapScopeKey(filters, search));
@@ -317,6 +345,34 @@ export function useDashboard() {
       setError('Backend not reachable â€” map nodes could not be loaded.');
     });
   }, [data?.summary.date, filters, search, fetchMapPoles]);
+
+  const fetchRiskLayer = useCallback(async () => {
+    try {
+      const [polesRes, summaryRes] = await Promise.all([
+        fetch(`${API}/risk-poles?limit=3000&min_score=0`),
+        fetch(`${API}/risk-summary`),
+      ]);
+      let unscored = 0;
+      if (polesRes.ok) {
+        const json = (await polesRes.json()) as JsonObj;
+        const poles = ((json.poles as JsonObj[]) ?? []).map(mapRiskPole);
+        unscored = (json.unscored as number) ?? 0;
+        setRiskPoles(poles);
+      }
+      if (summaryRes.ok) {
+        const json = (await summaryRes.json()) as JsonObj;
+        setRiskSummary(mapRiskSummary(json, unscored));
+      }
+    } catch {
+      // Risk layer is best-effort — never block main dashboard
+    }
+  }, []);
+
+  // Fetch risk layer once after the dashboard first loads (backend may not have scored poles yet)
+  useEffect(() => {
+    if (data) fetchRiskLayer();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [!!data]);
 
   const handleWsMessage = useCallback(
     (payload: WsPayload) => {
@@ -400,11 +456,11 @@ export function useDashboard() {
     });
   }, []);
 
-  const updateReportStatus = useCallback(async (reportId: string, status: ReportStatus) => {
+  const updateReportStatus = useCallback(async (reportId: string, status: ReportStatus, note?: string) => {
     await fetch(`${API}/reports/${reportId}/status`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
+      body: JSON.stringify({ status, note: note ?? null }),
     });
   }, []);
 
@@ -434,5 +490,8 @@ export function useDashboard() {
     addNote,
     updateReportStatus,
     updateReportSeverity,
+    riskPoles,
+    riskSummary,
+    refreshRiskLayer: fetchRiskLayer,
   };
 }

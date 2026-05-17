@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background circle -->
+  <circle cx="16" cy="16" r="16" fill="#0B1120"/>
+  <!-- Lightning bolt — amber/yellow, crisp at small sizes -->
+  <polygon
+    points="19,2 10,18 16,18 13,30 22,14 16,14"
+    fill="#FBBF24"
+    stroke="#F59E0B"
+    stroke-width="0.5"
+    stroke-linejoin="round"
+  />
+</svg>

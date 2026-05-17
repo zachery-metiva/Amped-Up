@@ -59,6 +59,8 @@ class MapPole(BaseModel):
     severity: Severity
     lat: float
     lon: float
+    risk_score: float | None = None
+    predicted_severity: str | None = None
 
 
 class Report(BaseModel):
@@ -175,6 +177,7 @@ class AddNoteRequest(BaseModel):
 
 class UpdateReportStatusRequest(BaseModel):
     status: ReportStatus
+    note: str | None = None   # optional evaluator note written on status change
 
 
 class UpdateReportSeverityRequest(BaseModel):
@@ -281,3 +284,33 @@ class SubmitReportRequest(BaseModel):
     circuit: str | None = None
     address: str | None = None
     severity: Severity | None = None
+
+
+class RiskFactor(BaseModel):
+    score: float
+    weight: float
+    label: str
+    evidence: str | None = None
+
+
+class RiskPole(BaseModel):
+    id: str
+    lat: float
+    lon: float
+    risk_score: float
+    predicted_severity: Severity
+    risk_factors: dict | None = None
+    risk_computed_at: str | None = None
+
+
+class RiskPolesResponse(BaseModel):
+    poles: list[RiskPole]
+    total: int
+    unscored: int
+
+
+class ComputeRiskResponse(BaseModel):
+    pole_id: str
+    risk_score: float
+    predicted_severity: Severity
+    risk_factors: dict

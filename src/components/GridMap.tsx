@@ -1,7 +1,7 @@
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { CircleMarker, MapContainer, TileLayer, Tooltip, useMap } from 'react-leaflet';
-import { MapPole, Severity } from '../types';
+import { MapPole, RiskPole, Severity } from '../types';
 
 const SEVERITY_COLOR: Record<Severity, string> = {
   critical: '#EF4444',
@@ -15,6 +15,7 @@ interface GridMapProps {
   totalPoleCount: number;
   selectedPoleId: string | null;
   onSelectPole: (poleId: string) => void;
+  riskPoles?: RiskPole[];
 }
 
 function FlyToSelected({ poles, selectedPoleId }: { poles: MapPole[]; selectedPoleId: string | null }) {
@@ -40,13 +41,17 @@ function FitToPoles({ poles, selectedPoleId }: { poles: MapPole[]; selectedPoleI
   return null;
 }
 
-export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole }: GridMapProps) {
+export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole, riskPoles = [] }: GridMapProps) {
+  const [showRiskLayer, setShowRiskLayer] = useState(false);
+
   const center: [number, number] = poles.length
     ? [
         poles.reduce((sum, pole) => sum + pole.lat, 0) / poles.length,
         poles.reduce((sum, pole) => sum + pole.lon, 0) / poles.length,
       ]
     : [42.3314, -83.0458];
+
+  const hasRiskData = riskPoles.length > 0;
 
   return (
     <div className="card map-card">
@@ -62,6 +67,34 @@ export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole }:
               {severity.charAt(0).toUpperCase() + severity.slice(1)}
             </span>
           ))}
+          {hasRiskData && (
+            <button
+              onClick={() => setShowRiskLayer((v) => !v)}
+              style={{
+                marginLeft: 6,
+                padding: '2px 9px',
+                borderRadius: 999,
+                fontSize: 11,
+                fontWeight: 600,
+                border: `1px solid ${showRiskLayer ? '#A78BFA' : 'var(--border)'}`,
+                background: showRiskLayer ? 'rgba(167,139,250,0.15)' : 'transparent',
+                color: showRiskLayer ? '#A78BFA' : 'var(--muted)',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 5,
+                transition: 'all 0.15s',
+              }}
+              aria-pressed={showRiskLayer}
+              title={`${riskPoles.length.toLocaleString()} predicted-risk poles`}
+            >
+              <svg width="9" height="9" viewBox="0 0 10 10" fill="none" style={{ flexShrink: 0 }}>
+                <circle cx="5" cy="5" r="4" stroke={showRiskLayer ? '#A78BFA' : 'var(--muted)'} strokeWidth="1.5" strokeDasharray="2 1.5" fill="none" />
+              </svg>
+              Predicted risk
+              {showRiskLayer && <span style={{ opacity: 0.7 }}>({riskPoles.length.toLocaleString()})</span>}
+            </button>
+          )}
         </div>
       </div>
 
@@ -72,6 +105,37 @@ export function GridMap({ poles, totalPoleCount, selectedPoleId, onSelectPole }:
           maxZoom={19}
         />
 
+        {/* Risk-layer: hollow dashed circles rendered behind reported poles */}
+        {showRiskLayer && riskPoles.map((rp) => {
+          const color = SEVERITY_COLOR[rp.predictedSeverity];
+          return (
+            <CircleMarker
+              key={`risk-${rp.id}`}
+              center={[rp.lat, rp.lon]}
+              radius={8}
+              pathOptions={{
+                color,
+                fillColor: color,
+                fillOpacity: 0.08,
+                weight: 1.5,
+                dashArray: '4 3',
+                opacity: 0.75,
+              }}
+              eventHandlers={{ click: () => onSelectPole(rp.id) }}
+            >
+              <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+                <strong>{rp.id}</strong>
+                <br />
+                Predicted: {rp.predictedSeverity.charAt(0).toUpperCase() + rp.predictedSeverity.slice(1)}
+                &nbsp;·&nbsp;Score {rp.riskScore.toFixed(0)}
+                <br />
+                {rp.lat.toFixed(5)} N,&nbsp;{Math.abs(rp.lon).toFixed(5)} W
+              </Tooltip>
+            </CircleMarker>
+          );
+        })}
+
+        {/* Reported poles (solid) rendered on top */}
         {poles.map((pole) => {
           const isSelected = pole.id === selectedPoleId;
           const color = SEVERITY_COLOR[pole.severity];
