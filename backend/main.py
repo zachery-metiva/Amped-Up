@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load .env before any env-var reads (watsonx credentials, etc.)
 
 import logging
+import os
 logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(name)s  %(message)s")
 
 from fastapi import FastAPI, HTTPException, Query
@@ -17,11 +18,9 @@ from .zeus_api import router as zeus_router
 
 app = FastAPI(title="Amped Up", version="0.2.0")
 
-app.add_middleware(
-    CORSMiddleware,
-    # Allow any Vite dev-server port (5173–5180) plus production origins.
-    # Vite auto-increments the port when the default is busy.
-    allow_origins=[
+
+def _allowed_origins() -> list[str]:
+    local_origins = [
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
@@ -32,7 +31,17 @@ app.add_middleware(
         "http://127.0.0.1:5175",
         "http://127.0.0.1:5176",
         "http://127.0.0.1:5177",
-    ],
+    ]
+    configured = [
+        origin.strip().rstrip("/")
+        for origin in os.getenv("FRONTEND_ORIGINS", "").split(",")
+        if origin.strip()
+    ]
+    return [*local_origins, *configured]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_allowed_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

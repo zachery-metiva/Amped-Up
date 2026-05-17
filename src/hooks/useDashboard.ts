@@ -18,10 +18,9 @@ import {
   User,
   WsPayload,
 } from '../types';
+import { DASHBOARD_API_URL, DASHBOARD_WS_URL } from '../config/api';
 import { useWebSocket } from './useWebSocket';
 
-const API = 'http://127.0.0.1:8000/api/dashboard';
-const WS_URL = 'ws://127.0.0.1:8000/api/dashboard/ws';
 const MAP_BATCH_SIZE = 1500;
 
 type JsonObj = Record<string, unknown>;
@@ -247,7 +246,7 @@ export function useDashboard() {
       if (reportId) params.set('selected_report_id', reportId);
       appendFilterParams(params, activeFilters, activeSearch);
       const qs = params.toString();
-      const res = await fetch(`${API}${qs ? `?${qs}` : ''}`);
+      const res = await fetch(`${DASHBOARD_API_URL}${qs ? `?${qs}` : ''}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = (await res.json()) as JsonObj;
       const next = mapResponse(json);
@@ -261,7 +260,7 @@ export function useDashboard() {
       });
       setError(null);
     } catch {
-      setError('Backend not reachable — start FastAPI on port 8000.');
+      setError('Backend not reachable. Check the API URL and backend service.');
     } finally {
       setLoading(false);
     }
@@ -289,7 +288,7 @@ export function useDashboard() {
       params.set('limit', String(MAP_BATCH_SIZE));
       appendFilterParams(params, activeFilters, activeSearch);
 
-      const res = await fetch(`${API}/map-poles?${params.toString()}`);
+      const res = await fetch(`${DASHBOARD_API_URL}/map-poles?${params.toString()}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = (await res.json()) as JsonObj;
       const batch = ((json.poles as JsonObj[]) ?? []).map(mapMapPole);
@@ -314,7 +313,7 @@ export function useDashboard() {
   useEffect(() => {
     if (!data) return;
     fetchMapPoles(filters, search).catch(() => {
-      setError('Backend not reachable â€” map nodes could not be loaded.');
+      setError('Backend not reachable. Map nodes could not be loaded.');
     });
   }, [data?.summary.date, filters, search, fetchMapPoles]);
 
@@ -386,14 +385,14 @@ export function useDashboard() {
     [fetchDashboard, filters, search],
   );
 
-  const { connected } = useWebSocket(WS_URL, { onMessage: handleWsMessage });
+  const { connected } = useWebSocket(DASHBOARD_WS_URL, { onMessage: handleWsMessage });
 
   const selectReport = useCallback((reportId: string) => {
     setSelectedReportId(reportId);
   }, []);
 
   const addNote = useCallback(async (reportId: string, content: string) => {
-    await fetch(`${API}/reports/${reportId}/notes`, {
+    await fetch(`${DASHBOARD_API_URL}/reports/${reportId}/notes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content }),
@@ -401,7 +400,7 @@ export function useDashboard() {
   }, []);
 
   const updateReportStatus = useCallback(async (reportId: string, status: ReportStatus) => {
-    await fetch(`${API}/reports/${reportId}/status`, {
+    await fetch(`${DASHBOARD_API_URL}/reports/${reportId}/status`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status }),
@@ -409,7 +408,7 @@ export function useDashboard() {
   }, []);
 
   const updateReportSeverity = useCallback(async (reportId: string, severity: Severity) => {
-    await fetch(`${API}/reports/${reportId}/severity`, {
+    await fetch(`${DASHBOARD_API_URL}/reports/${reportId}/severity`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ severity }),

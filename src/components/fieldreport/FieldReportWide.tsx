@@ -2,9 +2,8 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef, useState } from 'react';
 import { CircleMarker, MapContainer, TileLayer, Tooltip, useMap } from 'react-leaflet';
 import { CapturedPhoto, GpsCoords } from '../../types/submission';
+import { API_BASE_URL } from '../../config/api';
 import type { FieldReportPayload } from './FieldReviewStep';
-
-const API_BASE = 'http://127.0.0.1:8000';
 
 type SeverityLevel = 'critical' | 'high' | 'medium' | 'low';
 
@@ -295,7 +294,7 @@ export function FieldReportWide({ poleId: initialPoleId, onSubmit }: FieldReport
   useEffect(() => {
     if (!location || fetchedNearestRef.current) return;
     fetchedNearestRef.current = true;
-    fetch(`${API_BASE}/api/dashboard/nearest-pole?lat=${location.lat}&lon=${location.lon}`)
+    fetch(`${API_BASE_URL}/api/dashboard/nearest-pole?lat=${location.lat}&lon=${location.lon}`)
       .then(r => r.ok ? r.json() : null)
       .then((data: NearestPole & { pole_id: string } | null) => {
         if (!data) return;
@@ -366,7 +365,7 @@ export function FieldReportWide({ poleId: initialPoleId, onSubmit }: FieldReport
     }
     setSynthesisState('synthesizing');
     try {
-      const resp = await fetch(`${API_BASE}/api/dashboard/synthesize`, {
+      const resp = await fetch(`${API_BASE_URL}/api/dashboard/synthesize`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -442,7 +441,7 @@ export function FieldReportWide({ poleId: initialPoleId, onSubmit }: FieldReport
       try {
         const compressed = await compressPhoto(photo.dataUrl);
         if (cancelledRef.current) break;
-        const resp = await fetch(`${API_BASE}/api/dashboard/analyze`, {
+        const resp = await fetch(`${API_BASE_URL}/api/dashboard/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

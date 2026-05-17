@@ -5,10 +5,9 @@ import { FieldReportWide } from '../components/fieldreport/FieldReportWide';
 import { CapturedPhoto, GpsCoords } from '../types/submission';
 import { randomPoleId } from '../utils/randomPole';
 import { useWindowWidth } from '../hooks/useWindowWidth';
+import { DASHBOARD_API_URL } from '../config/api';
 import '../submission.css';
 import '../field-report.css';
-
-const DASHBOARD_API = 'http://127.0.0.1:8000/api/dashboard';
 
 async function responseError(res: Response): Promise<Error> {
   try {
@@ -41,7 +40,7 @@ export function FieldReport() {
   useEffect(() => {
     if (!location || nearestFetchedRef.current || isWide) return;
     nearestFetchedRef.current = true;
-    fetch(`${DASHBOARD_API}/nearest-pole?lat=${location.lat}&lon=${location.lon}`)
+    fetch(`${DASHBOARD_API_URL}/nearest-pole?lat=${location.lat}&lon=${location.lon}`)
       .then(r => r.ok ? r.json() : null)
       .then((data: { pole_id: string; classification?: string; owner?: string; circuit?: string; address?: string } | null) => {
         if (!data?.pole_id) return;
@@ -83,7 +82,7 @@ export function FieldReport() {
   }
 
   async function handleSubmit(payload: FieldReportPayload) {
-    const res = await fetch(`${DASHBOARD_API}/reports?cache_bust=${Date.now()}`, {
+    const res = await fetch(`${DASHBOARD_API_URL}/reports?cache_bust=${Date.now()}`, {
       method: 'POST',
       cache: 'no-store',
       headers: { 'Content-Type': 'application/json' },

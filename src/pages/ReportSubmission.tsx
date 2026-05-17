@@ -4,10 +4,10 @@ import { ReviewStep } from '../components/submission/ReviewStep';
 import { SafetyModal } from '../components/submission/SafetyModal';
 import { CapturedPhoto, GpsCoords, SubmissionStep, SubmitReportPayload } from '../types/submission';
 import { randomPoleId } from '../utils/randomPole';
+import { DASHBOARD_API_URL } from '../config/api';
 import '../submission.css';
 
 const DEFAULT_POLE_ID = new URLSearchParams(window.location.search).get('pole') ?? randomPoleId();
-const DASHBOARD_API = 'http://127.0.0.1:8000/api/dashboard';
 
 async function responseError(res: Response): Promise<Error> {
   try {
@@ -40,7 +40,7 @@ export function ReportSubmission() {
   }
 
   async function handleSubmit(payload: SubmitReportPayload) {
-    const res = await fetch(`${DASHBOARD_API}/reports?cache_bust=${Date.now()}`, {
+    const res = await fetch(`${DASHBOARD_API_URL}/reports?cache_bust=${Date.now()}`, {
       method: 'POST',
       cache: 'no-store',
       headers: { 'Content-Type': 'application/json' },

@@ -80,6 +80,64 @@ Open the Vite URL shown in the terminal (default: `http://127.0.0.1:5173`).
 
 ---
 
+## Deployment
+
+### Frontend: GitHub Pages
+
+The workflow at `.github/workflows/deploy-frontend.yml` builds the Vite app and publishes `dist/` to GitHub Pages.
+
+Production domain:
+
+```text
+https://amped-up.online
+```
+
+The Vite build includes `public/CNAME`, so the Pages artifact contains the custom domain. In the GitHub repository, add this secret before running the workflow:
+
+```env
+VITE_API_BASE_URL=https://your-render-service.onrender.com
+```
+
+Then open **Settings > Pages**, set the source to **GitHub Actions**, set the custom domain to `amped-up.online`, and enable **Enforce HTTPS** once GitHub allows it.
+
+Configure the domain DNS for GitHub Pages:
+
+```text
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+AAAA  @    2606:50c0:8000::153
+AAAA  @    2606:50c0:8001::153
+AAAA  @    2606:50c0:8002::153
+AAAA  @    2606:50c0:8003::153
+CNAME www  CarlSciz.github.io
+```
+
+Do not include the repository name in the `www` CNAME target.
+
+### Backend: Render Free Web Service
+
+Render can use `render.yaml` from the repository root. Create a new Blueprint/Web Service from the repo, then set these environment variables in Render:
+
+```env
+DATABASE_URL=postgresql://your-neon-pooled-connection-string?sslmode=require
+FRONTEND_ORIGINS=https://amped-up.online,https://www.amped-up.online
+WATSONX_API_KEY=...
+WATSONX_PROJECT_ID=...
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
+```
+
+Render runs Alembic migrations before starting FastAPI:
+
+```bash
+python -m alembic upgrade head && python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+```
+
+Use Neon's pooled connection string for `DATABASE_URL`; the local SQLite fallback is only for development.
+
+---
+
 ## API Reference
 
 ### Risk profiler (original)
