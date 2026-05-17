@@ -76,29 +76,41 @@ export function IncomingReports({ reports, predictedReports, selectedReportId, s
   return (
     <div className="card reports-card">
       <div className="reports-head">
-        <div>
+        <div style={{ minWidth: 0, overflow: 'hidden' }}>
           <h4>{mode === 'reported' ? `Reports - ${reports.length} total - ${openCount} open` : `Predicted issues - ${sortedPredictedReports.length} open`}</h4>
           <div className="muted reports-head-sub">
             {mode === 'reported' ? 'Field-submitted issues awaiting review.' : 'Risk-ranked poles without a submitted report.'}
           </div>
         </div>
-        <div className="issue-switch" role="group" aria-label="Issue list mode">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <button
-            type="button"
-            className={mode === 'reported' ? 'active' : ''}
-            aria-pressed={mode === 'reported'}
-            onClick={() => setMode('reported')}
+            onClick={() => { window.location.href = '/reports'; }}
+            style={{ fontSize: 11.5, color: '#60A5FA', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+            aria-label="View all reports"
           >
-            Reported
+            View all{' '}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ verticalAlign: 'middle' }}>
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </button>
-          <button
-            type="button"
-            className={mode === 'predicted' ? 'active' : ''}
-            aria-pressed={mode === 'predicted'}
-            onClick={() => setMode('predicted')}
-          >
-            Predicted
-          </button>
+          <div className="issue-switch" role="group" aria-label="Issue list mode">
+            <button
+              type="button"
+              className={mode === 'reported' ? 'active' : ''}
+              aria-pressed={mode === 'reported'}
+              onClick={() => setMode('reported')}
+            >
+              Reported
+            </button>
+            <button
+              type="button"
+              className={mode === 'predicted' ? 'active' : ''}
+              aria-pressed={mode === 'predicted'}
+              onClick={() => setMode('predicted')}
+            >
+              Predicted
+            </button>
+          </div>
         </div>
       </div>
 

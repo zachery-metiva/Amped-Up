@@ -193,6 +193,32 @@ export interface DashboardData {
   noteCount: number;
 }
 
+export interface AllReportRow {
+  id: string;
+  poleId: string;
+  title: string;
+  severity: Severity;
+  status: ReportStatus;
+  submittedAt: string;
+  location: string;
+  description: string | null;
+  submittedBy: ReportAuthor;
+  poleLat: number;
+  poleLon: number;
+  poleAddress: string;
+  poleClassification: string;
+  poleCircuit: string;
+  riskScore: number | null;
+  predictedSeverity: string | null;
+}
+
+export interface AllReportsResponse {
+  reports: AllReportRow[];
+  total: number;
+  page: number;
+  pages: number;
+}
+
 export type WsPayload =
   | { event: 'connected'; data: Record<string, unknown> }
   | { event: 'pong' }

@@ -128,13 +128,8 @@ def build_ibm_model_package(output_dir: Path = DEFAULT_PACKAGE_DIR) -> dict[str,
 def get_ibm_model_build_plan() -> dict[str, Any]:
     records = build_training_records()
     return {
-        "can_use_zeus_for_ibm_mvi": True,
-        "role_of_zeus": (
-            "Zeus should orchestrate model-building data: regulation labels, defect mappings, "
-            "severity policy, expected dashboard JSON, and post-inference compliance reasoning."
-        ),
         "role_of_ibm_mvi": (
-            "IBM MVI should train/host the visual recognition model that classifies uploaded pole images."
+            "IBM MVI trains/hosts the visual recognition model that classifies uploaded pole images."
         ),
         "record_count": len(records),
         "local_package_dir": str(DEFAULT_PACKAGE_DIR.relative_to(PROJECT_ROOT)),
@@ -146,8 +141,8 @@ def get_ibm_model_build_plan() -> dict[str, Any]:
         ],
         "live_app_flow": [
             "Field technician submits photos.",
-            "MVI predicts visual labels and confidence.",
-            "Zeus maps labels to NESC/OSHA/MPSC rules and dashboard severity.",
+            "IBM watsonx Granite Vision analyzes photos and identifies structural violations.",
+            "AI maps findings to NESC/OSHA/MPSC rules and assigns dashboard severity.",
             "Dashboard report stores violation_type_id, evidence requirements, specifications, and action.",
         ],
     }

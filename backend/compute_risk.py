@@ -15,6 +15,7 @@ from sqlalchemy import select
 from .database import SessionLocal
 from . import orm_models as dbm
 from .risk_engine import compute_pole_risk
+from .ai_report_generator import upsert_ai_report
 
 
 def run(limit: int | None = None, pole_id: str | None = None) -> None:
@@ -45,6 +46,8 @@ def run(limit: int | None = None, pole_id: str | None = None) -> None:
                 predicted.generated_at = updates["risk_computed_at"]
                 if predicted.status != dbm.ReportStatus.DISMISSED:
                     predicted.status = dbm.ReportStatus.OPEN
+                # Auto-generate an AI report for this pole
+                upsert_ai_report(db, pole)
                 db.commit()
                 sev = updates["predicted_severity"]
                 score = updates["risk_score"]

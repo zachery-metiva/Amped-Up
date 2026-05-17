@@ -243,24 +243,6 @@ function mapRiskPole(p: JsonObj): RiskPole {
   };
 }
 
-function mapPredictedReport(r: JsonObj): PredictedReport {
-  return {
-    id: r.id as string,
-    poleId: r.pole_id as string,
-    title: r.title as string,
-    predictedSeverity: r.predicted_severity as Severity,
-    riskScore: r.risk_score as number,
-    riskFactors: (r.risk_factors as Record<string, unknown>) ?? null,
-    status: r.status as ReportStatus,
-    generatedAt: r.generated_at as string,
-    lat: r.lat as number,
-    lon: r.lon as number,
-    classification: r.classification as string,
-    owner: r.owner as string,
-    circuit: r.circuit as string,
-    address: r.address as string,
-  };
-}
 
 function mapRiskSummary(raw: JsonObj, unscored = 0): RiskSummary {
   return {
@@ -368,10 +350,9 @@ export function useDashboard() {
 
   const fetchRiskLayer = useCallback(async () => {
     try {
-      const [polesRes, summaryRes, predictedRes] = await Promise.all([
-        fetch(`${DASHBOARD_API_URL}/risk-poles?limit=3000&min_score=0`),
+      const [polesRes, summaryRes] = await Promise.all([
+        fetch(`${DASHBOARD_API_URL}/risk-poles?limit=2000&min_score=0`),
         fetch(`${DASHBOARD_API_URL}/risk-summary`),
-        fetch(`${DASHBOARD_API_URL}/predicted-reports?status=open&limit=1000`),
       ]);
       let unscored = 0;
       if (polesRes.ok) {
@@ -379,14 +360,28 @@ export function useDashboard() {
         const poles = ((json.poles as JsonObj[]) ?? []).map(mapRiskPole);
         unscored = (json.unscored as number) ?? 0;
         setRiskPoles(poles);
+        // Derive predicted reports directly from scored poles — no separate table needed
+        const derived: PredictedReport[] = poles.map((p) => ({
+          id: `PRED-${p.id}`,
+          poleId: p.id,
+          title: `Predicted ${p.predictedSeverity} risk - ${p.id}`,
+          predictedSeverity: p.predictedSeverity,
+          riskScore: p.riskScore,
+          riskFactors: p.riskFactors,
+          status: 'open' as ReportStatus,
+          generatedAt: p.riskComputedAt ?? new Date().toISOString(),
+          lat: p.lat,
+          lon: p.lon,
+          classification: '',
+          owner: '',
+          circuit: '',
+          address: '',
+        }));
+        setPredictedReports(derived);
       }
       if (summaryRes.ok) {
         const json = (await summaryRes.json()) as JsonObj;
         setRiskSummary(mapRiskSummary(json, unscored));
-      }
-      if (predictedRes.ok) {
-        const json = (await predictedRes.json()) as JsonObj;
-        setPredictedReports(((json.reports as JsonObj[]) ?? []).map(mapPredictedReport));
       }
     } catch {
       // Risk layer is best-effort — never block main dashboard

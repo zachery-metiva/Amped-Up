@@ -337,3 +337,29 @@ class ComputeRiskResponse(BaseModel):
     risk_score: float
     predicted_severity: Severity
     risk_factors: dict
+
+
+class AllReportRow(BaseModel):
+    id: str
+    pole_id: str
+    title: str
+    severity: Severity
+    status: ReportStatus
+    submitted_at: str
+    location: str
+    description: str | None
+    submitted_by: ReportAuthor
+    pole_lat: float
+    pole_lon: float
+    pole_address: str
+    pole_classification: str
+    pole_circuit: str
+    risk_score: float | None
+    predicted_severity: str | None
+
+
+class AllReportsResponse(BaseModel):
+    reports: list[AllReportRow]
+    total: int
+    page: int
+    pages: int
