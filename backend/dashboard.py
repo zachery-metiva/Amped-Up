@@ -60,6 +60,7 @@ from .dashboard_models import (
 )
 from .risk_engine import compute_pole_risk
 from .photo_analysis import analyze_report_photos
+from .ai_report_generator import upsert_ai_report, ensure_ai_user
 from .watsonx_analyzer import VISION_MODEL_ID, get_analyzer
 
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
@@ -801,6 +802,41 @@ def get_risk_summary(db: Session = Depends(get_db)) -> dict:
         **counts,
         "avg_score": round(avg, 1),
     }
+
+
+@router.post("/risk-poles/generate-reports")
+def generate_ai_reports(
+    force: bool = Query(False, description="Regenerate reports that already exist"),
+    limit: int = Query(0, ge=0, description="Max poles to process (0 = all)"),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Generate or refresh AI risk-assessment reports for all scored poles."""
+    ensure_ai_user(db)
+    q = select(dbm.Pole).where(dbm.Pole.risk_score.isnot(None)).order_by(dbm.Pole.risk_score.desc())
+    poles = list(db.scalars(q).all())
+    if limit:
+        poles = poles[:limit]
+
+    created = updated = skipped = errors = 0
+    for pole in poles:
+        try:
+            report_id = f"AI-{pole.id}"
+            existing = db.get(dbm.Report, report_id)
+            if existing and not force:
+                skipped += 1
+                continue
+            was_new = existing is None
+            upsert_ai_report(db, pole)
+            db.commit()
+            if was_new:
+                created += 1
+            else:
+                updated += 1
+        except Exception as exc:
+            db.rollback()
+            errors += 1
+
+    return {"created": created, "updated": updated, "skipped": skipped, "errors": errors, "total": len(poles)}
 
 
 def _upsert_predicted_report(db: Session, pole: dbm.Pole, updates: dict[str, Any]) -> None:
