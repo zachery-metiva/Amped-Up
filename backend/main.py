@@ -3,6 +3,7 @@ load_dotenv()  # Load .env before any env-var reads (watsonx credentials, etc.)
 
 import logging
 import os
+from urllib.parse import urlparse
 logging.basicConfig(level=logging.INFO, format="%(levelname)s  %(name)s  %(message)s")
 
 from fastapi import FastAPI, HTTPException, Query
@@ -18,8 +19,23 @@ from .models import CircuitSegment, PoleRiskProfile, RiskBand, Summary
 app = FastAPI(title="Amped Up", version="0.2.0")
 
 
+def _normalize_origin(origin: str) -> str | None:
+    cleaned = origin.strip().rstrip("/")
+    if not cleaned:
+        return None
+    if cleaned.startswith("https//"):
+        cleaned = cleaned.replace("https//", "https://", 1)
+    if cleaned.startswith("http//"):
+        cleaned = cleaned.replace("http//", "http://", 1)
+
+    parsed = urlparse(cleaned)
+    if not parsed.scheme or not parsed.netloc:
+        return None
+    return f"{parsed.scheme}://{parsed.netloc}".lower()
+
+
 def _allowed_origins() -> list[str]:
-    local_origins = [
+    default_origins = [
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
@@ -30,13 +46,16 @@ def _allowed_origins() -> list[str]:
         "http://127.0.0.1:5175",
         "http://127.0.0.1:5176",
         "http://127.0.0.1:5177",
+        "https://amped-up.online",
+        "https://www.amped-up.online",
+        "https://carlsciz.github.io",
     ]
     configured = [
-        origin.strip().rstrip("/")
+        normalized
         for origin in os.getenv("FRONTEND_ORIGINS", "").split(",")
-        if origin.strip()
+        if (normalized := _normalize_origin(origin))
     ]
-    return [*local_origins, *configured]
+    return list(dict.fromkeys([*default_origins, *configured]))
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amped Up Application Workflow Architecture</title>
+    <style>
+      :root {
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #cbd5e1;
+        --panel: #ffffff;
+        --soft: #f8fafc;
+        --blue: #2563eb;
+        --cyan: #0891b2;
+        --teal: #0f766e;
+        --green: #16a34a;
+        --amber: #f59e0b;
+        --orange: #ea580c;
+        --red: #dc2626;
+        --violet: #7c3aed;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #e2e8f0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+      }
+
+      .canvas {
+        width: 1200px;
+        height: 675px;
+        padding: 26px 30px 24px;
+        background:
+          radial-gradient(circle at 14% 16%, rgba(37, 99, 235, 0.11), transparent 30%),
+          radial-gradient(circle at 86% 16%, rgba(20, 184, 166, 0.12), transparent 28%),
+          linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        overflow: hidden;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      h1 span {
+        color: #0f766e;
+      }
+
+      .subtitle {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .domain {
+        min-width: 196px;
+        padding: 11px 14px;
+        border: 1px solid #bfdbfe;
+        border-radius: 16px;
+        background: #eff6ff;
+        color: #1e40af;
+        font-size: 13px;
+        font-weight: 850;
+        text-align: right;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: 330px 54px 376px 54px 330px;
+        gap: 0;
+        align-items: stretch;
+        margin-top: 52px;
+      }
+
+      .stage {
+        min-height: 458px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #dbe3ef;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.09);
+        overflow: hidden;
+      }
+
+      .stage-title {
+        padding: 15px 17px 10px;
+        border-bottom: 1px solid #e2e8f0;
+        text-align: center;
+      }
+
+      .stage-title h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.08;
+      }
+
+      .stage-title p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .art {
+        height: 142px;
+        margin: 13px 15px 8px;
+        border-radius: 15px;
+        background: #f8fafc;
+        overflow: hidden;
+      }
+
+      .art svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .items {
+        display: grid;
+        gap: 9px;
+        padding: 0 15px 16px;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 13px;
+        background: var(--soft);
+      }
+
+      .icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .item strong {
+        display: block;
+        font-size: 13px;
+        line-height: 1.1;
+      }
+
+      .item p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 11.4px;
+        line-height: 1.28;
+      }
+
+      .arrow {
+        display: grid;
+        place-items: center;
+      }
+
+      .arrow::before {
+        width: 42px;
+        height: 4px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #93c5fd, #2563eb);
+        content: "";
+      }
+
+      .arrow::after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 13px solid #2563eb;
+        margin-left: 40px;
+        content: "";
+      }
+
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin: auto 15px 15px;
+        padding: 10px;
+        border: 1px dashed #93c5fd;
+        border-radius: 14px;
+        background: #eff6ff;
+      }
+
+      .step {
+        min-height: 58px;
+        display: grid;
+        place-items: center;
+        padding: 7px;
+        border-radius: 11px;
+        background: white;
+        color: #334155;
+        font-size: 10.5px;
+        font-weight: 850;
+        line-height: 1.18;
+        text-align: center;
+      }
+
+      .step b {
+        display: block;
+        color: var(--blue);
+        font-size: 16px;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 376px;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .footer div {
+        min-height: 66px;
+        padding: 10px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer strong {
+        display: block;
+        font-size: 12.5px;
+      }
+
+      .footer p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 10.8px;
+        line-height: 1.25;
+      }
+
+      @media (max-width: 1240px) {
+        body {
+          place-items: start;
+          overflow: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="canvas" aria-label="Amped Up workflow architecture">
+      <header>
+        <div>
+          <h1><span>Amped Up:</span> Application Workflow Architecture</h1>
+          <div class="subtitle">Field evidence to AI validation, predictive risk, and real-time utility operations dashboard</div>
+        </div>
+        <div class="domain">amped-up.online</div>
+      </header>
+
+      <section class="workflow">
+        <article class="stage">
+          <div class="stage-title">
+            <h2>Data Collection</h2>
+            <p>The field layer</p>
+          </div>
+          <div class="art">
+            <svg viewBox="0 0 330 142" role="img" aria-label="Field poles and mobile capture">
+              <rect width="330" height="142" fill="#ecfeff" />
+              <path d="M0 102 C58 76 113 112 170 88 C235 62 274 76 330 50 L330 142 L0 142Z" fill="#bbf7d0" />
+              <path d="M98 26 L98 121 M78 48 H118 M84 66 H112 M215 18 L215 116 M190 40 H238 M198 58 H232" stroke="#92400e" stroke-width="7" stroke-linecap="round" />
+              <path d="M98 50 C137 70 177 57 215 39 M98 68 C139 91 180 76 215 58" stroke="#475569" stroke-width="3" fill="none" stroke-linecap="round" />
+              <circle cx="48" cy="52" r="11" fill="#0f766e" />
+              <rect x="32" y="66" width="32" height="30" rx="10" fill="#0f766e" />
+              <rect x="70" y="68" width="35" height="52" rx="9" fill="#111827" />
+              <rect x="76" y="76" width="23" height="32" rx="4" fill="#ccfbf1" />
+              <circle cx="87" cy="113" r="2" fill="#ccfbf1" />
+              <circle cx="282" cy="44" r="15" fill="#2563eb" />
+              <path d="M274 44 H290 M282 36 V52" stroke="white" stroke-width="3" stroke-linecap="round" />
+              <text x="164" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#166534">Community photos, Utility Agent Photos, GPS, Structure concerns</text>
+            </svg>
+          </div>
+          <div class="items">
+            <div class="item"><span class="icon" style="background: var(--green)">01</span><div><strong>Community & Utility Employee<br />Photo Capture</strong><p>Community members and utility workers capture pole structure integrity, GPS position, and more on-site detailed descriptions near real time.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--cyan)">02</span><div><strong>Pole and map data</strong><p>DTE/OSM pole data supplies asset location, circuit, owner, classification, and local context.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--amber)">03</span><div><strong>Risk signals</strong><p>Environmental and asset indicators feed vegetation, flood, soil, age, lean, and inspection risk.</p></div></div>
+          </div>
+        </article>
+
+        <div class="arrow" aria-hidden="true"></div>
+
+        <article class="stage">
+          <div class="stage-title">
+            <h2>Cloud Processing</h2>
+            <p>The AI and API engine</p>
+          </div>
+          <div class="art">
+            <svg viewBox="0 0 376 142" role="img" aria-label="Cloud processing and database">
+              <rect width="376" height="142" fill="#eff6ff" />
+              <path d="M54 105 H322 M116 105 V45 H190 M260 105 V45 H202" stroke="#93c5fd" stroke-width="2" fill="none" />
+              <g transform="translate(32 70)">
+                <ellipse cx="38" cy="9" rx="38" ry="9" fill="#0f766e" />
+                <rect y="9" width="76" height="38" fill="#14b8a6" />
+                <ellipse cx="38" cy="47" rx="38" ry="9" fill="#0f766e" />
+                <path d="M16 22 H60 M16 34 H60" stroke="#ccfbf1" stroke-width="4" stroke-linecap="round" />
+              </g>
+              <rect x="126" y="24" width="124" height="78" rx="16" fill="#2563eb" />
+              <rect x="143" y="42" width="90" height="11" rx="6" fill="#bfdbfe" />
+              <rect x="143" y="62" width="62" height="9" rx="5" fill="#93c5fd" />
+              <rect x="143" y="80" width="78" height="9" rx="5" fill="#60a5fa" />
+              <rect x="282" y="62" width="58" height="54" rx="14" fill="#7c3aed" />
+              <path d="M296 96 C291 87 296 76 307 76 C312 66 328 72 326 84 C337 86 338 99 326 102 H301 C299 102 297 100 296 96Z" fill="#ede9fe" />
+            </svg>
+          </div>
+          <div class="items">
+            <div class="item"><span class="icon" style="background: var(--blue)">API</span><div><strong>Render FastAPI service</strong><p>REST routes handle dashboard state, report submission, notes, status updates, photos, and WebSocket events.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--teal)">DB</span><div><strong>PostgreSQL</strong><p>Stores poles, reports, photos, users, history, violation rules, notes, and predicted_reports rows.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--violet)">AI</span><div><strong>Watsonx + risk engine</strong><p>AI validates utility photos while daily cron computes predictive risk and severity bands.</p></div></div>
+          </div>
+        </article>
+
+        <div class="arrow" aria-hidden="true"></div>
+
+        <article class="stage">
+          <div class="stage-title">
+            <h2>Data Consumption</h2>
+            <p>The operations interface</p>
+          </div>
+          <div class="art">
+            <svg viewBox="0 0 330 142" role="img" aria-label="Dashboard and mobile views">
+              <rect width="330" height="142" fill="#f8fafc" />
+              <rect x="45" y="20" width="188" height="104" rx="16" fill="#111827" />
+              <rect x="56" y="32" width="166" height="80" rx="8" fill="#1e293b" />
+              <rect x="68" y="44" width="82" height="56" rx="8" fill="#0f172a" />
+              <path d="M76 84 C95 60 115 82 141 54" stroke="#38bdf8" stroke-width="4" fill="none" stroke-linecap="round" />
+              <circle cx="91" cy="72" r="5" fill="#dc2626" />
+              <circle cx="128" cy="62" r="5" fill="#f59e0b" />
+              <rect x="162" y="46" width="46" height="9" rx="5" fill="#e2e8f0" />
+              <rect x="162" y="64" width="34" height="7" rx="4" fill="#94a3b8" />
+              <rect x="162" y="80" width="42" height="7" rx="4" fill="#94a3b8" />
+              <rect x="244" y="42" width="52" height="82" rx="14" fill="#111827" />
+              <rect x="251" y="53" width="38" height="58" rx="7" fill="#0f766e" />
+              <rect x="257" y="62" width="26" height="7" rx="4" fill="#ccfbf1" />
+              <rect x="257" y="78" width="20" height="6" rx="3" fill="#99f6e4" />
+              <text x="164" y="135" text-anchor="middle" font-size="12" font-weight="800" fill="#334155">dashboard, map, reports, predicted issues</text>
+            </svg>
+          </div>
+          <div class="items">
+            <div class="item"><span class="icon" style="background: var(--orange)">WEB</span><div><strong>React and Vite</strong><p>The dashboard renders map views, submitted reports, predicted issues, pole details, photos, and review actions.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--red)">LIVE</span><div><strong>Operations dashboard</strong><p>Operators review community reports, assign severity, approve or dismiss work, add notes, and track live KPIs.</p></div></div>
+            <div class="item"><span class="icon" style="background: var(--violet)">RISK</span><div><strong>Predicted issue view</strong><p>Switch shows predicted reports and risk strip totals sourced from the daily risk table.</p></div></div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </body>
+</html>
