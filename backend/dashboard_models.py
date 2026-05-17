@@ -200,6 +200,9 @@ class AnalyzeResponse(BaseModel):
     confidence: str
     powered_by: str
     visual_observations: list[str] | None = None
+    is_utility_structure: bool = True
+    structure_confidence: int = 70
+    rejection_reason: str | None = None
 
 
 class GpsLocation(BaseModel):
@@ -255,6 +258,9 @@ class PhotoAnalysis(BaseModel):
     regulations: list[str] = Field(default_factory=list)
     evidence_required: str | None = None
     specifications: dict[str, str | int | float | None] = Field(default_factory=dict)
+    is_utility_structure: bool = True
+    structure_confidence: int = 70
+    rejection_reason: str | None = None
 
 
 class AnalyzePhotosRequest(BaseModel):

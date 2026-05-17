@@ -50,9 +50,48 @@ from .dashboard_models import (
     UpdateReportStatusRequest,
 )
 from .photo_analysis import analyze_report_photos
-from .watsonx_analyzer import get_analyzer
+from .watsonx_analyzer import VISION_MODEL_ID, get_analyzer
 
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
+
+
+def _submitted_photo_data_urls(body: SubmitReportRequest) -> list[str]:
+    return [photo.data_url for photo in body.photos if photo.data_url.startswith("data:image")]
+
+
+def _utility_structure_validation(body: SubmitReportRequest) -> dict[str, Any]:
+    photo_urls = _submitted_photo_data_urls(body)
+    if not photo_urls:
+        raise HTTPException(status_code=422, detail="Attach at least one photo of the utility pole or utility structure.")
+
+    analyzer = get_analyzer()
+    if not analyzer.is_configured:
+        raise HTTPException(
+            status_code=503,
+            detail="Watson vision validation is not configured, so this photo cannot be verified as a utility structure.",
+        )
+
+    try:
+        validation = analyzer.analyze(
+            description=body.description or "",
+            pole_type=body.pole_type,
+            photo_count=len(photo_urls),
+            photos=photo_urls[:1],
+        )
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(
+            status_code=503,
+            detail="Watson vision validation failed, so this report was not submitted.",
+        ) from exc
+    if VISION_MODEL_ID not in str(validation.get("powered_by", "")):
+        raise HTTPException(
+            status_code=503,
+            detail="Watson vision validation was unavailable, so this report was not submitted.",
+        )
+    if not validation.get("is_utility_structure", True):
+        reason = validation.get("rejection_reason") or "The submitted image does not appear to contain a utility pole or utility structure."
+        raise HTTPException(status_code=422, detail=reason)
+    return validation
 
 
 class _ConnectionManager:
@@ -235,7 +274,11 @@ async def submit_report(
         field_user = dbm.User(id="field-tech", initials="FT", name="Field tech", role="Field technician")
         db.add(field_user)
 
+    structure_validation = _utility_structure_validation(body)
     analysis = body.ai_analysis or analyze_report_photos(body.photos, body.description)
+    analysis.is_utility_structure = bool(structure_validation.get("is_utility_structure", True))
+    analysis.structure_confidence = int(structure_validation.get("structure_confidence", analysis.confidence))
+    analysis.rejection_reason = structure_validation.get("rejection_reason")
     report_severity = dbm.Severity(body.severity.value if body.severity else analysis.severity.value)
     pole = db.get(dbm.Pole, body.pole_id)
     if not pole:
@@ -276,6 +319,7 @@ async def submit_report(
             f"AI summary: {analysis.finding}",
             f"Evidence required: {analysis.evidence_required}" if analysis.evidence_required else None,
             f"Regulatory references: {', '.join(analysis.regulations)}" if analysis.regulations else None,
+            f"Utility structure validation: {analysis.structure_confidence}% confidence",
             f"Recommended action: {analysis.action}",
         ]
         if part
@@ -439,6 +483,9 @@ async def analyze_inspection(body: AnalyzeRequest) -> AnalyzeResponse:
         confidence=result.get("confidence", "medium"),
         powered_by=result.get("powered_by", "watsonx.ai"),
         visual_observations=result.get("visual_observations") or None,
+        is_utility_structure=bool(result.get("is_utility_structure", True)),
+        structure_confidence=int(result.get("structure_confidence", result.get("ai_score", 70))),
+        rejection_reason=result.get("rejection_reason"),
     )
 
 

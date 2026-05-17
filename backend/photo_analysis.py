@@ -190,4 +190,7 @@ def analyze_report_photos(photos: list[SubmittedPhoto], description: str | None 
         regulations=list(template.regulations),
         evidence_required=template.evidence_required,
         specifications=template.specifications,
+        is_utility_structure=True,
+        structure_confidence=55,
+        rejection_reason=None,
     )

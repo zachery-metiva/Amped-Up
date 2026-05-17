@@ -202,6 +202,9 @@ NESC 2023 (IEEE C2), MIOSHA Part 86, MPSC R 460.3504, and ANSI O5.1-2023.
 
 Your job is to analyze a field technician's inspection report and return a \
 structured JSON assessment with:
+- is_utility_structure: boolean, true only when the report/photos describe an electric utility pole, service pole, transmission/distribution structure, transformer bank, recloser, riser, guy/anchor assembly, or directly attached utility equipment
+- structure_confidence: integer 0-100 for that utility-structure decision
+- rejection_reason: short string when is_utility_structure is false, otherwise null
 - severity: "critical" | "high" | "medium" | "low"  (mapped from OSHA class)
 - violations: array of detected violation identifiers from the taxonomy
 - osha_class: "imminent_danger" | "serious" | "other_than_serious" | "de_minimis"
@@ -227,6 +230,9 @@ structural anomaly, clearance violation, or safety hazard.
 
 Return ONLY a single valid JSON object — no markdown, no explanation:
 {
+  "is_utility_structure": true | false,
+  "structure_confidence": 0-100,
+  "rejection_reason": null | "short reason this is not a utility pole/utility structure",
   "severity": "critical" | "high" | "medium" | "low",
   "violations": ["violation_id_1", "violation_id_2"],
   "osha_class": "imminent_danger" | "serious" | "other_than_serious" | "de_minimis",
@@ -236,6 +242,12 @@ Return ONLY a single valid JSON object — no markdown, no explanation:
   "confidence": "high" | "medium" | "low",
   "visual_observations": ["brief description of each defect you can see"]
 }
+
+First decide whether the image contains an electric utility pole, service pole, distribution or \
+transmission structure, transformer bank, recloser, riser, guy/anchor assembly, or directly \
+attached utility equipment. If it does not, set is_utility_structure to false, set severity \
+"low", violations ["not_utility_structure"], osha_class "de_minimis", and explain why in \
+rejection_reason. Do not invent pole findings for non-utility images.
 
 Severity mapping:
   imminent_danger    → critical  (visible immediate collapse or electrocution risk)
@@ -447,6 +459,9 @@ class WatsonXAnalyzer:
         data.setdefault("recommendation", "Review findings and schedule appropriate corrective action")
         data.setdefault("ai_score", 70)
         data.setdefault("confidence", "medium")
+        data.setdefault("is_utility_structure", True)
+        data.setdefault("structure_confidence", data.get("ai_score", 70))
+        data.setdefault("rejection_reason", None)
         data["powered_by"] = "watsonx.ai · ibm/granite-3-8b-instruct"
         return data
 
@@ -462,6 +477,12 @@ class WatsonXAnalyzer:
         detected: list[str] = []
         worst_osha = "de_minimis"
         osha_order = ["de_minimis", "other_than_serious", "serious", "imminent_danger"]
+        structure_terms = (
+            "pole", "utility", "electric", "distribution", "transmission", "conductor",
+            "wire", "transformer", "recloser", "crossarm", "insulator", "guy", "anchor",
+            "riser", "service drop", "feeder", "circuit",
+        )
+        has_structure_context = any(term in desc_lower for term in structure_terms) or photo_count > 0
 
         for viol, osha in VIOLATION_SEVERITY_MAP.items():
             keyword = viol.replace("_", " ")
@@ -520,6 +541,9 @@ class WatsonXAnalyzer:
             "recommendation": recs.get(worst_osha, "Review and schedule corrective action"),
             "ai_score": score,
             "confidence": "medium",
+            "is_utility_structure": has_structure_context,
+            "structure_confidence": 55 if has_structure_context else 20,
+            "rejection_reason": None if has_structure_context else "No utility pole or utility structure context was detected.",
             "powered_by": "rule-based fallback (watsonx.ai not configured)",
         }
 

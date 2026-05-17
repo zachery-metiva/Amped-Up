@@ -8,6 +8,16 @@ import '../submission.css';
 const DEFAULT_POLE_ID = new URLSearchParams(window.location.search).get('pole') ?? randomPoleId();
 const DASHBOARD_API = 'http://127.0.0.1:8000/api/dashboard';
 
+async function responseError(res: Response): Promise<Error> {
+  try {
+    const body = await res.json();
+    const detail = typeof body.detail === 'string' ? body.detail : `Server returned ${res.status}`;
+    return new Error(detail);
+  } catch {
+    return new Error(`Server returned ${res.status}`);
+  }
+}
+
 export function ReportSubmission() {
   const [step, setStep] = useState<SubmissionStep>('capture');
   const [photos, setPhotos] = useState<CapturedPhoto[]>([]);
@@ -26,7 +36,7 @@ export function ReportSubmission() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error(`Server returned ${res.status}`);
+    if (!res.ok) throw await responseError(res);
     setSubmitted(true);
   }
 

@@ -8,6 +8,16 @@ import '../field-report.css';
 
 const DASHBOARD_API = 'http://127.0.0.1:8000/api/dashboard';
 
+async function responseError(res: Response): Promise<Error> {
+  try {
+    const body = await res.json();
+    const detail = typeof body.detail === 'string' ? body.detail : `Server returned ${res.status}`;
+    return new Error(detail);
+  } catch {
+    return new Error(`Server returned ${res.status}`);
+  }
+}
+
 export function FieldReport() {
   const [defaultPoleId, setDefaultPoleId] = useState(
     () => new URLSearchParams(window.location.search).get('pole') ?? randomPoleId(),
@@ -43,7 +53,7 @@ export function FieldReport() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error(`Server returned ${res.status}`);
+    if (!res.ok) throw await responseError(res);
     setSubmittedPoleId(payload.pole_id || defaultPoleId);
     setSubmittedSeverity(payload.severity);
     setSubmittedPhotoCount(payload.photo_count);

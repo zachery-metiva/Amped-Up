@@ -36,8 +36,8 @@ export function ReviewStep({
         photo_count: photos.length,
         photos,
       });
-    } catch {
-      setError('Submission failed. Check your connection and try again.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Submission failed. Check your connection and try again.');
       setSubmitting(false);
     }
   }

@@ -407,8 +407,8 @@ export function FieldReviewStep({ poleId: initialPoleId, photos, location, onBac
         photos: submittedPhotos,
         ai_analysis: analysisForSubmit(),
       });
-    } catch {
-      setError('Submission failed. Check your connection and try again.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Submission failed. Check your connection and try again.');
       setSubmitting(false);
     }
   }
