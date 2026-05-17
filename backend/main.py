@@ -51,6 +51,11 @@ app.include_router(dashboard_router)
 app.include_router(zeus_router)
 
 
+@app.get("/")
+def health() -> dict[str, str]:
+    return {"status": "ok"}
+
+
 @app.on_event("startup")
 def initialize_dev_database() -> None:
     from sqlalchemy import text

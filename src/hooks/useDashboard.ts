@@ -348,8 +348,8 @@ export function useDashboard() {
   const fetchRiskLayer = useCallback(async () => {
     try {
       const [polesRes, summaryRes] = await Promise.all([
-        fetch(`${API}/risk-poles?limit=3000&min_score=0`),
-        fetch(`${API}/risk-summary`),
+        fetch(`${DASHBOARD_API_URL}/risk-poles?limit=3000&min_score=0`),
+        fetch(`${DASHBOARD_API_URL}/risk-summary`),
       ]);
       let unscored = 0;
       if (polesRes.ok) {
@@ -456,7 +456,7 @@ export function useDashboard() {
   }, []);
 
   const updateReportStatus = useCallback(async (reportId: string, status: ReportStatus, note?: string) => {
-    await fetch(`${API}/reports/${reportId}/status`, {
+    await fetch(`${DASHBOARD_API_URL}/reports/${reportId}/status`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status, note: note ?? null }),
