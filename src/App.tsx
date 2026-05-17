@@ -12,7 +12,7 @@ import { ReportNotes } from './components/ReportNotes';
 import { useDashboard } from './hooks/useDashboard';
 
 export function App() {
-  const { data, loading, error, connected, filters, setFilters, search, setSearch, selectReport, addNote, updateReportStatus, updateReportSeverity } = useDashboard();
+  const { data, loading, error, connected, filters, setFilters, search, setSearch, selectReport, addNote, updateReportStatus, updateReportSeverity, riskPoles, riskSummary } = useDashboard();
 
   const selectedReportId = data?.selectedReport?.id ?? null;
   const selectedPoleId = data?.selectedPole?.id ?? null;
@@ -87,6 +87,51 @@ export function App() {
 
       <KpiCards summary={data.summary} />
 
+      {/* Predictive risk summary strip */}
+      {riskSummary && riskSummary.scored > 0 && (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            padding: '8px 14px',
+            marginBottom: 10,
+            background: 'rgba(167,139,250,0.07)',
+            border: '1px solid rgba(167,139,250,0.22)',
+            borderRadius: 10,
+            fontSize: 12,
+            flexWrap: 'wrap',
+          }}
+        >
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#A78BFA', fontWeight: 600 }}>
+            <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <circle cx="5" cy="5" r="4" stroke="#A78BFA" strokeWidth="1.5" strokeDasharray="2 1.5" fill="none" />
+            </svg>
+            Predicted risk
+          </span>
+          <span style={{ color: 'var(--muted)' }}>{riskSummary.scored.toLocaleString()} poles scored</span>
+          {riskSummary.avgScore !== null && (
+            <span style={{ color: 'var(--muted)' }}>avg {riskSummary.avgScore.toFixed(0)}/100</span>
+          )}
+          <span style={{ color: 'var(--muted)', marginLeft: 2 }}>·</span>
+          {riskSummary.critical > 0 && (
+            <span style={{ color: '#EF4444' }}>{riskSummary.critical} critical</span>
+          )}
+          {riskSummary.high > 0 && (
+            <span style={{ color: '#F97316' }}>{riskSummary.high} high</span>
+          )}
+          {riskSummary.medium > 0 && (
+            <span style={{ color: '#FBBF24' }}>{riskSummary.medium} medium</span>
+          )}
+          {riskSummary.low > 0 && (
+            <span style={{ color: '#10B981' }}>{riskSummary.low} low</span>
+          )}
+          {riskSummary.unscored > 0 && (
+            <span style={{ color: 'var(--muted)', marginLeft: 'auto' }}>{riskSummary.unscored.toLocaleString()} unscored · run compute_risk CLI to score</span>
+          )}
+        </div>
+      )}
+
       {/* Map + report list */}
       <div className="dashboard-main" style={{ marginBottom: 14 }}>
         <GridMap
@@ -94,6 +139,7 @@ export function App() {
           totalPoleCount={data.mapPoleCount}
           selectedPoleId={selectedPoleId}
           onSelectPole={handleSelectPole}
+          riskPoles={riskPoles}
         />
         <IncomingReports
           reports={data.reports}
@@ -107,8 +153,8 @@ export function App() {
         <ReportBanner
           report={data.selectedReport}
           onSeverityChange={(severity) => updateReportSeverity(data.selectedReport!.id, severity)}
-          onDismiss={() => updateReportStatus(data.selectedReport!.id, 'dismissed')}
-          onApprove={() => updateReportStatus(data.selectedReport!.id, 'approved')}
+          onDismiss={(note) => updateReportStatus(data.selectedReport!.id, 'dismissed', note)}
+          onApprove={(note) => updateReportStatus(data.selectedReport!.id, 'approved', note)}
         />
       )}
 

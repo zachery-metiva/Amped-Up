@@ -90,6 +90,12 @@ class Pole(Base):
         nullable=False,
     )
 
+    # Predictive risk profiling
+    risk_score: Mapped[float | None] = mapped_column(Float, index=True)
+    predicted_severity: Mapped[str | None] = mapped_column(String(16), index=True)
+    risk_factors: Mapped[dict | None] = mapped_column(JSON)
+    risk_computed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
     reports: Mapped[list[Report]] = relationship(back_populates="pole", cascade="all, delete-orphan")
     photos: Mapped[list[FieldPhoto]] = relationship(back_populates="pole", cascade="all, delete-orphan")
     history_events: Mapped[list[PoleHistoryEvent]] = relationship(back_populates="pole", cascade="all, delete-orphan")

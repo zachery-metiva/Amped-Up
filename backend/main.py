@@ -53,10 +53,31 @@ app.include_router(zeus_router)
 
 @app.on_event("startup")
 def initialize_dev_database() -> None:
+    from sqlalchemy import text
+
+    if USING_DEFAULT_SQLITE:
+        Base.metadata.create_all(bind=engine)
+
+    # Idempotent risk-column migration — runs on every backend engine (SQLite + Postgres).
+    # Uses engine-agnostic type names: REAL/JSONB/TIMESTAMPTZ are handled below.
+    is_postgres = not USING_DEFAULT_SQLITE
+    risk_columns = [
+        ("risk_score",        "DOUBLE PRECISION" if is_postgres else "REAL"),
+        ("predicted_severity","VARCHAR(16)"       if is_postgres else "TEXT"),
+        ("risk_factors",      "JSONB"             if is_postgres else "TEXT"),
+        ("risk_computed_at",  "TIMESTAMPTZ"       if is_postgres else "TEXT"),
+    ]
+    with engine.connect() as conn:
+        for col, col_type in risk_columns:
+            try:
+                conn.execute(text(f"ALTER TABLE poles ADD COLUMN {col} {col_type}"))
+                conn.commit()
+            except Exception:
+                conn.rollback()  # column already exists — safe to ignore
+
     if not USING_DEFAULT_SQLITE:
         return
 
-    Base.metadata.create_all(bind=engine)
     with SessionLocal() as db:
         user_count = db.scalar(select(sa_func.count()).select_from(dbm.User)) or 0
     if user_count:

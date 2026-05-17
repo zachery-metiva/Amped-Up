@@ -36,6 +36,7 @@ from .dashboard_models import (
     AnalyzeRequest,
     AnalyzeResponse,
     AnalyzePhotosRequest,
+    ComputeRiskResponse,
     DashboardResponse,
     MapPole,
     MapPolesResponse,
@@ -44,6 +45,8 @@ from .dashboard_models import (
     Report,
     ReportAuthor,
     ReportStatus,
+    RiskPole,
+    RiskPolesResponse,
     Severity,
     SubmitReportRequest,
     SynthesizeRequest,
@@ -51,6 +54,7 @@ from .dashboard_models import (
     UpdateReportSeverityRequest,
     UpdateReportStatusRequest,
 )
+from .risk_engine import compute_pole_risk
 from .photo_analysis import analyze_report_photos
 from .watsonx_analyzer import VISION_MODEL_ID, get_analyzer
 
@@ -407,6 +411,26 @@ async def submit_report(
     db.commit()
     db.refresh(report_row)
 
+    # ── Feedback loop: calibrate risk score when actual AI severity differs ──
+    if body.ai_analysis and pole.risk_score is not None and pole.predicted_severity is not None:
+        sev_order = {"low": 0, "medium": 1, "high": 2, "critical": 3}
+        actual_ord = sev_order.get(body.ai_analysis.severity.lower(), 1)
+        predicted_ord = sev_order.get(pole.predicted_severity.lower(), 1)
+        delta = actual_ord - predicted_ord  # positive = under-predicted, negative = over-predicted
+        # Nudge score: ±8 pts per severity step, clamped to [0, 100]
+        if delta != 0:
+            pole.risk_score = max(0.0, min(100.0, pole.risk_score + delta * 8.0))
+            # Update factors dict to record the calibration
+            factors = dict(pole.risk_factors or {})
+            factors["_feedback"] = {
+                "actual_severity": body.ai_analysis.severity,
+                "predicted_severity": pole.predicted_severity,
+                "delta_steps": delta,
+                "calibrated_at": datetime.now(timezone.utc).isoformat(),
+            }
+            pole.risk_factors = factors
+            db.commit()
+
     report = Report(
         id=report_row.id,
         pole_id=report_row.pole_id,
@@ -456,6 +480,44 @@ async def update_report_status(
         return {"status": "not_found"}
 
     report.status = dbm.ReportStatus(body.status.value)
+
+    # ── Audit trail: history event for every status transition ───────────────
+    current_user_record = get_current_user_record(db)
+    _STATUS_META: dict[str, tuple[str, str, str]] = {
+        # status_value → (display title, HistoryEventType, pin_color)
+        "approved":  ("Report approved",  "inspection", "#22C55E"),
+        "dismissed": ("Report dismissed", "other",      "#94A3B8"),
+        "snoozed":   ("Report snoozed",   "other",      "#F59E0B"),
+        "open":      ("Report re-opened", "report",     "#3B82F6"),
+    }
+    meta = _STATUS_META.get(body.status.value)
+    if meta:
+        evt_title, evt_type_str, pin_color = meta
+        history_row = dbm.PoleHistoryEvent(
+            id=f"evt-{uuid4().hex[:12]}",
+            pole_id=report.pole_id,
+            report_id=report.id,
+            type=dbm.HistoryEventType(evt_type_str),
+            title=evt_title,
+            event_date=datetime.now(timezone.utc),
+            author_user_id=current_user_record.id if current_user_record else None,
+            description=None,
+            comment=body.note or None,
+            severity=report.severity,
+            pin_color=pin_color,
+        )
+        db.add(history_row)
+
+        # If the evaluator supplied a note, also persist it as a ReportNote
+        if body.note and body.note.strip() and current_user_record:
+            note_row = dbm.ReportNote(
+                id=f"note-{uuid4().hex[:12]}",
+                report_id=report.id,
+                author_user_id=current_user_record.id,
+                content=body.note.strip(),
+            )
+            db.add(note_row)
+
     db.commit()
 
     await _manager.broadcast(
@@ -556,6 +618,80 @@ async def synthesize_analyses(body: SynthesizeRequest) -> SynthesizeResponse:
         ai_score=int(result.get("ai_score", 70)),
         confidence=result.get("confidence", "medium"),
         powered_by=result.get("powered_by", "watsonx.ai"),
+    )
+
+
+@router.get("/risk-poles", response_model=RiskPolesResponse)
+def get_risk_poles(
+    min_score: float = Query(0, ge=0, le=100),
+    severity: str | None = None,
+    limit: int = Query(500, le=2000),
+    db: Session = Depends(get_db),
+) -> RiskPolesResponse:
+    """Return all poles that have a computed risk score, for the map risk layer."""
+    q = select(dbm.Pole).where(dbm.Pole.risk_score.isnot(None))
+    if min_score > 0:
+        q = q.where(dbm.Pole.risk_score >= min_score)
+    if severity:
+        q = q.where(dbm.Pole.predicted_severity == severity)
+    q = q.order_by(dbm.Pole.risk_score.desc()).limit(limit)
+    poles = db.scalars(q).all()
+
+    total_q = select(dbm.Pole)
+    all_poles = db.scalars(total_q).all()
+    unscored = sum(1 for p in all_poles if p.risk_score is None)
+
+    return RiskPolesResponse(
+        poles=[
+            RiskPole(
+                id=p.id,
+                lat=p.latitude,
+                lon=p.longitude,
+                risk_score=p.risk_score,
+                predicted_severity=dbm.Severity(p.predicted_severity),
+                risk_factors=p.risk_factors,
+                risk_computed_at=p.risk_computed_at.isoformat() if p.risk_computed_at else None,
+            )
+            for p in poles
+        ],
+        total=len(poles),
+        unscored=unscored,
+    )
+
+
+@router.get("/risk-summary")
+def get_risk_summary(db: Session = Depends(get_db)) -> dict:
+    """Aggregate risk statistics across all scored poles."""
+    poles = db.scalars(select(dbm.Pole).where(dbm.Pole.risk_score.isnot(None))).all()
+    if not poles:
+        return {"scored": 0, "critical": 0, "high": 0, "medium": 0, "low": 0, "avg_score": 0}
+    counts: dict[str, int] = {"critical": 0, "high": 0, "medium": 0, "low": 0}
+    for p in poles:
+        if p.predicted_severity in counts:
+            counts[p.predicted_severity] += 1
+    avg = sum(p.risk_score for p in poles) / len(poles)
+    return {
+        "scored": len(poles),
+        **counts,
+        "avg_score": round(avg, 1),
+    }
+
+
+@router.post("/risk-poles/{pole_id}/compute", response_model=ComputeRiskResponse)
+def compute_single_risk(pole_id: str, db: Session = Depends(get_db)) -> ComputeRiskResponse:
+    """Compute and persist risk score for one pole (called on-demand)."""
+    pole = db.get(dbm.Pole, pole_id)
+    if not pole:
+        raise HTTPException(status_code=404, detail="Pole not found")
+    updates = compute_pole_risk(pole)
+    for k, v in updates.items():
+        setattr(pole, k, v)
+    db.commit()
+    return ComputeRiskResponse(
+        pole_id=pole_id,
+        risk_score=updates["risk_score"],
+        predicted_severity=dbm.Severity(updates["predicted_severity"]),
+        risk_factors=updates["risk_factors"],
     )
 
 

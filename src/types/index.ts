@@ -112,6 +112,30 @@ export interface MapPole {
   severity: Severity;
   lat: number;
   lon: number;
+  riskScore?: number;
+  predictedSeverity?: string;
+}
+
+export interface RiskPole {
+  id: string;
+  lat: number;
+  lon: number;
+  riskScore: number;
+  predictedSeverity: Severity;
+  riskFactors: Record<string, unknown> | null;
+  riskComputedAt: string | null;
+}
+
+export interface RiskSummary {
+  critical: number;
+  high: number;
+  medium: number;
+  low: number;
+  /** Number of poles that have been scored (backend key: "scored") */
+  scored: number;
+  /** Unscored poles — derived from risk-poles endpoint total field */
+  unscored: number;
+  avgScore: number | null;
 }
 
 export interface FilterOption {
