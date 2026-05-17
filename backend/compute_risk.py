@@ -34,6 +34,17 @@ def run(limit: int | None = None, pole_id: str | None = None) -> None:
                 updates = compute_pole_risk(pole)
                 for k, v in updates.items():
                     setattr(pole, k, v)
+                predicted = db.get(dbm.PredictedReport, f"PRED-{pole.id}")
+                if not predicted:
+                    predicted = dbm.PredictedReport(id=f"PRED-{pole.id}", pole_id=pole.id)
+                    db.add(predicted)
+                predicted.title = f"Predicted {updates['predicted_severity']} risk - {pole.id}"
+                predicted.predicted_severity = dbm.Severity(updates["predicted_severity"])
+                predicted.risk_score = updates["risk_score"]
+                predicted.risk_factors = updates["risk_factors"]
+                predicted.generated_at = updates["risk_computed_at"]
+                if predicted.status != dbm.ReportStatus.DISMISSED:
+                    predicted.status = dbm.ReportStatus.OPEN
                 db.commit()
                 sev = updates["predicted_severity"]
                 score = updates["risk_score"]

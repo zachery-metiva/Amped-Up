@@ -377,6 +377,46 @@ h4 {
   flex-direction: column;
 }
 
+.reports-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reports-head-sub {
+  margin-top: 3px;
+}
+
+.issue-switch {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  background: var(--card-2);
+  flex-shrink: 0;
+}
+
+.issue-switch button {
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 9px;
+  cursor: pointer;
+}
+
+.issue-switch button.active {
+  background: #1E3A5F;
+  color: #DBEAFE;
+}
+
 .reports-list {
   min-height: 0;
   overflow-y: auto;
@@ -593,6 +633,10 @@ h4 {
 .issue.sel {
   border-color: var(--info);
   background: #0E1B36;
+}
+
+.predicted-issue {
+  border-color: rgba(167, 139, 250, 0.18);
 }
 
 /* ── Report banner ───────────────────────────────── */
@@ -856,6 +900,16 @@ h4 {
   .reports-card,
   .map-card {
     padding: 12px;
+  }
+  .reports-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .issue-switch {
+    width: 100%;
+  }
+  .issue-switch button {
+    min-height: 34px;
   }
   .reports-card > .row,
   .report-banner > .row,

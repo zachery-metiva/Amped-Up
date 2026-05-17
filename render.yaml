@@ -18,3 +18,15 @@ services:
         sync: false
       - key: WATSONX_URL
         sync: false
+
+  - type: cron
+    name: amped-up-risk-daily
+    runtime: python
+    schedule: '0 7 * * *'
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python -m backend.compute_risk
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATABASE_URL
+        sync: false

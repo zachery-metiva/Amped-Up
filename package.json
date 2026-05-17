@@ -6,7 +6,8 @@
     "backend": "python3 -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000",
     "db:upgrade": "python3 -m alembic upgrade head",
     "db:seed": "python3 -m backend.seed_dashboard_data",
-    "db:seed:violations": "python3 -m backend.seed_violation_types"
+    "db:seed:violations": "python3 -m backend.seed_violation_types",
+    "risk:compute": "python3 -m backend.compute_risk"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

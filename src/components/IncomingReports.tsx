@@ -1,4 +1,5 @@
-import { Report, ReportStatus, Severity } from '../types';
+import { useState } from 'react';
+import { PredictedReport, Report, ReportStatus, Severity } from '../types';
 
 const SEVERITY_COLOR: Record<Severity, string> = {
   critical: 'var(--crit)',
@@ -32,27 +33,77 @@ function timeAgo(iso: string): string {
 
 interface IncomingReportsProps {
   reports: Report[];
+  predictedReports: PredictedReport[];
   selectedReportId: string | null;
+  selectedPoleId: string | null;
   onSelectReport: (id: string) => void;
+  onSelectPole: (poleId: string) => void;
 }
 
-export function IncomingReports({ reports, selectedReportId, onSelectReport }: IncomingReportsProps) {
+function formatComputedAt(iso: string): string {
+  if (!iso) return 'not yet timestamped';
+  return new Date(iso).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function riskFactorSummary(factors: Record<string, unknown> | null): string {
+  if (!factors) return 'No factor details available';
+  return Object.entries(factors)
+    .filter(([key]) => !key.startsWith('_'))
+    .slice(0, 3)
+    .map(([key, value]) => {
+      const fallbackLabel = key.replace(/_/g, ' ');
+      if (typeof value === 'number') return `${fallbackLabel}: ${value.toFixed(1)}`;
+      if (value && typeof value === 'object') {
+        const factor = value as Record<string, unknown>;
+        const label = typeof factor.label === 'string' ? factor.label : fallbackLabel;
+        const score = typeof factor.score === 'number' ? ` ${factor.score.toFixed(0)}/100` : '';
+        return `${label}${score}`;
+      }
+      return `${fallbackLabel}: ${String(value)}`;
+    })
+    .join(' - ') || 'No factor details available';
+}
+
+export function IncomingReports({ reports, predictedReports, selectedReportId, selectedPoleId, onSelectReport, onSelectPole }: IncomingReportsProps) {
+  const [mode, setMode] = useState<'reported' | 'predicted'>('reported');
   const openCount = reports.filter((report) => report.status === 'open').length;
+  const sortedPredictedReports = [...predictedReports].sort((a, b) => b.riskScore - a.riskScore);
 
   return (
     <div className="card reports-card">
-      <div className="row" style={{ marginBottom: 12 }}>
-        <h4>Reports - {reports.length} total - {openCount} open</h4>
-        <span style={{ fontSize: 11.5, color: '#60A5FA', cursor: 'pointer' }}>
-          View all{' '}
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" style={{ verticalAlign: 'middle' }}>
-            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-          </svg>
-        </span>
+      <div className="reports-head">
+        <div>
+          <h4>{mode === 'reported' ? `Reports - ${reports.length} total - ${openCount} open` : `Predicted issues - ${sortedPredictedReports.length} open`}</h4>
+          <div className="muted reports-head-sub">
+            {mode === 'reported' ? 'Field-submitted issues awaiting review.' : 'Risk-ranked poles without a submitted report.'}
+          </div>
+        </div>
+        <div className="issue-switch" role="group" aria-label="Issue list mode">
+          <button
+            type="button"
+            className={mode === 'reported' ? 'active' : ''}
+            aria-pressed={mode === 'reported'}
+            onClick={() => setMode('reported')}
+          >
+            Reported
+          </button>
+          <button
+            type="button"
+            className={mode === 'predicted' ? 'active' : ''}
+            aria-pressed={mode === 'predicted'}
+            onClick={() => setMode('predicted')}
+          >
+            Predicted
+          </button>
+        </div>
       </div>
 
       <div className="reports-list">
-        {reports.map((report) => {
+        {mode === 'reported' && reports.map((report) => {
           const p = SEVERITY_PILL[report.severity];
           const isSelected = report.id === selectedReportId;
           return (
@@ -88,8 +139,41 @@ export function IncomingReports({ reports, selectedReportId, onSelectReport }: I
           );
         })}
 
-        {reports.length === 0 && (
+        {mode === 'reported' && reports.length === 0 && (
           <div className="muted" style={{ textAlign: 'center', padding: '20px 0' }}>No reports</div>
+        )}
+
+        {mode === 'predicted' && sortedPredictedReports.map((report) => {
+          const p = SEVERITY_PILL[report.predictedSeverity];
+          const isSelected = report.poleId === selectedPoleId;
+          return (
+            <button
+              key={report.id}
+              className={`issue predicted-issue${isSelected ? ' sel' : ''}`}
+              onClick={() => onSelectPole(report.poleId)}
+              aria-pressed={isSelected}
+            >
+              <span className="dot" style={{ background: SEVERITY_COLOR[report.predictedSeverity] }} />
+              <div style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
+                <div style={{ fontSize: 12.5, color: 'var(--primary)', fontWeight: 500 }}>
+                  {report.poleId} - Risk score {report.riskScore.toFixed(0)}
+                </div>
+                <div className="muted" style={{ marginTop: 3 }}>
+                  {riskFactorSummary(report.riskFactors)}
+                </div>
+                <div className="muted" style={{ marginTop: 3 }}>
+                  {report.lat.toFixed(4)} N, {Math.abs(report.lon).toFixed(4)} W - generated {formatComputedAt(report.generatedAt)}
+                </div>
+              </div>
+              <span className="pill" style={{ background: p.bg, color: p.color }}>
+                {p.label}
+              </span>
+            </button>
+          );
+        })}
+
+        {mode === 'predicted' && sortedPredictedReports.length === 0 && (
+          <div className="muted" style={{ textAlign: 'center', padding: '20px 0' }}>No predicted issues</div>
         )}
       </div>
     </div>

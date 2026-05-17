@@ -303,6 +303,29 @@ class RiskPole(BaseModel):
     risk_computed_at: str | None = None
 
 
+class PredictedReport(BaseModel):
+    id: str
+    pole_id: str
+    title: str
+    predicted_severity: Severity
+    risk_score: float
+    risk_factors: dict | None = None
+    status: ReportStatus
+    generated_at: str
+    lat: float
+    lon: float
+    classification: str
+    owner: str
+    circuit: str
+    address: str
+
+
+class PredictedReportsResponse(BaseModel):
+    reports: list[PredictedReport]
+    total: int
+    open_count: int
+
+
 class RiskPolesResponse(BaseModel):
     poles: list[RiskPole]
     total: int

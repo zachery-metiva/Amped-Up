@@ -228,6 +228,12 @@
 .sub-ico-btn:hover { background: #1F2937; color: #E5E7EB; }
 .sub-ico-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+.sub-control-spacer {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
 /* Viewfinder */
 .sub-viewfinder {
   position: relative;
@@ -254,6 +260,15 @@
   font-size: 13px;
   text-align: center;
   padding: 24px;
+}
+
+.sub-paused-photo {
+  width: min(220px, 70vw);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* Corner frame SVG */

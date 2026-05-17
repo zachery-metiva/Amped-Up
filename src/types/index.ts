@@ -126,6 +126,23 @@ export interface RiskPole {
   riskComputedAt: string | null;
 }
 
+export interface PredictedReport {
+  id: string;
+  poleId: string;
+  title: string;
+  predictedSeverity: Severity;
+  riskScore: number;
+  riskFactors: Record<string, unknown> | null;
+  status: ReportStatus;
+  generatedAt: string;
+  lat: number;
+  lon: number;
+  classification: string;
+  owner: string;
+  circuit: string;
+  address: string;
+}
+
 export interface RiskSummary {
   critical: number;
   high: number;

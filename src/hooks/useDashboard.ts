@@ -10,6 +10,7 @@ import {
   MapPole,
   PoleDetail,
   PoleHistory,
+  PredictedReport,
   Report,
   ReportAuthor,
   ReportStatus,
@@ -242,6 +243,25 @@ function mapRiskPole(p: JsonObj): RiskPole {
   };
 }
 
+function mapPredictedReport(r: JsonObj): PredictedReport {
+  return {
+    id: r.id as string,
+    poleId: r.pole_id as string,
+    title: r.title as string,
+    predictedSeverity: r.predicted_severity as Severity,
+    riskScore: r.risk_score as number,
+    riskFactors: (r.risk_factors as Record<string, unknown>) ?? null,
+    status: r.status as ReportStatus,
+    generatedAt: r.generated_at as string,
+    lat: r.lat as number,
+    lon: r.lon as number,
+    classification: r.classification as string,
+    owner: r.owner as string,
+    circuit: r.circuit as string,
+    address: r.address as string,
+  };
+}
+
 function mapRiskSummary(raw: JsonObj, unscored = 0): RiskSummary {
   return {
     critical: (raw.critical as number) ?? 0,
@@ -263,6 +283,7 @@ export function useDashboard() {
   const [search, setSearch] = useState('');
   const [riskPoles, setRiskPoles] = useState<RiskPole[]>([]);
   const [riskSummary, setRiskSummary] = useState<RiskSummary | null>(null);
+  const [predictedReports, setPredictedReports] = useState<PredictedReport[]>([]);
   const selectedReportIdRef = useRef(selectedReportId);
   const mapFetchRunRef = useRef(0);
   const mapScopeKeyRef = useRef(mapScopeKey(filters, search));
@@ -347,9 +368,10 @@ export function useDashboard() {
 
   const fetchRiskLayer = useCallback(async () => {
     try {
-      const [polesRes, summaryRes] = await Promise.all([
+      const [polesRes, summaryRes, predictedRes] = await Promise.all([
         fetch(`${DASHBOARD_API_URL}/risk-poles?limit=3000&min_score=0`),
         fetch(`${DASHBOARD_API_URL}/risk-summary`),
+        fetch(`${DASHBOARD_API_URL}/predicted-reports?status=open&limit=1000`),
       ]);
       let unscored = 0;
       if (polesRes.ok) {
@@ -361,6 +383,10 @@ export function useDashboard() {
       if (summaryRes.ok) {
         const json = (await summaryRes.json()) as JsonObj;
         setRiskSummary(mapRiskSummary(json, unscored));
+      }
+      if (predictedRes.ok) {
+        const json = (await predictedRes.json()) as JsonObj;
+        setPredictedReports(((json.reports as JsonObj[]) ?? []).map(mapPredictedReport));
       }
     } catch {
       // Risk layer is best-effort — never block main dashboard
@@ -491,6 +517,7 @@ export function useDashboard() {
     updateReportSeverity,
     riskPoles,
     riskSummary,
+    predictedReports,
     refreshRiskLayer: fetchRiskLayer,
   };
 }

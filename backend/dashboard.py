@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
-from sqlalchemy import select
+from sqlalchemy import func as sa_func, select
 from sqlalchemy.orm import Session
 
 from . import orm_models as dbm
@@ -42,6 +42,8 @@ from .dashboard_models import (
     MapPolesResponse,
     Note,
     PhotoAnalysis,
+    PredictedReport,
+    PredictedReportsResponse,
     Report,
     ReportAuthor,
     ReportStatus,
@@ -659,6 +661,49 @@ def get_risk_poles(
     )
 
 
+@router.get("/predicted-reports", response_model=PredictedReportsResponse)
+def list_predicted_reports(
+    status: ReportStatus | None = Query(default=ReportStatus.OPEN),
+    limit: int = Query(500, ge=1, le=2000),
+    db: Session = Depends(get_db),
+) -> PredictedReportsResponse:
+    stmt = (
+        select(dbm.PredictedReport)
+        .join(dbm.Pole)
+        .order_by(dbm.PredictedReport.risk_score.desc(), dbm.PredictedReport.generated_at.desc())
+        .limit(limit)
+    )
+    count_stmt = select(sa_func.count()).select_from(dbm.PredictedReport)
+    open_count_stmt = select(sa_func.count()).select_from(dbm.PredictedReport).where(dbm.PredictedReport.status == dbm.ReportStatus.OPEN)
+    if status:
+        stmt = stmt.where(dbm.PredictedReport.status == dbm.ReportStatus(status.value))
+        count_stmt = count_stmt.where(dbm.PredictedReport.status == dbm.ReportStatus(status.value))
+    rows = db.scalars(stmt).all()
+    return PredictedReportsResponse(
+        reports=[
+            PredictedReport(
+                id=row.id,
+                pole_id=row.pole_id,
+                title=row.title,
+                predicted_severity=Severity(row.predicted_severity.value),
+                risk_score=row.risk_score,
+                risk_factors=row.risk_factors,
+                status=ReportStatus(row.status.value),
+                generated_at=row.generated_at.isoformat(),
+                lat=row.pole.latitude,
+                lon=row.pole.longitude,
+                classification=row.pole.classification,
+                owner=row.pole.owner,
+                circuit=row.pole.circuit,
+                address=row.pole.address,
+            )
+            for row in rows
+        ],
+        total=db.scalar(count_stmt) or 0,
+        open_count=db.scalar(open_count_stmt) or 0,
+    )
+
+
 @router.get("/risk-summary")
 def get_risk_summary(db: Session = Depends(get_db)) -> dict:
     """Aggregate risk statistics across all scored poles."""
@@ -677,6 +722,20 @@ def get_risk_summary(db: Session = Depends(get_db)) -> dict:
     }
 
 
+def _upsert_predicted_report(db: Session, pole: dbm.Pole, updates: dict[str, Any]) -> None:
+    predicted = db.get(dbm.PredictedReport, f"PRED-{pole.id}")
+    if not predicted:
+        predicted = dbm.PredictedReport(id=f"PRED-{pole.id}", pole_id=pole.id)
+        db.add(predicted)
+    predicted.title = f"Predicted {updates['predicted_severity']} risk - {pole.id}"
+    predicted.predicted_severity = dbm.Severity(updates["predicted_severity"])
+    predicted.risk_score = updates["risk_score"]
+    predicted.risk_factors = updates["risk_factors"]
+    predicted.generated_at = updates["risk_computed_at"]
+    if predicted.status != dbm.ReportStatus.DISMISSED:
+        predicted.status = dbm.ReportStatus.OPEN
+
+
 @router.post("/risk-poles/{pole_id}/compute", response_model=ComputeRiskResponse)
 def compute_single_risk(pole_id: str, db: Session = Depends(get_db)) -> ComputeRiskResponse:
     """Compute and persist risk score for one pole (called on-demand)."""
@@ -686,6 +745,7 @@ def compute_single_risk(pole_id: str, db: Session = Depends(get_db)) -> ComputeR
     updates = compute_pole_risk(pole)
     for k, v in updates.items():
         setattr(pole, k, v)
+    _upsert_predicted_report(db, pole, updates)
     db.commit()
     return ComputeRiskResponse(
         pole_id=pole_id,

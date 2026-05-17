@@ -130,6 +130,28 @@ class Report(Base):
     history_events: Mapped[list[PoleHistoryEvent]] = relationship(back_populates="report")
 
 
+class PredictedReport(Base):
+    __tablename__ = "predicted_reports"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    pole_id: Mapped[str] = mapped_column(ForeignKey("poles.id", ondelete="CASCADE"), nullable=False, index=True)
+    title: Mapped[str] = mapped_column(String(255), nullable=False)
+    predicted_severity: Mapped[Severity] = mapped_column(severity_enum, nullable=False, index=True)
+    risk_score: Mapped[float] = mapped_column(Float, nullable=False, index=True)
+    risk_factors: Mapped[dict | None] = mapped_column(JSON)
+    status: Mapped[ReportStatus] = mapped_column(report_status_enum, nullable=False, default=ReportStatus.OPEN, index=True)
+    generated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
+        nullable=False,
+    )
+
+    pole: Mapped[Pole] = relationship()
+
+
 class ReportNote(Base):
     __tablename__ = "report_notes"
 

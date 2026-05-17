@@ -42,13 +42,27 @@ export function CaptureStep({
   const allTaken = photos.length >= PHOTO_SLOTS.length;
   const canContinue = photos.length >= 1;
   const retakeMode = replacingSlotIndex !== null;
+  const cameraPaused = canContinue && !retakeMode;
+  const shouldUseCamera = !cameraPaused;
+
+  function stopCamera() {
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+    if (videoRef.current) videoRef.current.srcObject = null;
+    setCameraReady(false);
+  }
 
   // Start camera
   useEffect(() => {
     let active = true;
 
     async function start() {
-      streamRef.current?.getTracks().forEach((t) => t.stop());
+      if (!shouldUseCamera) {
+        stopCamera();
+        return;
+      }
+
+      stopCamera();
       setCameraReady(false);
       setCameraError(null);
       setPermissionDenied(false);
@@ -81,9 +95,9 @@ export function CaptureStep({
     start();
     return () => {
       active = false;
-      streamRef.current?.getTracks().forEach((t) => t.stop());
+      stopCamera();
     };
-  }, [facingMode, retryCount]);
+  }, [facingMode, retryCount, shouldUseCamera]);
 
   // GPS watch
   useEffect(() => {
@@ -127,6 +141,7 @@ export function CaptureStep({
       const slot = PHOTO_SLOTS[activeSlotIndex];
       onPhotoCapture({ id: crypto.randomUUID(), dataUrl, label: slot.shortLabel });
     }
+    stopCamera();
   }
 
   function handleSlotClick(i: number, taken: boolean) {
@@ -139,8 +154,8 @@ export function CaptureStep({
     setFacingMode((prev) => (prev === 'environment' ? 'user' : 'environment'));
   }
 
-  // Show the shutter whenever there are slots left OR we're in retake mode
-  const showShutter = !allTaken || retakeMode;
+  // Keep the camera off after one accepted photo; retake mode starts it again.
+  const showShutter = !canContinue || retakeMode;
 
   return (
     <div className="sub-screen">
@@ -164,7 +179,12 @@ export function CaptureStep({
 
       {/* Viewfinder */}
       <div className="sub-viewfinder">
-        {cameraError ? (
+        {cameraPaused ? (
+          <div className="sub-cam-error">
+            {photos[0] && <img src={photos[0].dataUrl} alt={photos[0].label} className="sub-paused-photo" />}
+            <p>Camera paused after capture.</p>
+          </div>
+        ) : cameraError ? (
           <div className="sub-cam-error">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="1.5">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
@@ -266,7 +286,7 @@ export function CaptureStep({
               </span>
             </div>
           </div>
-        ) : !allTaken ? (
+        ) : !canContinue ? (
           <div className="sub-tip">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" strokeWidth="2" style={{ flexShrink: 0, marginTop: 1 }}>
               <line x1="12" y1="2" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="22" />
@@ -292,7 +312,7 @@ export function CaptureStep({
         <div className="sub-slots">
           {PHOTO_SLOTS.map((slot, i) => {
             const taken = i < photos.length;
-            const active = i === activeSlotIndex && !allTaken && !retakeMode;
+            const active = i === activeSlotIndex && !canContinue && !retakeMode;
             const isRetaking = replacingSlotIndex === i;
             const optional = i > 0;
             return (
@@ -334,6 +354,8 @@ export function CaptureStep({
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
+        ) : cameraPaused ? (
+          <span className="sub-control-spacer" aria-hidden="true" />
         ) : canContinue ? (
           <button className="sub-ico-btn" onClick={flipCamera} aria-label="Flip camera">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -372,17 +394,8 @@ export function CaptureStep({
         )}
 
         {/* Right: compact Continue (1–2 photos, not retaking) or flip camera */}
-        {canContinue && !allTaken && !retakeMode ? (
-          <button
-            className="sub-continue-btn"
-            style={{ padding: '10px 14px', fontSize: 13 }}
-            onClick={onContinue}
-          >
-            Continue
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
+        {cameraPaused ? (
+          <span className="sub-control-spacer" aria-hidden="true" />
         ) : (
           <button className="sub-ico-btn" onClick={flipCamera} aria-label="Flip camera">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

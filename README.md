@@ -136,6 +136,26 @@ python -m alembic upgrade head && python -m uvicorn backend.main:app --host 0.0.
 
 Use Neon's pooled connection string for `DATABASE_URL`; the local SQLite fallback is only for development.
 
+### Predictive Risk Cron
+
+The Render Blueprint also defines `amped-up-risk-daily`, a Python cron job that recomputes pole risk scores once per day:
+
+```text
+0 7 * * *
+```
+
+Render cron schedules use UTC, so this runs at 7:00 AM UTC daily. It executes:
+
+```bash
+python -m backend.compute_risk
+```
+
+You can run the same job manually from a configured local environment with:
+
+```bash
+npm run risk:compute
+```
+
 ---
 
 ## API Reference

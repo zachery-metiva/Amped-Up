@@ -12,10 +12,22 @@ import { ReportNotes } from './components/ReportNotes';
 import { useDashboard } from './hooks/useDashboard';
 
 export function App() {
-  const { data, loading, error, connected, filters, setFilters, search, setSearch, selectReport, addNote, updateReportStatus, updateReportSeverity, riskPoles, riskSummary } = useDashboard();
+  const { data, loading, error, connected, filters, setFilters, search, setSearch, selectReport, addNote, updateReportStatus, updateReportSeverity, riskPoles, riskSummary: fetchedRiskSummary, predictedReports } = useDashboard();
 
   const selectedReportId = data?.selectedReport?.id ?? null;
   const selectedPoleId = data?.selectedPole?.id ?? null;
+  const predictedRiskSummary = predictedReports.length > 0
+    ? {
+        scored: predictedReports.length,
+        unscored: 0,
+        avgScore: predictedReports.reduce((sum, report) => sum + report.riskScore, 0) / predictedReports.length,
+        critical: predictedReports.filter((report) => report.predictedSeverity === 'critical').length,
+        high: predictedReports.filter((report) => report.predictedSeverity === 'high').length,
+        medium: predictedReports.filter((report) => report.predictedSeverity === 'medium').length,
+        low: predictedReports.filter((report) => report.predictedSeverity === 'low').length,
+      }
+    : null;
+  const riskSummary = predictedRiskSummary ?? fetchedRiskSummary;
 
   function handleSelectPole(poleId: string) {
     const report = data?.reports.find((r) => r.poleId === poleId);
@@ -74,7 +86,7 @@ export function App() {
             </svg>
             Predicted risk
           </span>
-          <span style={{ color: 'var(--muted)' }}>{riskSummary.scored.toLocaleString()} poles scored</span>
+          <span style={{ color: 'var(--muted)' }}>{riskSummary.scored.toLocaleString()} predicted issues</span>
           {riskSummary.avgScore !== null && (
             <span style={{ color: 'var(--muted)' }}>avg {riskSummary.avgScore.toFixed(0)}/100</span>
           )}
@@ -108,8 +120,11 @@ export function App() {
         />
         <IncomingReports
           reports={data.reports}
+          predictedReports={predictedReports}
           selectedReportId={selectedReportId}
+          selectedPoleId={selectedPoleId}
           onSelectReport={selectReport}
+          onSelectPole={handleSelectPole}
         />
       </div>
 
