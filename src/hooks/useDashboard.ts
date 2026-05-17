@@ -369,7 +369,7 @@ export function useDashboard() {
   const fetchRiskLayer = useCallback(async () => {
     try {
       const [polesRes, summaryRes, predictedRes] = await Promise.all([
-        fetch(`${DASHBOARD_API_URL}/risk-poles?limit=3000&min_score=0`),
+        fetch(`${DASHBOARD_API_URL}/risk-poles?limit=2000&min_score=0`),
         fetch(`${DASHBOARD_API_URL}/risk-summary`),
         fetch(`${DASHBOARD_API_URL}/predicted-reports?status=open&limit=1000`),
       ]);

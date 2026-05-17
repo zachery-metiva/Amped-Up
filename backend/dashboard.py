@@ -708,7 +708,7 @@ async def synthesize_analyses(body: SynthesizeRequest) -> SynthesizeResponse:
 def get_risk_poles(
     min_score: float = Query(0, ge=0, le=100),
     severity: str | None = None,
-    limit: int = Query(500, le=2000),
+    limit: int = Query(500, le=5000),
     db: Session = Depends(get_db),
 ) -> RiskPolesResponse:
     """Return all poles that have a computed risk score, for the map risk layer."""
