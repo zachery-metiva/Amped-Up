@@ -16,11 +16,11 @@ export function Header({ summary, currentUser, filterControl, searchControl }: H
   });
 
   return (
-    <div className="row" style={{ marginBottom: 18 }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <div className="row app-header">
+      <div className="app-header-brand">
         <a
           href="/login"
-          style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'inherit' }}
+          className="app-header-logo-link"
           aria-label="Go to login"
         >
           <div className="logo-icon">
@@ -30,12 +30,12 @@ export function Header({ summary, currentUser, filterControl, searchControl }: H
           </div>
           <div className="header-title">Amped Up</div>
         </a>
-        <div className="muted" style={{ marginTop: 3 }}>
+        <div className="muted app-header-meta">
           Grid sector {summary.sector} · {summary.totalPoles} poles tracked · {summary.openReports} open reports · {displayDate}
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+      <div className="app-header-actions">
         {filterControl}
         {searchControl}
         <div

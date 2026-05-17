@@ -48,33 +48,11 @@ export function App() {
     <div className="wrap">
       {/* Live indicator */}
       <div
-        style={{
-          position: 'fixed',
-          top: 12,
-          right: 12,
-          zIndex: 50,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 6,
-          background: 'var(--card)',
-          border: '1px solid var(--border)',
-          borderRadius: 999,
-          padding: '4px 10px',
-          fontSize: 11,
-          color: connected ? '#34D399' : '#94A3B8',
-        }}
+        className={`live-status${connected ? ' connected' : ''}`}
         aria-live="polite"
         aria-label={connected ? 'Live updates connected' : 'Reconnecting…'}
       >
-        <span
-          style={{
-            width: 6,
-            height: 6,
-            borderRadius: '50%',
-            background: connected ? '#34D399' : '#94A3B8',
-            display: 'inline-block',
-          }}
-        />
+        <span className="live-status-dot" />
         {connected ? 'Live' : 'Reconnecting…'}
       </div>
 
@@ -89,21 +67,8 @@ export function App() {
 
       {/* Predictive risk summary strip */}
       {riskSummary && riskSummary.scored > 0 && (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            padding: '8px 14px',
-            marginBottom: 10,
-            background: 'rgba(167,139,250,0.07)',
-            border: '1px solid rgba(167,139,250,0.22)',
-            borderRadius: 10,
-            fontSize: 12,
-            flexWrap: 'wrap',
-          }}
-        >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#A78BFA', fontWeight: 600 }}>
+        <div className="risk-strip">
+          <span className="risk-strip-title">
             <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
               <circle cx="5" cy="5" r="4" stroke="#A78BFA" strokeWidth="1.5" strokeDasharray="2 1.5" fill="none" />
             </svg>
