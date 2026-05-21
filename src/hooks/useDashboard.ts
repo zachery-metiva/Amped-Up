@@ -272,28 +272,38 @@ export function useDashboard() {
   selectedReportIdRef.current = selectedReportId;
 
   const fetchDashboard = useCallback(async (reportId?: string | null, activeFilters = filters, activeSearch = search) => {
-    try {
-      const params = new URLSearchParams();
-      if (reportId) params.set('selected_report_id', reportId);
-      appendFilterParams(params, activeFilters, activeSearch);
-      const qs = params.toString();
-      const res = await fetch(`${DASHBOARD_API_URL}${qs ? `?${qs}` : ''}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json = (await res.json()) as JsonObj;
-      const next = mapResponse(json);
-      const nextScopeKey = mapScopeKey(activeFilters, activeSearch);
-      setData((prev) => {
-        if (!prev || mapScopeKeyRef.current !== nextScopeKey) return next;
-        return {
-          ...next,
-          mapPoles: mergeMapPoles(prev.mapPoles, next.mapPoles),
-        };
-      });
-      setError(null);
-    } catch {
-      setError('Backend not reachable. Check the API URL and backend service.');
-    } finally {
-      setLoading(false);
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY_MS = 700;
+
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        const params = new URLSearchParams();
+        if (reportId) params.set('selected_report_id', reportId);
+        appendFilterParams(params, activeFilters, activeSearch);
+        const qs = params.toString();
+        const res = await fetch(`${DASHBOARD_API_URL}${qs ? `?${qs}` : ''}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = (await res.json()) as JsonObj;
+        const next = mapResponse(json);
+        const nextScopeKey = mapScopeKey(activeFilters, activeSearch);
+        setData((prev) => {
+          if (!prev || mapScopeKeyRef.current !== nextScopeKey) return next;
+          return {
+            ...next,
+            mapPoles: mergeMapPoles(prev.mapPoles, next.mapPoles),
+          };
+        });
+        setError(null);
+        setLoading(false);
+        return;
+      } catch {
+        if (attempt < MAX_RETRIES) {
+          await new Promise<void>((resolve) => setTimeout(resolve, RETRY_DELAY_MS));
+        } else {
+          setError('Backend not reachable. Check the API URL and backend service.');
+          setLoading(false);
+        }
+      }
     }
   }, [filters, search]);
 

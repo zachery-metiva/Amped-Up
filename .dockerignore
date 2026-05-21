@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+*.db
+__pycache__
+**/__pycache__
+**/*.pyc
+.git
+.claude
+dataset
+generate-pitch.js
+Amped-Up-Pitch.pptx

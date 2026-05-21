@@ -20,7 +20,7 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     # Use raw DDL so Postgres doesn't try to CREATE TYPE for enums that already exist
     op.execute("""
-        CREATE TABLE predicted_reports (
+        CREATE TABLE IF NOT EXISTS predicted_reports (
             id VARCHAR(64) NOT NULL PRIMARY KEY,
             pole_id VARCHAR(64) NOT NULL REFERENCES poles(id) ON DELETE CASCADE,
             title VARCHAR(255) NOT NULL,
